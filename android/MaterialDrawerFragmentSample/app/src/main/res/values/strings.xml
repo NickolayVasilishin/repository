@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">My Warden</string>
+
+    <!-- Navigation Drawer-->
+    <string name="info_fr1">Фрагмент 1</string>
+    <string name="info_fr2">Фрагмент 2</string>
+    <string name="info_fr3">Фрагмент 3</string>
+    <string name="frag_sch_name">Schedule</string>
+    <string name="frag_stat_name">Statistics</string>
+    <string name="frag_work_name">Work Day</string>
+    <string name="drawer_item_settings">Settings</string>
+
+
+</resources>
