@@ -1,4 +1,4 @@
-package com.sample.drawer.utils;
+package com.sample.mywarden.utils;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -21,10 +21,10 @@ import com.mikepenz.materialdrawer.model.ProfileSettingDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
-import com.sample.drawer.R;
-import com.sample.drawer.fragments.FragmentStatistics;
-import com.sample.drawer.fragments.FragmentSchedule;
-import com.sample.drawer.fragments.FragmentWorkDay;
+import com.sample.mywarden.R;
+import com.sample.mywarden.fragments.FragmentStatistics;
+import com.sample.mywarden.fragments.FragmentSchedule;
+import com.sample.mywarden.fragments.FragmentWorkDay;
 
 public class Utils {
 

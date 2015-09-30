@@ -1,4 +1,4 @@
-package com.sample.drawer;
+package com.sample.mywarden;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -6,7 +6,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.accountswitcher.AccountHeader;
-import com.sample.drawer.utils.Utils;
+import com.sample.mywarden.utils.Utils;
 
 public class MainActivity extends ActionBarActivity {
 
