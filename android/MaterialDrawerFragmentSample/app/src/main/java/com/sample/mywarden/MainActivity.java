@@ -6,6 +6,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.accountswitcher.AccountHeader;
+import com.sample.mywarden.fragments.FragmentWorkDay;
 import com.sample.mywarden.utils.Utils;
 
 public class MainActivity extends ActionBarActivity {
@@ -33,8 +34,8 @@ public class MainActivity extends ActionBarActivity {
         drawerResult.setSelectionByIdentifier(1, false); // Set proper selection
 
         // Покажем drawer автоматически при запуске
-        drawerResult.openDrawer();
-
+        //drawerResult.openDrawer();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new FragmentWorkDay()).commit();
     }
 
     @Override

@@ -13,4 +13,30 @@
     <!-- 300 -->
     <color name="lolli_btn">#E57373</color>
     <color name="color_white">#FFFFFF</color>
+
+
+
+    <!--My colors-->
+    <!--Application palette-->
+    <color name="ap_bar">#F44336</color>
+    <color name="ap_drawer_background">#410B13</color>
+    <color name="ap_app_background">#91171F</color>
+    <color name="ap_text_faded">#BDC667</color>
+    <color name="ap_text_bright">#CADD1C</color>
+    <color name="ap_button_default">#0BADBF</color>
+    <color name="ap_button_pressed">#087E8B</color>
+    <color name="ap_button_inactive">#54868C</color>
+
+    <!--Charts palette-->
+    <color name="chart_value_other">#716975</color>
+    <color name="chart_value_best">#229305</color>
+    <color name="chart_value_normal">#8F9304</color>
+    <color name="chart_value_bad">#935304</color>
+    <color name="chart_value_worst">#930404</color>
+    <color name="chart_value_other_inactive">#736F75</color>
+    <color name="chart_value_best_inactive">#589349</color>
+    <color name="chart_value_normal_inactive">#919349</color>
+    <color name="chart_value_bad_inactive">#937249</color>
+    <color name="chart_value_worst_inactive">#934949</color>
+
 </resources>

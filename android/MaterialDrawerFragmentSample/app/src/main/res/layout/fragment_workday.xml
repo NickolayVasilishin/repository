@@ -2,7 +2,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_gravity="center">
+    android:layout_gravity="center"
+    android:id="@+id/lay"
+    android:background="#91171F">
 
 
     <TextView
@@ -12,17 +14,19 @@
         android:text="Current salary: $"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="#a8a8a8"
+        android:textColor="@color/ap_text_bright"
         android:id="@+id/currentSalaryTextView"
         android:layout_gravity="end"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:clickable="true"
+        android:password="false" />
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="3">
+        android:layout_weight="1">
 
-        <com.github.mikephil.charting.charts.LineChart
+        <com.github.mikephil.charting.charts.PieChart
             android:id="@+id/workDayChart"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -34,18 +38,38 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:layout_weight="3">
+        android:layout_weight="3"
+        android:paddingBottom="30dp">
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
             android:id="@+id/checkInWorkButton"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:layout_weight="10"
-            android:padding="40dp"
+            android:layout_weight="18"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            android:layout_marginRight="0dp"
+            android:background="@color/ap_button_default"
+            android:textColor="@color/ap_text_bright"
+            android:text="THIS IS A TEXT"
+            android:textStyle="bold"
+            android:textSize="40sp" />
+
+        <!-- TODO Line Divider -->
+        <View
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="33dp"
+            android:layout_marginTop="33dp"
+            android:background="#011719" />
+
+        <ImageButton
+            android:src="@android:drawable/ic_menu_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:id="@+id/button"
+            android:layout_gravity="center_vertical"
+            android:background="@color/ap_button_default"
+            android:layout_marginRight="20dp" />
 
     </LinearLayout>
 </LinearLayout>
