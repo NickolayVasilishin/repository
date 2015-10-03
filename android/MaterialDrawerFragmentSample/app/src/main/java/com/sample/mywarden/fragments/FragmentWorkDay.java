@@ -80,19 +80,21 @@ public class FragmentWorkDay extends Fragment {
         chart.setDragDecelerationFrictionCoef(0.95f);
         chart.setDrawHoleEnabled(true);
         chart.setHoleColorTransparent(true);
-        chart.setHoleColor(getResources().getColor(R.color.chart_value_other));
+//        chart.setHoleColor(getResources().getColor(R.color.chart_value_other));
 
 
-        chart.setHoleRadius(65f);
-        chart.setTransparentCircleColor(Color.BLACK);
-        chart.setTransparentCircleAlpha(110);
-        chart.setTransparentCircleRadius(69f);
+        chart.setHoleRadius(50f);
+//        chart.setTransparentCircleColor(Color.BLACK);
+//        chart.setTransparentCircleAlpha(110);
+        chart.setTransparentCircleRadius(50f);
         chart.setDrawCenterText(true);
 
         chart.setRotationAngle(0);
         // enable rotation of the chart by touch
         chart.setRotationEnabled(true);
         chart.setCenterText("15h");
+        chart.setCenterTextSize(50f);
+        chart.setCenterTextColor(getResources().getColor(R.color.ap_text_bright));
         ArrayList<Entry> yVals1 = new ArrayList<>();
         for (int i = 0; i < count + 1; i++)
             yVals1.add(new Entry((float) 60*60*15, i));
