@@ -2,65 +2,64 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_gravity="center"
-    android:id="@+id/lay"
-    android:background="#91171F">
+    android:layout_gravity="end"
+    android:id="@+id/lay">
 
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Current salary: $"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="@color/ap_text_bright"
         android:id="@+id/currentSalaryTextView"
         android:layout_gravity="end"
-        android:padding="10dp"
+        android:paddingRight="20dp"
+        android:paddingTop="20dp"
         android:clickable="true"
-        android:password="false" />
-
+        android:layout_weight="0"/>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1">
-
+        android:layout_weight="30">
         <com.github.mikephil.charting.charts.PieChart
             android:id="@+id/workDayChart"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="right|top" />
+             />
     </FrameLayout>
 
+
+    <com.h6ah4i.android.materialshadowninepatch.MaterialShadowContainerView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        style="@style/ms9_DefaultShadowStyle"
+        android:id="@+id/shadow_item_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:ms9_shadowTranslationZ="2dp"
+        app:ms9_shadowElevation="4dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:layout_weight="1">
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:layout_weight="3"
-        android:paddingBottom="30dp">
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp">
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="80dp"
             android:id="@+id/checkInWorkButton"
             android:layout_weight="18"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="0dp"
             android:background="@color/ap_button_default"
-            android:textColor="@color/ap_text_bright"
             android:text="THIS IS A TEXT"
             android:textStyle="bold"
-            android:textSize="40sp" />
+            android:textSize="40sp"
+            android:layout_gravity="center"/>
 
         <!-- TODO Line Divider -->
-        <View
-            android:layout_width="1dp"
-            android:layout_height="fill_parent"
-            android:layout_marginBottom="33dp"
-            android:layout_marginTop="33dp"
-            android:background="#011719" />
 
         <ImageButton
             android:src="@android:drawable/ic_menu_edit"
@@ -68,8 +67,7 @@
             android:layout_height="80dp"
             android:id="@+id/button"
             android:layout_gravity="center_vertical"
-            android:background="@color/ap_button_default"
-            android:layout_marginRight="20dp" />
-
+            android:background="@color/ap_button_default" />
     </LinearLayout>
+    </com.h6ah4i.android.materialshadowninepatch.MaterialShadowContainerView>
 </LinearLayout>

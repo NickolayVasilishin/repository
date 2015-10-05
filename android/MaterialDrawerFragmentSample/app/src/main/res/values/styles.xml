@@ -23,4 +23,11 @@
 
     </style>
 
+    <style name="MyStyle" parent="AppThemeDrawer">
+        <item name="android:textColor">@color/ap_text_bright</item>
+
+    </style>
+
+
+
 </resources>
