@@ -1,5 +1,6 @@
 package com.sample.mywarden;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
@@ -8,11 +9,15 @@ import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.accountswitcher.AccountHeader;
 import com.sample.mywarden.fragments.FragmentWorkDay;
 import com.sample.mywarden.utils.Utils;
+import com.sample.mywarden.wardenutils.DataBaseWarden;
 
 public class MainActivity extends ActionBarActivity {
 
     private Drawer.Result drawerResult = null;
     private AccountHeader.Result headerResult = null;
+    private DataBaseWarden mDatabaseHelper;
+    private SQLiteDatabase mSqLiteDatabase;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +38,7 @@ public class MainActivity extends ActionBarActivity {
         drawerResult = Utils.createCommonDrawer(MainActivity.this, toolbar, headerResult);
         drawerResult.setSelectionByIdentifier(1, false); // Set proper selection
 
+
         // Покажем drawer автоматически при запуске
         //drawerResult.openDrawer();
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new FragmentWorkDay()).commit();
@@ -47,6 +53,8 @@ public class MainActivity extends ActionBarActivity {
             super.onBackPressed();
         }
     }
+
+
 
 
 }

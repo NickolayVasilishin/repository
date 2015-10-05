@@ -1,6 +1,5 @@
 package com.sample.mywarden.fragments;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -17,11 +16,16 @@ import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.sample.mywarden.R;
+import com.sample.mywarden.wardenutils.DataBaseWarden;
+import com.sample.mywarden.wardenutils.TimeWarden;
 
 import java.util.ArrayList;
 
 
 public class FragmentWorkDay extends Fragment {
+    private TimeWarden timeWarden;
+
+
     private final static String salaryText = "Current salary is ";
     private static int count = 1;
     private Thread runner;
@@ -32,8 +36,8 @@ public class FragmentWorkDay extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_workday, container, false);
-        mChart = setUpPieChart(view, 1, 8);
-
+        mChart = setUpPieChart(view, 1);
+        timeWarden = new TimeWarden(new DataBaseWarden(getActivity(), DataBaseWarden.DATABASE_NAME, null, 1).getWritableDatabase());
 
 
         mCurrentSalary = (TextView) view.findViewById(R.id.currentSalaryTextView);
@@ -46,9 +50,12 @@ public class FragmentWorkDay extends Fragment {
             public void onClick(View view) {
                 if (mCheckInButton.getText().equals("CHECK IN")) {
                     mCheckInButton.setText("CHECK OUT");
+
+                   // getActivity().startService(new Intent(getActivity(), TimeWarden.class).putExtra("sql", new DataBaseWarden(getActivity(), DataBaseWarden.DATABASE_NAME, null, 1).getWritableDatabase()));
                     feedMultiple();
                 }
                 else {
+                   // getActivity().stopService(new Intent(getActivity(), TimeWarden.class));
                     runner.interrupt();
                     mCheckInButton.setText("CHECK IN");
                 }
@@ -73,7 +80,7 @@ public class FragmentWorkDay extends Fragment {
 
     }
 
-    private PieChart setUpPieChart(View view, int count, float mult){
+    private PieChart setUpPieChart(View view, int count){
         PieChart chart = (PieChart) view.findViewById(R.id.workDayChart);
         chart.setUsePercentValues(true);
         chart.setDescription("");
