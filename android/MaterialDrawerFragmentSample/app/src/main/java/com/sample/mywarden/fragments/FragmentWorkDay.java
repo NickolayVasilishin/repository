@@ -1,5 +1,6 @@
 package com.sample.mywarden.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
@@ -15,6 +17,7 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.formatter.PercentFormatter;
+import com.pkmmte.view.CircularImageView;
 import com.sample.mywarden.R;
 import com.sample.mywarden.wardenutils.DataBaseWarden;
 import com.sample.mywarden.wardenutils.TimeWarden;
@@ -24,6 +27,7 @@ import java.util.ArrayList;
 
 public class FragmentWorkDay extends Fragment {
     private TimeWarden timeWarden;
+    private static long TOTAL_TIME = 1000*60*60*30;
 
 
     private final static String salaryText = "Current salary is ";
@@ -32,11 +36,25 @@ public class FragmentWorkDay extends Fragment {
     private PieChart mChart;
     private Button mCheckInButton;
     private TextView mCurrentSalary;
+    private CircularImageView mPieCenter;
+    private CircularImageView mPieBorder;
+    private TextView mTotalTime;
     private int salary = 0;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_workday, container, false);
         mChart = setUpPieChart(view, 1);
+
+        mTotalTime = (TextView)view.findViewById(R.id.total_time);
+        mPieBorder = (CircularImageView)view.findViewById(R.id.piechart_shadow);
+        mPieCenter = (CircularImageView)view.findViewById(R.id.piechart_center);
+//        mPieCenter.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                changeChart(v);
+//            }
+//        });
+
         timeWarden = new TimeWarden(new DataBaseWarden(getActivity(), DataBaseWarden.DATABASE_NAME, null, 1).getWritableDatabase());
 
 
@@ -51,11 +69,11 @@ public class FragmentWorkDay extends Fragment {
                 if (mCheckInButton.getText().equals("CHECK IN")) {
                     mCheckInButton.setText("CHECK OUT");
 
-                   // getActivity().startService(new Intent(getActivity(), TimeWarden.class).putExtra("sql", new DataBaseWarden(getActivity(), DataBaseWarden.DATABASE_NAME, null, 1).getWritableDatabase()));
-                    feedMultiple();
+                    getActivity().startService(new Intent(getActivity(), TimeWarden.class));
+                    countAndPrintHours();
                 }
                 else {
-                   // getActivity().stopService(new Intent(getActivity(), TimeWarden.class));
+                   getActivity().stopService(new Intent(getActivity(), TimeWarden.class));
                     runner.interrupt();
                     mCheckInButton.setText("CHECK IN");
                 }
@@ -80,6 +98,12 @@ public class FragmentWorkDay extends Fragment {
 
     }
 
+    private void changeChart(View view) {
+        if(view.findViewById(R.id.workDayChart)==null)
+            Toast.makeText(view.getContext(), "Found view", Toast.LENGTH_SHORT);
+    }
+
+
     private PieChart setUpPieChart(View view, int count){
         PieChart chart = (PieChart) view.findViewById(R.id.workDayChart);
         chart.setUsePercentValues(true);
@@ -99,18 +123,17 @@ public class FragmentWorkDay extends Fragment {
         chart.setRotationAngle(0);
         // enable rotation of the chart by touch
         chart.setRotationEnabled(true);
-        chart.setCenterText("15h");
-        chart.setCenterTextSize(50f);
-        chart.setCenterTextColor(getResources().getColor(R.color.ap_text_bright));
+
         ArrayList<Entry> yVals1 = new ArrayList<>();
-        for (int i = 0; i < count + 1; i++)
-            yVals1.add(new Entry((float) 60*60*15, i));
+        //TODO time as variable
+        yVals1.add(new Entry((float) 0, 0));
+        yVals1.add(new Entry((float) 60 * 60 * 30, 1));
         ArrayList<String> xVals = new ArrayList<>();
         for (int i = 0; i < count + 1; i++)
             xVals.add("" + i);
         PieDataSet dataSet = new PieDataSet(yVals1, "Work Time");
         dataSet.setSliceSpace(0f);
-        dataSet.setSelectionShift(5f);
+        dataSet.setSelectionShift(0f);
 
         ArrayList<Integer> colors = new ArrayList<>();
         colors.add(getResources().getColor(R.color.chart_value_best));
@@ -129,33 +152,35 @@ public class FragmentWorkDay extends Fragment {
         chart.getLegend().setEnabled(false);
         chart.getData().setDrawValues(false);
         chart.setDrawSliceText(false);
-        chart.setCenterTextWordWrapEnabled(true);
-        chart.animateY(1500, Easing.EasingOption.EaseInOutQuad);
+        chart.animateY(1000, Easing.EasingOption.EaseInOutQuad);
         chart.invalidate();
 
         return chart;
     }
 
-    private void addEntry(){
+    private void addEntry(float val){
         PieData data = mChart.getData();
         if (data != null) {
-            data.getDataSetByLabel("Work Time", true).getEntryForXIndex(0).setVal(data.getDataSetByLabel("Work Time", true).getEntryForXIndex(0).getVal()+1);
-            data.getDataSetByLabel("Work Time", true).getEntryForXIndex(1).setVal(data.getDataSetByLabel("Work Time", true).getEntryForXIndex(1).getVal()-1);
+            data.getDataSetByLabel("Work Time", true).getEntryForXIndex(0).setVal(data.getDataSetByLabel("Work Time", true).getEntryForXIndex(0).getVal()+val);
+            data.getDataSetByLabel("Work Time", true).getEntryForXIndex(1).setVal(data.getDataSetByLabel("Work Time", true).getEntryForXIndex(1).getVal()-val);
             mChart.notifyDataSetChanged();
             mChart.invalidate();
         }
     }
 
-    private void feedMultiple() {
+    private void countAndPrintHours() {
        runner = new Thread(new Runnable() {
             @Override
             public void run() {
                 while(!Thread.currentThread().isInterrupted()) {
+                    timeWarden.getLastRecord().getHours();
                     getActivity().runOnUiThread(new Runnable() {
 
                         @Override
                         public void run() {
-                            addEntry();
+                            float time = (TOTAL_TIME - timeWarden.getTotalTimeMillis())/1000;
+                            mTotalTime.setText(time/60/60 + "h");
+                            addEntry(time);
                         }
                     });
 

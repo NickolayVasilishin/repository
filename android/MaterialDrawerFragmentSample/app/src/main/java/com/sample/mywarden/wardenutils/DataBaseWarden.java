@@ -25,29 +25,36 @@ public class DataBaseWarden extends SQLiteOpenHelper implements BaseColumns {
     public static final String DB_T_TIME_OUT_COLUMN = "time_out";
     public static final String DB_T_HOURS_COLUMN = "hours";
 
+    public static final String DATABASE_TIME_TOTAL_TABLE = "time_total";
+    public static final String DB_TT_TIME_TOTAL_COLUMN = "time_total";
+
+
     private static final String DATABASE_CREATE_SCRIPT = "create table "
             + DATABASE_TIME_TABLE + " (" + BaseColumns._ID + " integer primary key autoincrement, "
             + DB_T_DATE_COLUMN + " text not null, "
             + DB_T_TIME_IN_COLUMN + " text not null, "
             + DB_T_TIME_OUT_COLUMN + " text not null, "
             + DB_T_HOURS_COLUMN + " integer);";
-
+    private static final String DATABASE_CREATE_TIMER_SCRIPT = "create table "
+            + DATABASE_TIME_TOTAL_TABLE + " ("
+            + DB_TT_TIME_TOTAL_COLUMN + " integer);";
 
     public DataBaseWarden(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
 
-    public long getTime(){
-        return 1L;
-    }
-
-    public long setTime(long time){
-        return time;
+    @Override
+    public void onOpen(SQLiteDatabase db) {
+        Log.e("OPENED", "DATABASE IS OPENING");
+       // db.execSQL("DROP TABLE " + DATABASE_TIME_TABLE);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        Log.e("ON CREATE", "DATABASE IS CREATING");
         sqLiteDatabase.execSQL(DATABASE_CREATE_SCRIPT);
+        sqLiteDatabase.execSQL(DATABASE_CREATE_TIMER_SCRIPT);
+        sqLiteDatabase.replace(DATABASE_TIME_TOTAL_TABLE, null, TimeWarden.parseValues(new String[]{DATABASE_TIME_TOTAL_TABLE, 1000 * 60 * 6 * 30 + ""}));
     }
 
     @Override

@@ -16,6 +16,14 @@ public class WorkDayRecord {
     private String timeOut;
    //H:m
     private int hours;
+    private int remainingHours;
+
+    public WorkDayRecord(){
+        Date current = new Date();
+        date = new SimpleDateFormat("YYYY-MM-dd").format(current);
+        timeIn = timeOut = new SimpleDateFormat("H:m:s").format(current);
+        hours = 0;
+    }
 
     public WorkDayRecord(String date, String timeIn, String timeOut, int hours){
         this.date = date;
@@ -43,9 +51,14 @@ public class WorkDayRecord {
     public WorkDayRecord increaseTime(long time){
         try {
             timeOut = new SimpleDateFormat("H:m:s").format(new Date(new SimpleDateFormat("H:m:s").parse(timeOut).getTime()+time));
+            hours = Integer.parseInt(new SimpleDateFormat("H").format(new SimpleDateFormat("H:m:s").parse(timeOut).getTime() - new SimpleDateFormat("H:m:s").parse(timeIn).getTime()));
         } catch (ParseException e) {
             e.printStackTrace();
         }
         return this;
+    }
+
+    public boolean isToday(){
+        return new java.text.SimpleDateFormat("YYYY-MM-dd").format(new Date()) == date ? true : false;
     }
 }
