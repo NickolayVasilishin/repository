@@ -1,6 +1,5 @@
 package com.sample.mywarden.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -31,7 +30,7 @@ public class FragmentWorkDay extends Fragment {
 
 
     private final static String salaryText = "Current salary is ";
-    private static int count = 1;
+    private static int count = 0;
     private Thread runner;
     private PieChart mChart;
     private Button mCheckInButton;
@@ -68,12 +67,12 @@ public class FragmentWorkDay extends Fragment {
             public void onClick(View view) {
                 if (mCheckInButton.getText().equals("CHECK IN")) {
                     mCheckInButton.setText("CHECK OUT");
-
-                    getActivity().startService(new Intent(getActivity(), TimeWarden.class));
+                    Toast.makeText(getContext(), "Service is disabled due to database problems", Toast.LENGTH_SHORT).show();
+                    //getActivity().startService(new Intent(getActivity(), TimeWarden.class));
                     countAndPrintHours();
                 }
                 else {
-                   getActivity().stopService(new Intent(getActivity(), TimeWarden.class));
+                   //getActivity().stopService(new Intent(getActivity(), TimeWarden.class));
                     runner.interrupt();
                     mCheckInButton.setText("CHECK IN");
                 }
@@ -100,7 +99,7 @@ public class FragmentWorkDay extends Fragment {
 
     private void changeChart(View view) {
         if(view.findViewById(R.id.workDayChart)==null)
-            Toast.makeText(view.getContext(), "Found view", Toast.LENGTH_SHORT);
+            Toast.makeText(view.getContext(), "Found view", Toast.LENGTH_SHORT).show();
     }
 
 
@@ -164,6 +163,7 @@ public class FragmentWorkDay extends Fragment {
             data.getDataSetByLabel("Work Time", true).getEntryForXIndex(0).setVal(data.getDataSetByLabel("Work Time", true).getEntryForXIndex(0).getVal()+val);
             data.getDataSetByLabel("Work Time", true).getEntryForXIndex(1).setVal(data.getDataSetByLabel("Work Time", true).getEntryForXIndex(1).getVal()-val);
             mChart.notifyDataSetChanged();
+            mChart.animate();
             mChart.invalidate();
         }
     }
@@ -173,19 +173,23 @@ public class FragmentWorkDay extends Fragment {
             @Override
             public void run() {
                 while(!Thread.currentThread().isInterrupted()) {
-                    timeWarden.getLastRecord().getHours();
+                    //timeWarden.getLastRecord().getHours();
+                    //TODO Pool of threads. Too expensive to create a thread for view change
                     getActivity().runOnUiThread(new Runnable() {
 
                         @Override
                         public void run() {
-                            float time = (TOTAL_TIME - timeWarden.getTotalTimeMillis())/1000;
-                            mTotalTime.setText(time/60/60 + "h");
-                            addEntry(time);
+                            //float time = (TOTAL_TIME - timeWarden.getTotalTimeMillis())/1000;
+                            float time = mChart.getData().getDataSetByLabel("Work Time", true).getEntryForXIndex(0).getVal()*1000;
+                            if((long)time%10 == 0)
+                                mTotalTime.setText("" + count++);
+                            addEntry(10);
+
                         }
                     });
 
                     try {
-                        Thread.sleep(10);
+                        Thread.sleep(100);
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                         e.printStackTrace();
