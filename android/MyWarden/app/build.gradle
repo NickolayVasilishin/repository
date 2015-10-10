@@ -24,4 +24,8 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.0.1'
     compile 'com.mikepenz.materialdrawer:library:2.9.2@aar'
     compile 'com.mikepenz.iconics:library:0.9.1@aar'
+
+    //material buttons
+    compile 'com.github.rey5137:material:1.2.1'
+    compile 'junit:junit:3.8.1'
 }
