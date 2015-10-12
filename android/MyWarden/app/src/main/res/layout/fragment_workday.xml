@@ -1,5 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/salary_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:layout_weight="2"
+        android:gravity="end"
+        android:text="SALARY TEXT"/>
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/workDayChart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        />
+
+    <com.rey.material.widget.Button
+        android:id="@+id/workDayStartButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@color/ap_button_default"
+        android:text="WORK"
+        app:rd_enable="true"
+        android:layout_gravity="center"
+        android:layout_margin="30dp"
+        app:rd_style="@style/Material.Drawable.Ripple.Touch"
+        rd_rippleColor="#1e2933"
+        app:rd_rippleColor="#1e2933"/>
 
 </LinearLayout>

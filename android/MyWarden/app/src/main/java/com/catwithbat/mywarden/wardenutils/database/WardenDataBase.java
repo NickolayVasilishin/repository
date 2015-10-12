@@ -10,6 +10,9 @@ import android.util.Log;
 
 import com.catwithbat.mywarden.wardenutils.WorkDayRecord;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by n.vasilishin on 10.10.2015.
  */
@@ -64,7 +67,7 @@ public class WardenDataBase extends SQLiteOpenHelper implements BaseColumns {
         String date = record.getDate();
         String timeIn = record.getTimeIn();
         String timeOut = record.getTimeOut();
-        String hours = record.getHours();
+        String hours = record.getHoursAsString();
 
         ContentValues values = parseValues(
                 new String[]{
@@ -79,24 +82,13 @@ public class WardenDataBase extends SQLiteOpenHelper implements BaseColumns {
 
     public static ContentValues parseValues(String ... values){
         ContentValues newValues = new ContentValues();
-        for(int i = 0; i <= values.length; i += 2)
+        for(int i = 0; i < values.length; i += 2)
             newValues.put(values[i], values[i+1]);
         return newValues;
     }
 
     public WorkDayRecord persistRecord(WorkDayRecord record){
-        String date = record.getDate();
-        String timeIn = record.getTimeIn();
-        String timeOut = record.getTimeOut();
-        String hours = record.getHours();
-
-        ContentValues values = parseValues(
-                new String[] {
-                                DB_T_DATE_COLUMN, date,
-                                DB_T_TIME_IN_COLUMN, timeIn,
-                                DB_T_TIME_OUT_COLUMN, timeOut,
-                                DB_T_HOURS_COLUMN, hours
-        });
+        ContentValues values = parseValues(record);
 
         try {
             if(getLastRecord().isToday())
@@ -111,12 +103,13 @@ public class WardenDataBase extends SQLiteOpenHelper implements BaseColumns {
         return record;
     }
 
-    public WorkDayRecord getLastRecordOrCreateNew(){
+    public WorkDayRecord getLastRecordTodayOrCreateNew(){
         WorkDayRecord record = null;
         try {
             record = getLastRecord();
         } catch (Exception e) {
             e.printStackTrace();
+            Log.w(this.getClass().toString(), "");
         }
         return record != null && record.isToday() ? record : new WorkDayRecord();
     }
@@ -125,10 +118,77 @@ public class WardenDataBase extends SQLiteOpenHelper implements BaseColumns {
         Cursor cursor = database.query(WardenDataBase.DATABASE_TIME_TABLE, new String[]{WardenDataBase.DB_T_DATE_COLUMN,
                         WardenDataBase.DB_T_TIME_IN_COLUMN, WardenDataBase.DB_T_TIME_OUT_COLUMN, WardenDataBase.DB_T_HOURS_COLUMN},
                 null, null,
-                null, null, null) ;
+                null, null, null);
         cursor.moveToLast();
 
-        WorkDayRecord record = new WorkDayRecord(cursor.getString(cursor.getColumnIndex(WardenDataBase.DB_T_DATE_COLUMN)), cursor.getString(cursor.getColumnIndex(WardenDataBase.DB_T_TIME_IN_COLUMN)), cursor.getString(cursor.getColumnIndex(WardenDataBase.DB_T_TIME_OUT_COLUMN)), cursor.getInt(cursor.getColumnIndex(WardenDataBase.DB_T_HOURS_COLUMN)));
+        WorkDayRecord record = new WorkDayRecord(
+                cursor.getString(cursor.getColumnIndex(WardenDataBase.DB_T_DATE_COLUMN)),
+                cursor.getString(cursor.getColumnIndex(WardenDataBase.DB_T_TIME_IN_COLUMN)),
+                cursor.getString(cursor.getColumnIndex(WardenDataBase.DB_T_TIME_OUT_COLUMN)),
+                cursor.getInt(cursor.getColumnIndex(WardenDataBase.DB_T_HOURS_COLUMN))
+        );
+        cursor.close();
         return record;
+    }
+
+    public List<WorkDayRecord> getAllRecords(){
+        List<WorkDayRecord> records = new ArrayList<>();
+
+        Cursor cursor = database.query(WardenDataBase.DATABASE_TIME_TABLE, new String[]{WardenDataBase.DB_T_DATE_COLUMN,
+                        WardenDataBase.DB_T_TIME_IN_COLUMN, WardenDataBase.DB_T_TIME_OUT_COLUMN, WardenDataBase.DB_T_HOURS_COLUMN},
+                null, null,
+                null, null, null);
+        if(cursor.moveToFirst()) {
+            do {
+                records.add(new WorkDayRecord(
+                        cursor.getString(cursor.getColumnIndex(WardenDataBase.DB_T_DATE_COLUMN)),
+                        cursor.getString(cursor.getColumnIndex(WardenDataBase.DB_T_TIME_IN_COLUMN)),
+                        cursor.getString(cursor.getColumnIndex(WardenDataBase.DB_T_TIME_OUT_COLUMN)),
+                        cursor.getInt(cursor.getColumnIndex(WardenDataBase.DB_T_HOURS_COLUMN))
+                ));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return records;
+    }
+
+    public float getTotalHoursPerWeek(){
+        float hours = 0f;
+        for(WorkDayRecord record:getThisWeekRecords())
+            hours += record.getHours();
+
+        return hours;
+    }
+
+    public List<WorkDayRecord> getThisWeekRecords(){
+        List<WorkDayRecord> records = new ArrayList<>();
+        Cursor cursor = database.query(WardenDataBase.DATABASE_TIME_TABLE, new String[]{WardenDataBase.DB_T_DATE_COLUMN,
+                        WardenDataBase.DB_T_TIME_IN_COLUMN, WardenDataBase.DB_T_TIME_OUT_COLUMN, WardenDataBase.DB_T_HOURS_COLUMN},
+                null, null,
+                null, null, null);
+        if(cursor.moveToLast()){
+            do {
+                WorkDayRecord record = new WorkDayRecord(
+                        cursor.getString(cursor.getColumnIndex(WardenDataBase.DB_T_DATE_COLUMN)),
+                        cursor.getString(cursor.getColumnIndex(WardenDataBase.DB_T_TIME_IN_COLUMN)),
+                        cursor.getString(cursor.getColumnIndex(WardenDataBase.DB_T_TIME_OUT_COLUMN)),
+                        cursor.getInt(cursor.getColumnIndex(WardenDataBase.DB_T_HOURS_COLUMN))
+                );
+
+                if(!record.isCurrentWeek())
+                    break;
+
+                records.add(record);
+            } while (cursor.moveToPrevious());
+        }
+        return reverse(records);
+    }
+
+    public static List<WorkDayRecord> reverse(List<WorkDayRecord> reversedRecords){
+        int index = reversedRecords.size()-1;
+        List<WorkDayRecord> records = new ArrayList<>();
+        for(; index >= 0;)
+            records.add(reversedRecords.get(index--));
+        return records;
     }
 }

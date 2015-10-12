@@ -18,8 +18,13 @@ public class WorkDayRecordTest extends ActivityInstrumentationTestCase2<MainActi
     public WorkDayRecord recordNow;
     public WorkDayRecord recordMorning;
     public WorkDayRecord recordTomorrow;
-    public long twentyFiveHours = 1000*60*60*25;
-    public long twelveHours = 1000*60*60*12;
+    public WorkDayRecord recordYesterday;
+    public WorkDayRecord recordAWeekAgo;
+    public WorkDayRecord recordAMonthAgo;
+    public long hour = 1000*60*60;
+    public long twentyFiveHours = hour*25;
+    public long twelveHours = hour*12;
+
 
     public WorkDayRecordTest(){
         super(MainActivity.class);
@@ -32,6 +37,12 @@ public class WorkDayRecordTest extends ActivityInstrumentationTestCase2<MainActi
         recordTomorrow = new WorkDayRecord(date);
         date = new Date(25000000);
         recordMorning = new WorkDayRecord(date);
+        date = new Date(new Date().getTime() - 24 * hour);
+        recordYesterday = new WorkDayRecord(date);
+        date = new Date(new Date().getTime() - 7 * 24 * hour);
+        recordAWeekAgo = new WorkDayRecord(date);
+        date = new Date(new Date().getTime() - 31 * 24 * hour);
+        recordAMonthAgo = new WorkDayRecord(date);
     }
 
     public void testIsToday() throws Exception{
@@ -39,12 +50,28 @@ public class WorkDayRecordTest extends ActivityInstrumentationTestCase2<MainActi
         assertTrue(recordNow.isToday());
     }
 
-    public void testIsTommorow() throws Exception{
+    public void testIsTomorrow() throws Exception{
         assertFalse(recordTomorrow.isToday());
     }
 
     public void testCalculateHoursFromTwoDates() throws Exception {
-        System.out.println("=====================================");
-        assertEquals("12:0", recordMorning.increaseTime(twelveHours).getHours());
+        assertEquals("12:0", recordMorning.increaseTime(twelveHours).getHoursAsString());
     }
+
+    public void testIsCurrentWeek(){
+        assertTrue(recordNow.isCurrentWeek());
+        assertFalse(recordAWeekAgo.isCurrentWeek());
+        //assertFalse(recordYesterday.isCurrentWeek());
+        //assertTrue(recordTomorrow.isCurrentWeek());
+    }
+
+    public void testIsCurrentMonth(){
+        assertTrue(recordNow.isCurrentMonth());
+        assertFalse(recordAMonthAgo.isCurrentMonth());
+        //assertFalse(recordYesterday.isCurrentWeek());
+        //assertTrue(recordTomorrow.isCurrentWeek());
+    }
+
+
+
 }

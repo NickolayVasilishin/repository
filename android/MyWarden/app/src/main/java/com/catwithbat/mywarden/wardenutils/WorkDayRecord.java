@@ -5,7 +5,9 @@ package com.catwithbat.mywarden.wardenutils;
  */
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  * Created by n.vasilishin on 05.10.2015.
@@ -50,11 +52,14 @@ public class WorkDayRecord {
         return timeIn;
     }
 
-    public String getTimeOut() {
-        return timeOut;
-    }
+    public String getTimeOut() { return timeOut; }
 
-    public String getHours() {
+    public float getHours() { return hours; }
+
+    /**
+     * @return Time at work for week in "h:m" format
+    * */
+    public String getHoursAsString() {
         return "" + (int)hours  + ":" + (int)((hours - (int)hours) * 60 * 100);
     }
 
@@ -70,6 +75,26 @@ public class WorkDayRecord {
 
     public boolean isToday(){
         return new SimpleDateFormat(DATE_FORMAT).format(new Date()).equals(date);
+    }
+
+    public boolean isCurrentWeek(){
+        GregorianCalendar calendar = new GregorianCalendar();
+        try {
+            calendar.setTime(new SimpleDateFormat(WorkDayRecord.DATE_FORMAT).parse(date));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return new GregorianCalendar().get(Calendar.WEEK_OF_MONTH) == calendar.get(Calendar.WEEK_OF_MONTH);
+    }
+
+    public boolean isCurrentMonth(){
+        GregorianCalendar calendar = new GregorianCalendar();
+        try {
+            calendar.setTime(new SimpleDateFormat(WorkDayRecord.DATE_FORMAT).parse(date));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return new GregorianCalendar().get(Calendar.MONTH) == calendar.get(Calendar.MONTH);
     }
 
     @Override
