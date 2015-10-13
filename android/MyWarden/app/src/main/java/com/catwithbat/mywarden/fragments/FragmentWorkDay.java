@@ -9,8 +9,8 @@ import android.widget.Toast;
 
 import com.catwithbat.mywarden.MainActivity;
 import com.catwithbat.mywarden.R;
+import com.catwithbat.mywarden.wardenutils.TimeWarden;
 import com.catwithbat.mywarden.wardenutils.database.WardenDataBase;
-import com.catwithbat.mywarden.wardenutils.service.WardenTimeService;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.Entry;
@@ -28,19 +28,38 @@ public class FragmentWorkDay extends Fragment implements View.OnClickListener {
     public static String TAG = "Work Day";
 
     private WardenDataBase database;
-    private WardenTimeService timeService;
+    private TimeWarden timeWarden;
+    private View view;
 
     private PieChart mPieChart;
     private Button mStartWorkButton;
 
+    public TimeWarden init(View view){
+        return new TimeWarden(getContext(), view, getActivity());
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_workday, container, false);
+        view = inflater.inflate(R.layout.fragment_workday, container, false);
         FragmentUtils.setToolbarTitle(getActivity(), TAG);
+        timeWarden = init(view);
+        database = new WardenDataBase(getContext(), WardenDataBase.DATABASE_NAME, null, WardenDataBase.DATABASE_VERSION);
 
         mPieChart = setUpPieChart(view, 1);
         mStartWorkButton = (Button) view.findViewById(R.id.workDayStartButton);
         mStartWorkButton.setOnClickListener(this);
         return view;
+    }
+
+    @Override
+    public void onResume(){
+        if(((MainActivity)getActivity()).isWorking()) {
+            timeWarden.start();
+            mStartWorkButton.setText("STOP WORKING");
+        } else
+            mStartWorkButton.setText("START WORKING");
+        setUpPieChart(getView(), 1);
+        super.onResume();
     }
 
     private PieChart setUpPieChart(View view, int count){
@@ -52,7 +71,7 @@ public class FragmentWorkDay extends Fragment implements View.OnClickListener {
         chart.setHoleColorTransparent(true);
 //        chart.setHoleColor(getResources().getColor(R.color.chart_value_other));
 
-
+        chart.setCenterTextSize(45);
         chart.setHoleRadius(50f);
 //        chart.setTransparentCircleColor(Color.BLACK);
 //        chart.setTransparentCircleAlpha(110);
@@ -65,8 +84,8 @@ public class FragmentWorkDay extends Fragment implements View.OnClickListener {
 
         ArrayList<Entry> yVals1 = new ArrayList<>();
         //TODO time as variable
-        yVals1.add(new Entry((float) 60 * 60 * 10, 0));
-        yVals1.add(new Entry((float) 60 * 60 * 20, 1));
+        yVals1.add(new Entry(database.getTotalTimePerWeek(), 0));
+        yVals1.add(new Entry((float) 1000* 60 * 60 - database.getTotalTimePerWeek(), 1));
         ArrayList<String> xVals = new ArrayList<>();
         for (int i = 0; i < count + 1; i++)
             xVals.add("" + i);
@@ -91,18 +110,31 @@ public class FragmentWorkDay extends Fragment implements View.OnClickListener {
         chart.getLegend().setEnabled(false);
         chart.getData().setDrawValues(false);
         chart.setDrawSliceText(false);
-        chart.animateY(1000, Easing.EasingOption.EaseInOutQuad);
-        chart.invalidate();
+
+        chart.animateY(1000, Easing.EasingOption.EaseOutCubic);
+//        chart.invalidate();
 
         return chart;
     }
 
     @Override
     public void onClick(View v) {
-        if(((MainActivity)getActivity()).isWorking())
+        if(((MainActivity)getActivity()).isWorking()) {
+            timeWarden.interrupt();
+            timeWarden = init(view);
             Toast.makeText(getContext(), "Work is finished", Toast.LENGTH_SHORT).show();
-        else
+            mStartWorkButton.setText("START WORKING");
+        } else {
+            timeWarden.start();
             Toast.makeText(getContext(), "Work is started", Toast.LENGTH_SHORT).show();
+            mStartWorkButton.setText("STOP WORKING");
+        }
         ((MainActivity)getActivity()).setWorking(!((MainActivity)getActivity()).isWorking());
+    }
+
+    @Override
+    public void onPause(){
+        timeWarden.interrupt();
+        super.onPause();
     }
 }

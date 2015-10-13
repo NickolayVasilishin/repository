@@ -41,7 +41,7 @@ public class WardenDataBaseTest extends AndroidTestCase{
         createdValues.put(WardenDataBase.DB_T_DATE_COLUMN, record.getDate());
         createdValues.put(WardenDataBase.DB_T_TIME_IN_COLUMN, record.getTimeIn());
         createdValues.put(WardenDataBase.DB_T_TIME_OUT_COLUMN, record.getTimeOut());
-        createdValues.put(WardenDataBase.DB_T_HOURS_COLUMN, record.getHoursAsString());
+        createdValues.put(WardenDataBase.DB_T_TIME_COLUMN, record.getHoursAsString());
 
         assertEquals(parsedValues, createdValues);
     }
@@ -137,6 +137,10 @@ public class WardenDataBaseTest extends AndroidTestCase{
 
         for(WorkDayRecord r:database.getThisWeekRecords())
             Log.d("===================== \t", r.toString());
+
+    }
+
+    public void testReplaceCurrentDayRecords(){
 
     }
 }

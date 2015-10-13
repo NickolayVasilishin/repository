@@ -6,6 +6,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.catwithbat.mywarden.R;
 
+
 /**
  * Created by n.vasilishin on 12.10.2015.
  */
@@ -15,4 +16,5 @@ public class FragmentUtils {
         toolbar.setTitle(text);
         ((ActionBarActivity)activity).setSupportActionBar(toolbar);
     }
+
 }

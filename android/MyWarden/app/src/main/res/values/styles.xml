@@ -28,6 +28,15 @@
 
     </style>
 
+    <style name="DarkFlatWaveColorButtonRippleStyle" parent="Material.Drawable.Ripple.Wave">
+        <item name="android:background">@color/ap_button_pressed</item>
+        <item name="rd_rippleColor">@color/colorAccentHalf</item>
+        <item name="rd_cornerRadius">4dp</item>
+        <item name="rd_delayClick">afterRelease</item>
+        <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Button</item>
+        <item name="android:textColor">#000</item>
+        <item name="android:textSize">30sp</item>
+    </style>
 
-
+    <color name="colorAccentHalf">#50000f</color>
 </resources>

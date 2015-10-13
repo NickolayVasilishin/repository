@@ -23,12 +23,20 @@ public class WorkDayRecord {
     //H:m:s
     private String timeOut;
     private float hours;
+    private float time;
 
     public WorkDayRecord(){
         Date current = new Date();
         date = new SimpleDateFormat(DATE_FORMAT).format(current);
         timeIn = timeOut = new SimpleDateFormat(TIME_FORMAT).format(current);
         hours = 0;
+    }
+
+    public WorkDayRecord(WorkDayRecord record) {
+        this.date = record.date;
+        this.timeIn = record.timeIn;
+        this.timeOut = record.timeOut;
+        this.hours = record.hours;
     }
 
     public WorkDayRecord(String date, String timeIn, String timeOut, float hours){
@@ -53,14 +61,28 @@ public class WorkDayRecord {
     }
 
     public String getTimeOut() { return timeOut; }
-
-    public float getHours() { return hours; }
+    //TODO
+    public float getHours() { return 1; }
+    public float getTime() { return  time; }
 
     /**
      * @return Time at work for week in "h:m" format
     * */
     public String getHoursAsString() {
-        return "" + (int)hours  + ":" + (int)((hours - (int)hours) * 60 * 100);
+        return "12:00h";
+//        return "" + (int)hours  + ":" + (int)((hours - (int)hours) * 60 * 100);
+    }
+
+    public WorkDayRecord increaseTime(WorkDayRecord newRecord){
+        try {
+            newRecord.timeIn = this.timeIn;
+            newRecord.date = this.date;
+            newRecord.time = (new SimpleDateFormat(TIME_FORMAT).parse(newRecord.timeOut).getTime() - new SimpleDateFormat(TIME_FORMAT).parse(this.timeOut).getTime());
+            newRecord.hours = newRecord.time / 1000/60/60;
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return newRecord;
     }
 
     public WorkDayRecord increaseTime(long time){

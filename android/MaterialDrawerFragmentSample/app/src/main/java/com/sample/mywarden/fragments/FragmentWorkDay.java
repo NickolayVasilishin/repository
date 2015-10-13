@@ -151,7 +151,7 @@ public class FragmentWorkDay extends Fragment {
         chart.getLegend().setEnabled(false);
         chart.getData().setDrawValues(false);
         chart.setDrawSliceText(false);
-        chart.animateY(1000, Easing.EasingOption.EaseInOutQuad);
+        chart.animateY(1000, Easing.EasingOption.EaseInQuad);
         chart.invalidate();
 
         return chart;

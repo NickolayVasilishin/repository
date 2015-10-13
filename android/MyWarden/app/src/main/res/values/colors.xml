@@ -29,7 +29,7 @@
 
     <!--Charts palette-->
     <color name="chart_value_other">#716975</color>
-    <color name="chart_value_best">#229305</color>
+    <color name="chart_value_best">#15ff09</color>
     <color name="chart_value_normal">#8F9304</color>
     <color name="chart_value_bad">#935304</color>
     <color name="chart_value_worst">#930404</color>
