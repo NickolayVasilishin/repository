@@ -2,6 +2,7 @@ package com.catwithbat.mywarden.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,6 +52,8 @@ public class FragmentWorkDay extends Fragment implements View.OnClickListener {
         return view;
     }
 
+
+    //TODO check lifecycle of activity. Crashes when activity is on pause.
     @Override
     public void onResume(){
         if(((MainActivity)getActivity()).isWorking()) {
@@ -85,7 +88,8 @@ public class FragmentWorkDay extends Fragment implements View.OnClickListener {
         ArrayList<Entry> yVals1 = new ArrayList<>();
         //TODO time as variable
         yVals1.add(new Entry(database.getTotalTimePerWeek(), 0));
-        yVals1.add(new Entry((float) 1000* 60 * 60 - database.getTotalTimePerWeek(), 1));
+        yVals1.add(new Entry((float) 1000* 60 * 60 * 30 - database.getTotalTimePerWeek(), 1));
+        Log.d(this.getClass().toString(), "===== total time: " + database.getTotalTimePerWeek());
         ArrayList<String> xVals = new ArrayList<>();
         for (int i = 0; i < count + 1; i++)
             xVals.add("" + i);

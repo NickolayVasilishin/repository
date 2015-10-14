@@ -99,6 +99,11 @@ public class WardenDataBase extends SQLiteOpenHelper implements BaseColumns {
         return record;
     }
 
+    public WorkDayRecord persistRecordWithoutCheck(WorkDayRecord record){
+        database.insert(DATABASE_TIME_TABLE, null, parseValues(record));
+        return record;
+    }
+
     public WorkDayRecord getLastRecordTodayOrCreateNew(){
         WorkDayRecord record = null;
         try {
@@ -160,7 +165,7 @@ public class WardenDataBase extends SQLiteOpenHelper implements BaseColumns {
     public float getTotalHoursPerWeek(){
         float hours = 0f;
         for(WorkDayRecord record:getThisWeekRecords())
-            hours += record.getHours();
+            hours += record.getTime();
 
         return hours;
     }

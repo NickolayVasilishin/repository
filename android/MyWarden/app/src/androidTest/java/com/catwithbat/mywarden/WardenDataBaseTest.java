@@ -1,6 +1,5 @@
 package com.catwithbat.mywarden;
 
-import android.content.ContentValues;
 import android.test.AndroidTestCase;
 import android.test.RenamingDelegatingContext;
 import android.util.Log;
@@ -32,18 +31,6 @@ public class WardenDataBaseTest extends AndroidTestCase{
 
     public void testIsCreated(){
         assertTrue(database != null);
-    }
-
-    public void testParseValues(){
-        WorkDayRecord record = new WorkDayRecord();
-        ContentValues parsedValues = database.parseValues(record);
-        ContentValues createdValues = new ContentValues();
-        createdValues.put(WardenDataBase.DB_T_DATE_COLUMN, record.getDate());
-        createdValues.put(WardenDataBase.DB_T_TIME_IN_COLUMN, record.getTimeIn());
-        createdValues.put(WardenDataBase.DB_T_TIME_OUT_COLUMN, record.getTimeOut());
-        createdValues.put(WardenDataBase.DB_T_TIME_COLUMN, record.getHoursAsString());
-
-        assertEquals(parsedValues, createdValues);
     }
 
     public void testPersistRecord() throws Exception {
@@ -100,7 +87,7 @@ public class WardenDataBaseTest extends AndroidTestCase{
 
         database.persistRecord(recordYesterday);
         database.persistRecord(recordToday);
-        database.persistRecord(recordTomorrow);
+        database.persistRecordWithoutCheck(recordTomorrow);
 
         ArrayList<WorkDayRecord> records = (ArrayList) database.getAllRecords();
 

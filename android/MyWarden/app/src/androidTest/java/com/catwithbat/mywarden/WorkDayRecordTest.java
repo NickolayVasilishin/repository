@@ -55,7 +55,7 @@ public class WorkDayRecordTest extends ActivityInstrumentationTestCase2<MainActi
     }
 
     public void testCalculateHoursFromTwoDates() throws Exception {
-        assertEquals("12:0", recordMorning.increaseTime(twelveHours).getHoursAsString());
+        assertEquals("5:0", recordNow.increaseTime(5*hour).getHoursAsString());
     }
 
     public void testIsCurrentWeek(){

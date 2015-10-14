@@ -19,7 +19,7 @@ public class TimeWarden extends Thread {
     private View view;
     private Activity activity;
     private WardenDataBase database;
-    private static long rate = 500;
+    private static long rate = 5000;
 
     private UiThread uiWorker;
 
@@ -34,8 +34,6 @@ public class TimeWarden extends Thread {
         return database.persistRecord(database.getLastRecordTodayOrCreateNew().increaseTime(new WorkDayRecord()));
     }
 
-//    private void
-
     @Override
     public void run() {
         Log.d("UiThread", "======= Starting TimeWarden Thread");
@@ -43,11 +41,11 @@ public class TimeWarden extends Thread {
         while(!isInterrupted()){
             Log.d("UiThread", "======= Entering Cycle");
             try {
-                Thread.sleep(rate);
                 synchronized (uiWorker){
                     uiWorker.setRecord(increaseTime());
                     uiWorker.notify();
                 }
+                Thread.sleep(rate);
             } catch (InterruptedException e) {
                 e.printStackTrace();
                 uiWorker.interrupt();
@@ -88,7 +86,7 @@ public class TimeWarden extends Thread {
         }
 
         private void addEntry(PieChart mChart, float val){
-            Log.d("UiThread", "======= Adding Entry" + record.getHours());
+            Log.d("UiThread", "======= Adding Entry" + record.getTime());
             PieData data = mChart.getData();
             if (data != null) {
                 data.getDataSetByLabel("Work Time", true).getEntryForXIndex(0).setVal(data.getDataSetByLabel("Work Time", true).getEntryForXIndex(0).getVal()+val);
