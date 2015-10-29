@@ -6,3 +6,8 @@ java/workspace/steam-game-gauntlet/steam-game-gauntlet-web/.settings/*
 java/workspace/steam-game-gauntlet/.settings/*
 java/workspace-sg/.metadata/*
 java/workspace-hadoop/.metadata/*
+mahout/*
+mahout
+python/argus/summary.csv
+python/argus/SupportServiceTestPlanLoad.jmx
+python/argus/Tests

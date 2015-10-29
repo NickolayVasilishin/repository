@@ -37,9 +37,9 @@ public class TcpPacketAccumulator extends Configured implements Tool {
 	        Job job = new Job(getConf(), "PacketAccumulator");
 	        job.setJarByClass(getClass());
 	        
-	        job.setInputFormatClass(TextInputFormat.class);
+	        job.setInputFormatClass(XmlInputFormat.class);
 	        
-	        job.setMapperClass(PacketMapper.class);
+	        job.setMapperClass(TcpMapper.class);
 	        job.setCombinerClass(TcpReducer.class);
 	        job.setReducerClass(TcpReducer.class);
 	        

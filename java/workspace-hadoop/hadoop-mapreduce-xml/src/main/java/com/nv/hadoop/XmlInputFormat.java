@@ -28,7 +28,10 @@ public class XmlInputFormat extends TextInputFormat {
 		return new XmlRecordReader();
 
 	}
-
+	public static class XXMLinputFormat extends TextInputFormat{
+		
+	}
+	
 	public static class XmlRecordReader extends
 			RecordReader<LongWritable, Text> {
 		private byte[] startTag;
