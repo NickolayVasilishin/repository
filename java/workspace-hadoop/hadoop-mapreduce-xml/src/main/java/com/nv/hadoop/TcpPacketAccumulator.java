@@ -42,9 +42,11 @@ public class TcpPacketAccumulator extends Configured implements Tool {
 	        job.setMapperClass(TcpMapper.class);
 	        job.setCombinerClass(TcpReducer.class);
 	        job.setReducerClass(TcpReducer.class);
-	        
+	        job.setMapOutputKeyClass(Text.class);
+	        job.setMapOutputValueClass(Text.class);
+//	        job.setNumReduceTasks(1);
 	        job.setOutputKeyClass(Text.class);
-	        job.setOutputValueClass(IntWritable.class);
+	        job.setOutputValueClass(Text.class);
 	        
 	        FileInputFormat.addInputPath(job, new Path(args[0]));
 	        FileOutputFormat.setOutputPath(job, new Path(args[1]));

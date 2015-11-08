@@ -1,0 +1,3333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="2.4" jmeter="2.9 r1437961">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="SupportServiceTestPlanLoad v12" enabled="true">
+      <stringProp name="TestPlan.comments">v11 
+Добавлен тест регистрации справки.
+По результатом сравнения со статистикой продуктива
+В 2 раза снижена относительная интенсивность регистрации инцидентов
+В 3 раза увеличена относительная интенсивность поиска
+В 4 раза снижена относительная интенсивность переназначения
+В 2 раза увеличена интенсивность просмотра формы инцидента.
+
+target pm увеличен с 2.8 до 3.1 для компенсации снижения интенсивности тестов в следствии появления нового теста
+v12
+Обработка инцидентов по 32 (вместо 15). Т.к. за 20 мин ни одного инцидента не было зарегистрировано.
+Переназначение 25 вместо 11, т.к. тоже не вызывалось</stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">20</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1200</stringProp>
+        <longProp name="ThreadGroup.start_time">1355508636000</longProp>
+        <longProp name="ThreadGroup.end_time">1355508636000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="Once Only Controller" enabled="true"/>
+        <hashTree>
+          <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="User Parameters" enabled="true">
+            <collectionProp name="UserParameters.names">
+              <stringProp name="103149417">login</stringProp>
+              <stringProp name="1216985755">password</stringProp>
+              <stringProp name="1787521478">needCloseBrowser</stringProp>
+            </collectionProp>
+            <collectionProp name="UserParameters.thread_values">
+              <collectionProp name="-775580666">
+                <stringProp name="-225041558">developer</stringProp>
+                <stringProp name="-225041558">developer</stringProp>
+                <stringProp name="3569038">true</stringProp>
+              </collectionProp>
+              <!--collectionProp name="-775689786">
+                <stringProp name="-225041555">developer2</stringProp>
+                <stringProp name="-225041555">developer2</stringProp>
+                <stringProp name="3569038">true</stringProp>
+              </collectionProp>
+              <collectionProp name="-775762202">
+                <stringProp name="-225041553">developer3</stringProp>
+                <stringProp name="-225041553">developer3</stringProp>
+                <stringProp name="3569038">true</stringProp>
+              </collectionProp>
+              <collectionProp name="-775797914">
+                <stringProp name="-225041552">developer4</stringProp>
+                <stringProp name="-225041552">developer4</stringProp>
+                <stringProp name="3569038">true</stringProp>
+              </collectionProp>
+              <collectionProp name="-779026874">
+                <stringProp name="-225041527">developer5</stringProp>
+                <stringProp name="-225041527">developer5</stringProp>
+                <stringProp name="3569038">true</stringProp>
+              </collectionProp>
+              <collectionProp name="-779062586">
+                <stringProp name="-225041526">developer6</stringProp>
+                <stringProp name="-225041526">developer6</stringProp>
+                <stringProp name="3569038">true</stringProp>
+              </collectionProp>
+              <collectionProp name="-779098298">
+                <stringProp name="-225041525">developer7</stringProp>
+                <stringProp name="-225041525">developer7</stringProp>
+                <stringProp name="3569038">true</stringProp>
+              </collectionProp>
+              <collectionProp name="-779170714">
+                <stringProp name="-225041523">developer8</stringProp>
+                <stringProp name="-225041523">developer8</stringProp>
+                <stringProp name="3569038">true</stringProp>
+              </collectionProp>
+              <collectionProp name="-779206426">
+                <stringProp name="-225041522">developer9</stringProp>
+                <stringProp name="-225041522">developer9</stringProp>
+                <stringProp name="3569038">true</stringProp>
+              </collectionProp>
+              <collectionProp name="-2097942330">
+                <stringProp name="-225041495">developer10</stringProp>
+                <stringProp name="-225041495">developer10</stringProp>
+                <stringProp name="3569038">true</stringProp>
+              </collectionProp>
+              <collectionProp name="-2098014746">
+                <stringProp name="-225041493">developer11</stringProp>
+                <stringProp name="-225041493">developer11</stringProp>
+                <stringProp name="3569038">true</stringProp>
+              </collectionProp>
+              <collectionProp name="-2098050458">
+                <stringProp name="-225041492">developer12</stringProp>
+                <stringProp name="-225041492">developer12</stringProp>
+                <stringProp name="3569038">true</stringProp>
+              </collectionProp>
+              <collectionProp name="-2098967066">
+                <stringProp name="-225041488">developer13</stringProp>
+                <stringProp name="-225041488">developer13</stringProp>
+                <stringProp name="3569038">true</stringProp>
+              </collectionProp>
+              <collectionProp name="-2133210906">
+                <stringProp name="-225041395">developer14</stringProp>
+                <stringProp name="-225041395">developer14</stringProp>
+                <stringProp name="3569038">true</stringProp>
+              </collectionProp>
+              <collectionProp name="-2135558970">
+                <stringProp name="-225041373">developer15</stringProp>
+                <stringProp name="-225041373">developer15</stringProp>
+                <stringProp name="3569038">true</stringProp>
+              </collectionProp>
+              <collectionProp name="-2135594682">
+                <stringProp name="-225041372">developer16</stringProp>
+                <stringProp name="-225041372">developer16</stringProp>
+                <stringProp name="3569038">true</stringProp>
+              </collectionProp>
+              <collectionProp name="-2135630394">
+                <stringProp name="-225041371">developer17</stringProp>
+                <stringProp name="-225041371">developer17</stringProp>
+                <stringProp name="3569038">true</stringProp>
+              </collectionProp>
+              <collectionProp name="-2135666106">
+                <stringProp name="-225041370">developer18</stringProp>
+                <stringProp name="-225041370">developer18</stringProp>
+                <stringProp name="3569038">true</stringProp>
+              </collectionProp>
+              <collectionProp name="-2136472602">
+                <stringProp name="-225041369">developer19</stringProp>
+                <stringProp name="-225041369">developer19</stringProp>
+                <stringProp name="3569038">true</stringProp>
+              </collectionProp>
+              <collectionProp name="-2136487482">
+                <stringProp name="-225041368">developer20</stringProp>
+                <stringProp name="-225041368">developer20</stringProp>
+                <stringProp name="3569038">true</stringProp>
+              </collectionProp-->
+            </collectionProp>
+            <boolProp name="UserParameters.per_iteration">false</boolProp>
+          </UserParameters>
+          <hashTree/>
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+            <stringProp name="ConstantTimer.delay">0</stringProp>
+            <stringProp name="RandomTimer.range">10000.0</stringProp>
+          </UniformRandomTimer>
+          <hashTree/>
+          <JUnitSampler guiclass="JUnitTestSamplerGui" testclass="JUnitSampler" testname="LoadUserData" enabled="true">
+            <stringProp name="junitSampler.classname">ru.argustelecom.system.uiframework.testframework.test.LoadUserData</stringProp>
+            <stringProp name="junitsampler.constructorstring">${login},${password}</stringProp>
+            <stringProp name="junitsampler.method">successfulLoginTest</stringProp>
+            <stringProp name="junitsampler.pkg.filter"></stringProp>
+            <stringProp name="junitsampler.success">Test successful</stringProp>
+            <stringProp name="junitsampler.success.code">1000</stringProp>
+            <stringProp name="junitsampler.failure">Test failed</stringProp>
+            <stringProp name="junitsampler.failure.code">0001</stringProp>
+            <stringProp name="junitsampler.error">An unexpected error occured</stringProp>
+            <stringProp name="junitsampler.error.code">9999</stringProp>
+            <stringProp name="junitsampler.exec.setup">false</stringProp>
+            <stringProp name="junitsampler.append.error">true</stringProp>
+            <stringProp name="junitsampler.append.exception">true</stringProp>
+            <boolProp name="junitsampler.createinstancepersample">true</boolProp>
+            <boolProp name="junitsampler.junit4">true</boolProp>
+          </JUnitSampler>
+          <hashTree/>
+        </hashTree>
+        <RandomOrderController guiclass="RandomOrderControllerGui" testclass="RandomOrderController" testname="Random Order Controller" enabled="true"/>
+        <hashTree>
+          <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+            <doubleProp>
+              <name>throughput</name>
+              <value>5.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <stringProp name="calcMode">all active threads in current thread group</stringProp>
+            <stringProp name="TestPlan.comments">Чтобы не перегрузить сервер задай сколько делать семплов в минуту исходя из ресурсов сервера</stringProp>
+          </ConstantThroughputTimer>
+          <hashTree/>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Поиск клиента" enabled="true">
+            <intProp name="ThroughputController.style">1</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">1</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>82.0</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+          </ThroughputController>
+          <hashTree>
+            <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Поиск клиента по имени" enabled="true">
+              <intProp name="ThroughputController.style">1</intProp>
+              <boolProp name="ThroughputController.perThread">true</boolProp>
+              <intProp name="ThroughputController.maxThroughput">1</intProp>
+              <FloatProperty>
+                <name>ThroughputController.percentThroughput</name>
+                <value>20.0</value>
+                <savedValue>0.0</savedValue>
+              </FloatProperty>
+              <stringProp name="TestPlan.comments">
+              Поиск клиента по имени
+	      Тест на поиск по имени клиента.
+	      Поиск последовательно производится по списку полученных клиентов ФЛ и ЮЛ.
+	      После поиска происходит переход в карточку клиента.
+              Сценарий теста:
+              1.Перейти на форму поиска клиента
+              2.Выбрать ФЛ
+              3.Произвести Поиск
+              4.Получить список клиентов ФЛ.
+              5.Найти случайного клиента
+              6.Выбрать Имя и заполнить поле Имя клиента именем, найденного клиента
+              7.Произвести Поиск
+              8.Перейти в КК
+              9.Перейти на форму поиска клиента
+             10.Выбрать ЮЛ
+             11.Произвести Поиск
+             12.Получить список клиентов ЮЛ.
+             13.Найти случайного клиента
+             14.Выбрать Имя и заполнить поле Имя клиента именем, найденного клиента
+             15.Произвести Поиск
+             16.Перейти в КК
+              </stringProp>
+            </ThroughputController>
+            <hashTree>
+              <JUnitSampler guiclass="JUnitTestSamplerGui" testclass="JUnitSampler" testname="searchClient" enabled="true">
+                <stringProp name="junitSampler.classname">ru.argustelecom.registercontact.search.SearchClientScenarioIT</stringProp>
+                <stringProp name="junitsampler.constructorstring"></stringProp>
+                <stringProp name="junitsampler.method">searchClientScenario</stringProp>
+                <stringProp name="junitsampler.pkg.filter"></stringProp>
+                <stringProp name="junitsampler.success">Test successful</stringProp>
+                <stringProp name="junitsampler.success.code">1000</stringProp>
+                <stringProp name="junitsampler.failure">Test failed</stringProp>
+                <stringProp name="junitsampler.failure.code">0001</stringProp>
+                <stringProp name="junitsampler.error">An unexpected error occured</stringProp>
+                <stringProp name="junitsampler.error.code">9999</stringProp>
+                <stringProp name="junitsampler.exec.setup">false</stringProp>
+                <stringProp name="junitsampler.append.error">true</stringProp>
+                <stringProp name="junitsampler.append.exception">true</stringProp>
+                <boolProp name="junitsampler.createinstancepersample">true</boolProp>
+                <boolProp name="junitsampler.junit4">true</boolProp>
+              </JUnitSampler>
+              <hashTree>
+                <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+                  <boolProp name="ResultCollector.error_logging">false</boolProp>
+                  <objProp>
+                    <name>saveConfig</name>
+                    <value class="SampleSaveConfiguration">
+                      <time>true</time>
+                      <latency>true</latency>
+                      <timestamp>true</timestamp>
+                      <success>true</success>
+                      <label>true</label>
+                      <code>true</code>
+                      <message>true</message>
+                      <threadName>true</threadName>
+                      <dataType>true</dataType>
+                      <encoding>false</encoding>
+                      <assertions>true</assertions>
+                      <subresults>true</subresults>
+                      <responseData>true</responseData>
+                      <samplerData>true</samplerData>
+                      <xml>true</xml>
+                      <fieldNames>false</fieldNames>
+                      <responseHeaders>false</responseHeaders>
+                      <requestHeaders>false</requestHeaders>
+                      <responseDataOnError>false</responseDataOnError>
+                      <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                      <assertionsResultsToSave>0</assertionsResultsToSave>
+                      <bytes>true</bytes>
+                    </value>
+                  </objProp>
+                  <stringProp name="filename">artifacts\current\samples\searchClientScenario.samplelist.jtl</stringProp>
+                </ResultCollector>
+                <hashTree/>
+                <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="true">
+                  <boolProp name="ResultCollector.error_logging">false</boolProp>
+                  <objProp>
+                    <name>saveConfig</name>
+                    <value class="SampleSaveConfiguration">
+                      <time>true</time>
+                      <latency>true</latency>
+                      <timestamp>true</timestamp>
+                      <success>true</success>
+                      <label>true</label>
+                      <code>true</code>
+                      <message>true</message>
+                      <threadName>true</threadName>
+                      <dataType>true</dataType>
+                      <encoding>false</encoding>
+                      <assertions>true</assertions>
+                      <subresults>true</subresults>
+                      <responseData>false</responseData>
+                      <samplerData>false</samplerData>
+                      <xml>true</xml>
+                      <fieldNames>false</fieldNames>
+                      <responseHeaders>false</responseHeaders>
+                      <requestHeaders>false</requestHeaders>
+                      <responseDataOnError>false</responseDataOnError>
+                      <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                      <assertionsResultsToSave>0</assertionsResultsToSave>
+                      <bytes>true</bytes>
+                    </value>
+                  </objProp>
+                  <stringProp name="filename"></stringProp>
+                </ResultCollector>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Поиск услуги по имени клиента" enabled="true">
+              <intProp name="ThroughputController.style">1</intProp>
+              <boolProp name="ThroughputController.perThread">true</boolProp>
+              <intProp name="ThroughputController.maxThroughput">1</intProp>
+              <FloatProperty>
+                <name>ThroughputController.percentThroughput</name>
+                <value>90.0</value>
+                <savedValue>0.0</savedValue>
+              </FloatProperty>
+              <stringProp name="TestPlan.comments">
+              Поиск услуги по имени клиента
+              Сценарий теста:
+              1.Перейти на форму поиска услуги
+              2.Выбрать ФЛ
+              3.Произвести Поиск
+              4.Получить список клиентов ФЛ.
+              5.Найти случайного клиента
+              6.Выбрать Имя и заполнить поле Имя клиента именем, найденного клиента
+              7.Произвести Поиск
+              8.Перейти в КК
+              9.Перейти на форму поиска клиента
+             10.Выбрать ЮЛ
+             11.Произвести Поиск
+             12.Получить список клиентов ЮЛ.
+             13.Найти случайного клиента
+             14.Выбрать Имя и заполнить поле Имя клиента именем, найденного клиента
+             15.Произвести Поиск
+             16.Перейти в КК
+              </stringProp>
+            </ThroughputController>
+            <hashTree>
+              <JUnitSampler guiclass="JUnitTestSamplerGui" testclass="JUnitSampler" testname="searchServices" enabled="true">
+                <stringProp name="junitSampler.classname">ru.argustelecom.registercontact.search.SearchServicesScenarioIT</stringProp>
+                <stringProp name="junitsampler.constructorstring"></stringProp>
+                <stringProp name="junitsampler.method">searchServicesScenario</stringProp>
+                <stringProp name="junitsampler.pkg.filter"></stringProp>
+                <stringProp name="junitsampler.success">Test successful</stringProp>
+                <stringProp name="junitsampler.success.code">1000</stringProp>
+                <stringProp name="junitsampler.failure">Test failed</stringProp>
+                <stringProp name="junitsampler.failure.code">0001</stringProp>
+                <stringProp name="junitsampler.error">An unexpected error occured</stringProp>
+                <stringProp name="junitsampler.error.code">9999</stringProp>
+                <stringProp name="junitsampler.exec.setup">false</stringProp>
+                <stringProp name="junitsampler.append.error">true</stringProp>
+                <stringProp name="junitsampler.append.exception">true</stringProp>
+                <boolProp name="junitsampler.createinstancepersample">true</boolProp>
+                <boolProp name="junitsampler.junit4">true</boolProp>
+              </JUnitSampler>
+              <hashTree>
+                <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+                  <boolProp name="ResultCollector.error_logging">false</boolProp>
+                  <objProp>
+                    <name>saveConfig</name>
+                    <value class="SampleSaveConfiguration">
+                      <time>true</time>
+                      <latency>true</latency>
+                      <timestamp>true</timestamp>
+                      <success>true</success>
+                      <label>true</label>
+                      <code>true</code>
+                      <message>true</message>
+                      <threadName>true</threadName>
+                      <dataType>true</dataType>
+                      <encoding>false</encoding>
+                      <assertions>true</assertions>
+                      <subresults>true</subresults>
+                      <responseData>true</responseData>
+                      <samplerData>true</samplerData>
+                      <xml>true</xml>
+                      <fieldNames>false</fieldNames>
+                      <responseHeaders>false</responseHeaders>
+                      <requestHeaders>false</requestHeaders>
+                      <responseDataOnError>false</responseDataOnError>
+                      <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                      <assertionsResultsToSave>0</assertionsResultsToSave>
+                      <bytes>true</bytes>
+                    </value>
+                  </objProp>
+                  <stringProp name="filename">artifacts\current\samples\SearchServicesScenarioIT.samplelist.jtl</stringProp>
+                </ResultCollector>
+                <hashTree/>
+                <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="true">
+                  <boolProp name="ResultCollector.error_logging">false</boolProp>
+                  <objProp>
+                    <name>saveConfig</name>
+                    <value class="SampleSaveConfiguration">
+                      <time>true</time>
+                      <latency>true</latency>
+                      <timestamp>true</timestamp>
+                      <success>true</success>
+                      <label>true</label>
+                      <code>true</code>
+                      <message>true</message>
+                      <threadName>true</threadName>
+                      <dataType>true</dataType>
+                      <encoding>false</encoding>
+                      <assertions>true</assertions>
+                      <subresults>true</subresults>
+                      <responseData>false</responseData>
+                      <samplerData>false</samplerData>
+                      <xml>true</xml>
+                      <fieldNames>false</fieldNames>
+                      <responseHeaders>false</responseHeaders>
+                      <requestHeaders>false</requestHeaders>
+                      <responseDataOnError>false</responseDataOnError>
+                      <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                      <assertionsResultsToSave>0</assertionsResultsToSave>
+                      <bytes>true</bytes>
+                    </value>
+                  </objProp>
+                  <stringProp name="filename"></stringProp>
+                </ResultCollector>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Просто поиск" enabled="false">
+              <intProp name="ThroughputController.style">1</intProp>
+              <boolProp name="ThroughputController.perThread">true</boolProp>
+              <intProp name="ThroughputController.maxThroughput">1</intProp>
+              <FloatProperty>
+                <name>ThroughputController.percentThroughput</name>
+                <value>100.0</value>
+                <savedValue>0.0</savedValue>
+              </FloatProperty>
+              <stringProp name="TestPlan.comments">
+              Просто поиск
+             </stringProp>
+            </ThroughputController>
+            <hashTree>
+              <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="false">
+                <boolProp name="LoopController.continue_forever">true</boolProp>
+                <stringProp name="LoopController.loops">3</stringProp>
+              </LoopController>
+              <hashTree>
+                <JUnitSampler guiclass="JUnitTestSamplerGui" testclass="JUnitSampler" testname="easySearch" enabled="false">
+                  <stringProp name="junitSampler.classname">ru.argustelecom.registercontact.search.SearchServicesScenarioIT</stringProp>
+                  <stringProp name="junitsampler.constructorstring"></stringProp>
+                  <stringProp name="junitsampler.method">searchServicesScenario1</stringProp>
+                  <stringProp name="junitsampler.pkg.filter"></stringProp>
+                  <stringProp name="junitsampler.success">Test successful</stringProp>
+                  <stringProp name="junitsampler.success.code">1000</stringProp>
+                  <stringProp name="junitsampler.failure">Test failed</stringProp>
+                  <stringProp name="junitsampler.failure.code">0001</stringProp>
+                  <stringProp name="junitsampler.error">An unexpected error occured</stringProp>
+                  <stringProp name="junitsampler.error.code">9999</stringProp>
+                  <stringProp name="junitsampler.exec.setup">false</stringProp>
+                  <stringProp name="junitsampler.append.error">true</stringProp>
+                  <stringProp name="junitsampler.append.exception">true</stringProp>
+                  <boolProp name="junitsampler.createinstancepersample">true</boolProp>
+                  <boolProp name="junitsampler.junit4">true</boolProp>
+                </JUnitSampler>
+                <hashTree>
+                  <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="false">
+                    <boolProp name="ResultCollector.error_logging">false</boolProp>
+                    <objProp>
+                      <name>saveConfig</name>
+                      <value class="SampleSaveConfiguration">
+                        <time>true</time>
+                        <latency>true</latency>
+                        <timestamp>true</timestamp>
+                        <success>true</success>
+                        <label>true</label>
+                        <code>true</code>
+                        <message>true</message>
+                        <threadName>true</threadName>
+                        <dataType>true</dataType>
+                        <encoding>false</encoding>
+                        <assertions>true</assertions>
+                        <subresults>true</subresults>
+                        <responseData>true</responseData>
+                        <samplerData>true</samplerData>
+                        <xml>true</xml>
+                        <fieldNames>false</fieldNames>
+                        <responseHeaders>false</responseHeaders>
+                        <requestHeaders>false</requestHeaders>
+                        <responseDataOnError>false</responseDataOnError>
+                        <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                        <assertionsResultsToSave>0</assertionsResultsToSave>
+                        <bytes>true</bytes>
+                      </value>
+                    </objProp>
+                    <stringProp name="filename">artifacts\current\samples\easySearch.samplelist.jtl</stringProp>
+                  </ResultCollector>
+                  <hashTree/>
+                  <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="false">
+                    <boolProp name="ResultCollector.error_logging">false</boolProp>
+                    <objProp>
+                      <name>saveConfig</name>
+                      <value class="SampleSaveConfiguration">
+                        <time>true</time>
+                        <latency>true</latency>
+                        <timestamp>true</timestamp>
+                        <success>true</success>
+                        <label>true</label>
+                        <code>true</code>
+                        <message>true</message>
+                        <threadName>true</threadName>
+                        <dataType>true</dataType>
+                        <encoding>false</encoding>
+                        <assertions>true</assertions>
+                        <subresults>true</subresults>
+                        <responseData>false</responseData>
+                        <samplerData>false</samplerData>
+                        <xml>true</xml>
+                        <fieldNames>false</fieldNames>
+                        <responseHeaders>false</responseHeaders>
+                        <requestHeaders>false</requestHeaders>
+                        <responseDataOnError>false</responseDataOnError>
+                        <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                        <assertionsResultsToSave>0</assertionsResultsToSave>
+                        <bytes>true</bytes>
+                      </value>
+                    </objProp>
+                    <stringProp name="filename"></stringProp>
+                  </ResultCollector>
+                  <hashTree/>
+                </hashTree>
+              </hashTree>
+            </hashTree>
+          </hashTree>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Обработка инцидента ШПД" enabled="true">
+            <intProp name="ThroughputController.style">1</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">1</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>32.0</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+          </ThroughputController>
+          <hashTree>
+            <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Регистрация,закрытие на выбранную услугу" enabled="true">
+              <intProp name="ThroughputController.style">1</intProp>
+              <boolProp name="ThroughputController.perThread">true</boolProp>
+              <intProp name="ThroughputController.maxThroughput">1</intProp>
+              <FloatProperty>
+                <name>ThroughputController.percentThroughput</name>
+                <value>49.0</value>
+                <savedValue>0.0</savedValue>
+              </FloatProperty>
+              <stringProp name="TestPlan.comments">
+              1.Регистрация, закрытие инцидента, наряда на выбранную услугу
+              2.Сценарий теста:
+              3.Открыть КК.
+              4.Выбрать услугу и нажать кнопку “Инцидент” (Регистрация инцидента на выбранную услугу).
+              5.Заполнить форму создания инцидента и сохранить.
+              6.Нажать кнопку “Регистрация наряда”.
+              7.Заполнить форму создания наряда и сохранить.
+              8.Перейти на страницу наряда.
+              9.Выбрать решение: Закрыть проблему. Нажать кнопку “Завершить”.
+             10.В диалоге “Закрытие” выбрать шифр закрытия. Нажать кнопку “Сохранить”.
+             11.Перейти на страницу инцидента.
+             12.Выбрать решение: Закрыть инцидент. Нажать кнопку “Завершить”
+             13.В диалоге “Закрытие” выбрать шифр закрытия. Нажать кнопку “Сохранить”.
+            </stringProp>
+            </ThroughputController>
+            <hashTree>
+              <JUnitSampler guiclass="JUnitTestSamplerGui" testclass="JUnitSampler" testname="incidentForSelectedService" enabled="true">
+                <stringProp name="junitSampler.classname">ru.argustelecom.supportservice.IncidentForSelectedServiceScenarioIT</stringProp>
+                <stringProp name="junitsampler.constructorstring"></stringProp>
+                <stringProp name="junitsampler.method">incidentForSelectedServiceScenarioIT</stringProp>
+                <stringProp name="junitsampler.pkg.filter"></stringProp>
+                <stringProp name="junitsampler.success">Test successful</stringProp>
+                <stringProp name="junitsampler.success.code">1000</stringProp>
+                <stringProp name="junitsampler.failure">Test failed</stringProp>
+                <stringProp name="junitsampler.failure.code">0001</stringProp>
+                <stringProp name="junitsampler.error">An unexpected error occured</stringProp>
+                <stringProp name="junitsampler.error.code">9999</stringProp>
+                <stringProp name="junitsampler.exec.setup">false</stringProp>
+                <stringProp name="junitsampler.append.error">true</stringProp>
+                <stringProp name="junitsampler.append.exception">true</stringProp>
+                <boolProp name="junitsampler.junit4">true</boolProp>
+                <boolProp name="junitsampler.createinstancepersample">true</boolProp>
+              </JUnitSampler>
+              <hashTree>
+                <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+                  <boolProp name="ResultCollector.error_logging">false</boolProp>
+                  <objProp>
+                    <name>saveConfig</name>
+                    <value class="SampleSaveConfiguration">
+                      <time>true</time>
+                      <latency>true</latency>
+                      <timestamp>true</timestamp>
+                      <success>true</success>
+                      <label>true</label>
+                      <code>true</code>
+                      <message>true</message>
+                      <threadName>true</threadName>
+                      <dataType>true</dataType>
+                      <encoding>false</encoding>
+                      <assertions>true</assertions>
+                      <subresults>true</subresults>
+                      <responseData>true</responseData>
+                      <samplerData>true</samplerData>
+                      <xml>true</xml>
+                      <fieldNames>false</fieldNames>
+                      <responseHeaders>false</responseHeaders>
+                      <requestHeaders>false</requestHeaders>
+                      <responseDataOnError>false</responseDataOnError>
+                      <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                      <assertionsResultsToSave>0</assertionsResultsToSave>
+                      <bytes>true</bytes>
+                    </value>
+                  </objProp>
+                  <stringProp name="filename">artifacts\current\samples\incidentForSelectedServiceScenarioIT.samplelist.jtl</stringProp>
+                </ResultCollector>
+                <hashTree/>
+                <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="true">
+                  <boolProp name="ResultCollector.error_logging">false</boolProp>
+                  <objProp>
+                    <name>saveConfig</name>
+                    <value class="SampleSaveConfiguration">
+                      <time>true</time>
+                      <latency>true</latency>
+                      <timestamp>true</timestamp>
+                      <success>true</success>
+                      <label>true</label>
+                      <code>true</code>
+                      <message>true</message>
+                      <threadName>true</threadName>
+                      <dataType>true</dataType>
+                      <encoding>false</encoding>
+                      <assertions>true</assertions>
+                      <subresults>true</subresults>
+                      <responseData>false</responseData>
+                      <samplerData>false</samplerData>
+                      <xml>true</xml>
+                      <fieldNames>false</fieldNames>
+                      <responseHeaders>false</responseHeaders>
+                      <requestHeaders>false</requestHeaders>
+                      <responseDataOnError>false</responseDataOnError>
+                      <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                      <assertionsResultsToSave>0</assertionsResultsToSave>
+                      <bytes>true</bytes>
+                    </value>
+                  </objProp>
+                  <stringProp name="filename"></stringProp>
+                </ResultCollector>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Регистрация, закрытие на неизвестную услугу" enabled="true">
+              <intProp name="ThroughputController.style">1</intProp>
+              <boolProp name="ThroughputController.perThread">true</boolProp>
+              <intProp name="ThroughputController.maxThroughput">1</intProp>
+              <FloatProperty>
+                <name>ThroughputController.percentThroughput</name>
+                <value>48.0</value>
+                <savedValue>0.0</savedValue>
+              </FloatProperty>
+              <stringProp name="TestPlan.comments">
+              Регистрация, закрытие инцидента, наряда на неизвестную услугу
+              Сценарий теста:
+              1.Открыть КК
+              2.Нажать кнопку “Инцидент на “?” услугу”
+              3.Заполнить форму создания инцидента и сохранить.
+              4.Нажать кнопку “Регистрация наряда”.
+              5.Заполнить форму создания наряда и сохранить.
+              6.Перейти на страницу наряда.
+              7.Выбрать решение: Закрыть проблему. Нажать кнопку “Завершить”.
+              8.В диалоге “Закрытие” выбрать шифр закрытия. Нажать кнопку “Сохранить”.
+              9.Перейти на страницу инцидента.
+             10.Выбрать решение: Закрыть инцидент. Нажать кнопку “Завершить”
+             11.В диалоге “Закрытие” выбрать шифр закрытия. Нажать кнопку “Сохранить”.
+            </stringProp>
+            </ThroughputController>
+            <hashTree>
+              <JUnitSampler guiclass="JUnitTestSamplerGui" testclass="JUnitSampler" testname="incidentForSelectedServiceScenario" enabled="true">
+                <stringProp name="junitSampler.classname">ru.argustelecom.supportservice.IncidentForUnselectedServiceScenarioIT</stringProp>
+                <stringProp name="junitsampler.constructorstring"></stringProp>
+                <stringProp name="junitsampler.method">incidentForUnselectedServiceScenarioIT</stringProp>
+                <stringProp name="junitsampler.pkg.filter"></stringProp>
+                <stringProp name="junitsampler.success">Test successful</stringProp>
+                <stringProp name="junitsampler.success.code">1000</stringProp>
+                <stringProp name="junitsampler.failure">Test failed</stringProp>
+                <stringProp name="junitsampler.failure.code">0001</stringProp>
+                <stringProp name="junitsampler.error">An unexpected error occured</stringProp>
+                <stringProp name="junitsampler.error.code">9999</stringProp>
+                <stringProp name="junitsampler.exec.setup">false</stringProp>
+                <stringProp name="junitsampler.append.error">true</stringProp>
+                <stringProp name="junitsampler.append.exception">true</stringProp>
+                <boolProp name="junitsampler.junit4">true</boolProp>
+                <boolProp name="junitsampler.createinstancepersample">true</boolProp>
+              </JUnitSampler>
+              <hashTree>
+                <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+                  <boolProp name="ResultCollector.error_logging">false</boolProp>
+                  <objProp>
+                    <name>saveConfig</name>
+                    <value class="SampleSaveConfiguration">
+                      <time>true</time>
+                      <latency>true</latency>
+                      <timestamp>true</timestamp>
+                      <success>true</success>
+                      <label>true</label>
+                      <code>true</code>
+                      <message>true</message>
+                      <threadName>true</threadName>
+                      <dataType>true</dataType>
+                      <encoding>false</encoding>
+                      <assertions>true</assertions>
+                      <subresults>true</subresults>
+                      <responseData>true</responseData>
+                      <samplerData>true</samplerData>
+                      <xml>true</xml>
+                      <fieldNames>false</fieldNames>
+                      <responseHeaders>false</responseHeaders>
+                      <requestHeaders>false</requestHeaders>
+                      <responseDataOnError>false</responseDataOnError>
+                      <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                      <assertionsResultsToSave>0</assertionsResultsToSave>
+                      <bytes>true</bytes>
+                    </value>
+                  </objProp>
+                  <stringProp name="filename">artifacts\current\samples\incidentForSelectedServiceScenarioIT.samplelist.jtl</stringProp>
+                </ResultCollector>
+                <hashTree/>
+                <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="true">
+                  <boolProp name="ResultCollector.error_logging">false</boolProp>
+                  <objProp>
+                    <name>saveConfig</name>
+                    <value class="SampleSaveConfiguration">
+                      <time>true</time>
+                      <latency>true</latency>
+                      <timestamp>true</timestamp>
+                      <success>true</success>
+                      <label>true</label>
+                      <code>true</code>
+                      <message>true</message>
+                      <threadName>true</threadName>
+                      <dataType>true</dataType>
+                      <encoding>false</encoding>
+                      <assertions>true</assertions>
+                      <subresults>true</subresults>
+                      <responseData>false</responseData>
+                      <samplerData>false</samplerData>
+                      <xml>true</xml>
+                      <fieldNames>false</fieldNames>
+                      <responseHeaders>false</responseHeaders>
+                      <requestHeaders>false</requestHeaders>
+                      <responseDataOnError>false</responseDataOnError>
+                      <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                      <assertionsResultsToSave>0</assertionsResultsToSave>
+                      <bytes>true</bytes>
+                    </value>
+                  </objProp>
+                  <stringProp name="filename"></stringProp>
+                </ResultCollector>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Закрытие инцидента с шифром Ошибочные" enabled="true">
+              <intProp name="ThroughputController.style">1</intProp>
+              <boolProp name="ThroughputController.perThread">true</boolProp>
+              <intProp name="ThroughputController.maxThroughput">1</intProp>
+              <FloatProperty>
+                <name>ThroughputController.percentThroughput</name>
+                <value>15.0</value>
+                <savedValue>0.0</savedValue>
+              </FloatProperty>
+              <stringProp name="TestPlan.comments">
+              Закрытие инцидента с шифром Ошибочные
+              Сценарий теста:
+              Открыть КК
+              Нажать кнопку “Инцидент на неузв. услугу”
+              Заполнить форму создания инцидента и сохранить.
+              Нажать кнопку “Регистрация наряда”.
+              Заполнить форму создания наряда и сохранить.
+              Перейти на страницу наряда.
+              Выбрать решение: Закрыть проблему. Нажать кнопку “Завершить”.
+              В диалоге “Закрытие” выбрать шифр закрытия: Ошибочные/О1-Проблема зарегистрирована ошибочно.
+              Нажать кнопку “Сохранить”.
+              Перейти на страницу инцидента.
+              Выбрать решение: Закрыть инцидент. Нажать кнопку “Завершить”
+              В диалоге “Закрытие” выбрать шифр закрытия. Нажать кнопку “Сохранить”.
+              </stringProp>
+            </ThroughputController>
+            <hashTree>
+              <JUnitSampler guiclass="JUnitTestSamplerGui" testclass="JUnitSampler" testname="incidentCancellationScenario" enabled="true">
+                <stringProp name="junitSampler.classname">ru.argustelecom.supportservice.IncidentCancellationScenarioIT</stringProp>
+                <stringProp name="junitsampler.constructorstring"></stringProp>
+                <stringProp name="junitsampler.method">incidentCancellationScenarioIT</stringProp>
+                <stringProp name="junitsampler.pkg.filter"></stringProp>
+                <stringProp name="junitsampler.success">Test successful</stringProp>
+                <stringProp name="junitsampler.success.code">1000</stringProp>
+                <stringProp name="junitsampler.failure">Test failed</stringProp>
+                <stringProp name="junitsampler.failure.code">0001</stringProp>
+                <stringProp name="junitsampler.error">An unexpected error occured</stringProp>
+                <stringProp name="junitsampler.error.code">9999</stringProp>
+                <stringProp name="junitsampler.exec.setup">false</stringProp>
+                <stringProp name="junitsampler.append.error">true</stringProp>
+                <stringProp name="junitsampler.append.exception">true</stringProp>
+                <boolProp name="junitsampler.junit4">true</boolProp>
+                <boolProp name="junitsampler.createinstancepersample">true</boolProp>
+              </JUnitSampler>
+              <hashTree>
+                <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+                  <boolProp name="ResultCollector.error_logging">false</boolProp>
+                  <objProp>
+                    <name>saveConfig</name>
+                    <value class="SampleSaveConfiguration">
+                      <time>true</time>
+                      <latency>true</latency>
+                      <timestamp>true</timestamp>
+                      <success>true</success>
+                      <label>true</label>
+                      <code>true</code>
+                      <message>true</message>
+                      <threadName>true</threadName>
+                      <dataType>true</dataType>
+                      <encoding>false</encoding>
+                      <assertions>true</assertions>
+                      <subresults>true</subresults>
+                      <responseData>true</responseData>
+                      <samplerData>true</samplerData>
+                      <xml>true</xml>
+                      <fieldNames>false</fieldNames>
+                      <responseHeaders>false</responseHeaders>
+                      <requestHeaders>false</requestHeaders>
+                      <responseDataOnError>false</responseDataOnError>
+                      <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                      <assertionsResultsToSave>0</assertionsResultsToSave>
+                      <bytes>true</bytes>
+                    </value>
+                  </objProp>
+                  <stringProp name="filename">artifacts\current\samples\incidentCancellationScenarioIT.SPD.samplelist.jtl</stringProp>
+                </ResultCollector>
+                <hashTree/>
+                <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="true">
+                  <boolProp name="ResultCollector.error_logging">false</boolProp>
+                  <objProp>
+                    <name>saveConfig</name>
+                    <value class="SampleSaveConfiguration">
+                      <time>true</time>
+                      <latency>true</latency>
+                      <timestamp>true</timestamp>
+                      <success>true</success>
+                      <label>true</label>
+                      <code>true</code>
+                      <message>true</message>
+                      <threadName>true</threadName>
+                      <dataType>true</dataType>
+                      <encoding>false</encoding>
+                      <assertions>true</assertions>
+                      <subresults>true</subresults>
+                      <responseData>false</responseData>
+                      <samplerData>false</samplerData>
+                      <xml>true</xml>
+                      <fieldNames>false</fieldNames>
+                      <responseHeaders>false</responseHeaders>
+                      <requestHeaders>false</requestHeaders>
+                      <responseDataOnError>false</responseDataOnError>
+                      <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                      <assertionsResultsToSave>0</assertionsResultsToSave>
+                      <bytes>true</bytes>
+                    </value>
+                  </objProp>
+                  <stringProp name="filename"></stringProp>
+                </ResultCollector>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+          </hashTree>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Обработка инцидента Телефон" enabled="true">
+            <intProp name="ThroughputController.style">1</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">1</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>32.0</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+            <stringProp name="TestPlan.comments">
+            Обработка инцидента Телефон
+	    Сценарий теста:
+            1.Ищем услугу с типом Телефонный номер
+            2.Открываем КК владельца услуги
+            3.Выбираем услугу. Регистрируем Инцидент
+            4.Регистрируем Наряд БР
+            5.В диалоге Регистрация наряда выбрать:
+            6.Тип наряда: С
+            7.Локализация: C – передано на станцию по заявке абонента
+            8.Участок выбирается автоматически
+            9.Сохранить
+           10.В форме Инцидент перейти на вкладку Контакты
+           11.Добавляем контакт по телефону
+           12.В форме Инцидент перейти на вкладку Сведения
+           13.Выбрать решение: Перевести в состояние ожидания
+          </stringProp>
+          </ThroughputController>
+          <hashTree>
+            <JUnitSampler guiclass="JUnitTestSamplerGui" testclass="JUnitSampler" testname="incidentWithPhoneScenarioIT" enabled="true">
+              <stringProp name="junitSampler.classname">ru.argustelecom.supportservice.IncidentWithPhoneScenarioIT</stringProp>
+              <stringProp name="junitsampler.constructorstring"></stringProp>
+              <stringProp name="junitsampler.method">incidentWithPhoneScenarioIT</stringProp>
+              <stringProp name="junitsampler.pkg.filter"></stringProp>
+              <stringProp name="junitsampler.success">Test successful</stringProp>
+              <stringProp name="junitsampler.success.code">1000</stringProp>
+              <stringProp name="junitsampler.failure">Test failed</stringProp>
+              <stringProp name="junitsampler.failure.code">0001</stringProp>
+              <stringProp name="junitsampler.error">An unexpected error occured</stringProp>
+              <stringProp name="junitsampler.error.code">9999</stringProp>
+              <stringProp name="junitsampler.exec.setup">false</stringProp>
+              <stringProp name="junitsampler.append.error">true</stringProp>
+              <stringProp name="junitsampler.append.exception">true</stringProp>
+              <boolProp name="junitsampler.junit4">true</boolProp>
+              <boolProp name="junitsampler.createinstancepersample">true</boolProp>
+            </JUnitSampler>
+            <hashTree>
+              <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>true</responseData>
+                    <samplerData>true</samplerData>
+                    <xml>true</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                  </value>
+                </objProp>
+                <stringProp name="filename">artifacts\current\samples\incidentWithPhoneScenarioIT.samplelist.jtl</stringProp>
+              </ResultCollector>
+              <hashTree/>
+              <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>false</responseData>
+                    <samplerData>false</samplerData>
+                    <xml>true</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                  </value>
+                </objProp>
+                <stringProp name="filename"></stringProp>
+              </ResultCollector>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Закрытие инцидента с визитом" enabled="true">
+            <intProp name="ThroughputController.style">1</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">1</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>32.0</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+            <stringProp name="TestPlan.comments">
+            Закрытие инцидента с визитом
+	    Сценарий теста:
+            1.Регистрируем Инцидент
+            2.Регистрируем выездной Наряд
+            3.В диалоге Регистрация наряда выбрать:
+            4.Тип наряда: Л
+            5.Локализация: Л-переда-передано на линию по заявке абонента
+            6.Выбрать характер повреждения
+            7.Выбрать Дату визита, Интервал, Причина
+            8.Выбрать исполнителя
+            9.Сохранить выездной Наряд
+           10.В форме Инцидента выбрать Решение: Требуется выезд
+           11.Выбрать исполнителя. Нажать кнопку Завершить
+           12.Переходим на форму Наряд
+           13.Нажимаем кнопку Редактирование информации о визите
+           14.Редактируем данные Наряда
+           15.Выбрать Решение: Закрыть проблему. Нажать кнопку Завершить.
+           16.Завершить с шифром закрытия Выполнен
+           17.Перейти на форму Инцидента
+           18.Проверить, что Инцидент закрыт.
+          </stringProp>
+          </ThroughputController>
+          <hashTree>
+            <JUnitSampler guiclass="JUnitTestSamplerGui" testclass="JUnitSampler" testname="incidentWithVisitScenarioIT" enabled="true">
+              <stringProp name="junitSampler.classname">ru.argustelecom.supportservice.IncidentWithVisitScenarioIT</stringProp>
+              <stringProp name="junitsampler.constructorstring"></stringProp>
+              <stringProp name="junitsampler.method">incidentWithVisitScenarioIT</stringProp>
+              <stringProp name="junitsampler.pkg.filter"></stringProp>
+              <stringProp name="junitsampler.success">Test successful</stringProp>
+              <stringProp name="junitsampler.success.code">1000</stringProp>
+              <stringProp name="junitsampler.failure">Test failed</stringProp>
+              <stringProp name="junitsampler.failure.code">0001</stringProp>
+              <stringProp name="junitsampler.error">An unexpected error occured</stringProp>
+              <stringProp name="junitsampler.error.code">9999</stringProp>
+              <stringProp name="junitsampler.exec.setup">false</stringProp>
+              <stringProp name="junitsampler.append.error">true</stringProp>
+              <stringProp name="junitsampler.append.exception">true</stringProp>
+              <boolProp name="junitsampler.junit4">true</boolProp>
+              <boolProp name="junitsampler.createinstancepersample">true</boolProp>
+            </JUnitSampler>
+            <hashTree>
+              <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>true</responseData>
+                    <samplerData>true</samplerData>
+                    <xml>true</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                  </value>
+                </objProp>
+                <stringProp name="filename">artifacts\current\samples\incidentWithVisitScenarioIT.samplelist.jtl</stringProp>
+              </ResultCollector>
+              <hashTree/>
+              <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>false</responseData>
+                    <samplerData>false</samplerData>
+                    <xml>true</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                  </value>
+                </objProp>
+                <stringProp name="filename"></stringProp>
+              </ResultCollector>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Просмотр списка задач" enabled="true">
+            <intProp name="ThroughputController.style">1</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">1</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>56.0</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+            <stringProp name="TestPlan.comments">
+            Просмотр списка задач
+            Сценарий теста:
+            1.Открыть Список задач
+            2.Выбирать случайный узел в дереве
+            3.Выбрать фильтр Открытые: Открытые. Нажать кнопку Фильтр.
+            4.Выбрать фильтр Открытые: Все. Нажать кнопку Фильтр.
+            5.Поочередно выбрать страницы График работы, Карта, Карточка, Баллы, Задачи
+            </stringProp>
+          </ThroughputController>
+          <hashTree>
+            <JUnitSampler guiclass="JUnitTestSamplerGui" testclass="JUnitSampler" testname="TaskList open test" enabled="true">
+              <stringProp name="junitSampler.classname">ru.argustelecom.bpms.list.ViewTaskListScenarioIT</stringProp>
+              <stringProp name="junitsampler.constructorstring"></stringProp>
+              <stringProp name="junitsampler.method">viewTaskListScenarioIT</stringProp>
+              <stringProp name="junitsampler.pkg.filter"></stringProp>
+              <stringProp name="junitsampler.success">Test successful</stringProp>
+              <stringProp name="junitsampler.success.code">1000</stringProp>
+              <stringProp name="junitsampler.failure">Test failed</stringProp>
+              <stringProp name="junitsampler.failure.code">0001</stringProp>
+              <stringProp name="junitsampler.error">An unexpected error occured</stringProp>
+              <stringProp name="junitsampler.error.code">9999</stringProp>
+              <stringProp name="junitsampler.exec.setup">false</stringProp>
+              <stringProp name="junitsampler.append.error">true</stringProp>
+              <stringProp name="junitsampler.append.exception">true</stringProp>
+              <boolProp name="junitsampler.junit4">true</boolProp>
+              <boolProp name="junitsampler.createinstancepersample">true</boolProp>
+            </JUnitSampler>
+            <hashTree>
+              <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>true</responseData>
+                    <samplerData>true</samplerData>
+                    <xml>true</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                    <hostname>true</hostname>
+                  </value>
+                </objProp>
+                <stringProp name="filename">artifacts\current\samples\viewTaskListScenarioIT.samplelist.jtl</stringProp>
+              </ResultCollector>
+              <hashTree/>
+              <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>false</responseData>
+                    <samplerData>false</samplerData>
+                    <xml>true</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                  </value>
+                </objProp>
+                <stringProp name="filename"></stringProp>
+              </ResultCollector>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Просмотр и редактирование формы инцидента" enabled="false">
+            <intProp name="ThroughputController.style">1</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">1</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>60.0</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+            <stringProp name="TestPlan.comments">
+            Просмотр и редактирование формы инцидента
+	    Cценарий теста:
+            1.Открыть КК со списком инцидентов
+            2.Перейти на страницу случайного инцидента
+            3.Выбрать вкладку История. Добавить комментарий
+            </stringProp>
+          </ThroughputController>
+          <hashTree>
+            <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="false">
+              <boolProp name="LoopController.continue_forever">true</boolProp>
+              <stringProp name="LoopController.loops">2</stringProp>
+            </LoopController>
+            <hashTree>
+              <JUnitSampler guiclass="JUnitTestSamplerGui" testclass="JUnitSampler" testname="IncidentFormTest.editContactComment" enabled="false">
+                <stringProp name="junitSampler.classname">ru.argustelecom.bpms.list.ViewTaskListScenarioIT</stringProp>
+                <stringProp name="junitsampler.constructorstring"></stringProp>
+                <stringProp name="junitsampler.method">viewTaskListScenarioIT</stringProp>
+                <stringProp name="junitsampler.pkg.filter"></stringProp>
+                <stringProp name="junitsampler.success">Test successful</stringProp>
+                <stringProp name="junitsampler.success.code">1000</stringProp>
+                <stringProp name="junitsampler.failure">Test failed</stringProp>
+                <stringProp name="junitsampler.failure.code">0001</stringProp>
+                <stringProp name="junitsampler.error">An unexpected error occured</stringProp>
+                <stringProp name="junitsampler.error.code">9999</stringProp>
+                <stringProp name="junitsampler.exec.setup">false</stringProp>
+                <stringProp name="junitsampler.append.error">true</stringProp>
+                <stringProp name="junitsampler.append.exception">true</stringProp>
+                <boolProp name="junitsampler.createinstancepersample">true</boolProp>
+                <boolProp name="junitsampler.junit4">true</boolProp>
+              </JUnitSampler>
+              <hashTree>
+                <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="false">
+                  <boolProp name="ResultCollector.error_logging">false</boolProp>
+                  <objProp>
+                    <name>saveConfig</name>
+                    <value class="SampleSaveConfiguration">
+                      <time>true</time>
+                      <latency>true</latency>
+                      <timestamp>true</timestamp>
+                      <success>true</success>
+                      <label>true</label>
+                      <code>true</code>
+                      <message>true</message>
+                      <threadName>true</threadName>
+                      <dataType>true</dataType>
+                      <encoding>false</encoding>
+                      <assertions>true</assertions>
+                      <subresults>true</subresults>
+                      <responseData>true</responseData>
+                      <samplerData>true</samplerData>
+                      <xml>true</xml>
+                      <fieldNames>false</fieldNames>
+                      <responseHeaders>false</responseHeaders>
+                      <requestHeaders>false</requestHeaders>
+                      <responseDataOnError>false</responseDataOnError>
+                      <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                      <assertionsResultsToSave>0</assertionsResultsToSave>
+                      <bytes>true</bytes>
+                    </value>
+                  </objProp>
+                  <stringProp name="filename">artifacts\current\samples\IncidentFormTest.editContactComment.samplelist.jtl</stringProp>
+                </ResultCollector>
+                <hashTree/>
+                <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="false">
+                  <boolProp name="ResultCollector.error_logging">false</boolProp>
+                  <objProp>
+                    <name>saveConfig</name>
+                    <value class="SampleSaveConfiguration">
+                      <time>true</time>
+                      <latency>true</latency>
+                      <timestamp>true</timestamp>
+                      <success>true</success>
+                      <label>true</label>
+                      <code>true</code>
+                      <message>true</message>
+                      <threadName>true</threadName>
+                      <dataType>true</dataType>
+                      <encoding>false</encoding>
+                      <assertions>true</assertions>
+                      <subresults>true</subresults>
+                      <responseData>false</responseData>
+                      <samplerData>false</samplerData>
+                      <xml>true</xml>
+                      <fieldNames>false</fieldNames>
+                      <responseHeaders>false</responseHeaders>
+                      <requestHeaders>false</requestHeaders>
+                      <responseDataOnError>false</responseDataOnError>
+                      <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                      <assertionsResultsToSave>0</assertionsResultsToSave>
+                      <bytes>true</bytes>
+                    </value>
+                  </objProp>
+                  <stringProp name="filename"></stringProp>
+                </ResultCollector>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+          </hashTree>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Изменение описания наряда" enabled="false">
+            <intProp name="ThroughputController.style">1</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">1</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>46.0</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+            <stringProp name="TestPlan.comments">Снижено с 46 до 23 по данным &quot;2013.01.18 21_48 __ 2013.01.18 22_35&quot;</stringProp>
+          </ThroughputController>
+          <hashTree>
+            <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Throughput Controller" enabled="false">
+              <intProp name="ThroughputController.style">1</intProp>
+              <boolProp name="ThroughputController.perThread">true</boolProp>
+              <intProp name="ThroughputController.maxThroughput">1</intProp>
+              <FloatProperty>
+                <name>ThroughputController.percentThroughput</name>
+                <value>15.0</value>
+                <savedValue>0.0</savedValue>
+              </FloatProperty>
+              <stringProp name="TestPlan.comments">
+              Изменение описания наряда
+	      Сценарий теста:
+              1.Открыть форму Инцидента со связанными открытыми нарядами
+              2.Для случайного Наряда из списка открыть форму Наряда
+              3.Отредактировать значение поля Повреждение
+              4.Отредактировать значение поля Примечание
+              5.Перейти на форму Инцидента
+             </stringProp>
+            </ThroughputController>
+            <hashTree>
+              <JUnitSampler guiclass="JUnitTestSamplerGui" testclass="JUnitSampler" testname="ProblemTest.addRemoveResource" enabled="false">
+                <stringProp name="junitSampler.classname">ru.argustelecom.bpms.list.ViewTaskListScenarioIT</stringProp>
+                <stringProp name="junitsampler.constructorstring"></stringProp>
+                <stringProp name="junitsampler.method">viewTaskListScenarioIT</stringProp>
+                <stringProp name="junitsampler.pkg.filter"></stringProp>
+                <stringProp name="junitsampler.success">Test successful</stringProp>
+                <stringProp name="junitsampler.success.code">1000</stringProp>
+                <stringProp name="junitsampler.failure">Test failed</stringProp>
+                <stringProp name="junitsampler.failure.code">0001</stringProp>
+                <stringProp name="junitsampler.error">An unexpected error occured</stringProp>
+                <stringProp name="junitsampler.error.code">9999</stringProp>
+                <stringProp name="junitsampler.exec.setup">false</stringProp>
+                <stringProp name="junitsampler.append.error">true</stringProp>
+                <stringProp name="junitsampler.append.exception">true</stringProp>
+                <boolProp name="junitsampler.junit4">true</boolProp>
+                <boolProp name="junitsampler.createinstancepersample">true</boolProp>
+              </JUnitSampler>
+              <hashTree>
+                <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="false">
+                  <boolProp name="ResultCollector.error_logging">false</boolProp>
+                  <objProp>
+                    <name>saveConfig</name>
+                    <value class="SampleSaveConfiguration">
+                      <time>true</time>
+                      <latency>true</latency>
+                      <timestamp>true</timestamp>
+                      <success>true</success>
+                      <label>true</label>
+                      <code>true</code>
+                      <message>true</message>
+                      <threadName>true</threadName>
+                      <dataType>true</dataType>
+                      <encoding>false</encoding>
+                      <assertions>true</assertions>
+                      <subresults>true</subresults>
+                      <responseData>true</responseData>
+                      <samplerData>true</samplerData>
+                      <xml>true</xml>
+                      <fieldNames>false</fieldNames>
+                      <responseHeaders>false</responseHeaders>
+                      <requestHeaders>false</requestHeaders>
+                      <responseDataOnError>false</responseDataOnError>
+                      <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                      <assertionsResultsToSave>0</assertionsResultsToSave>
+                      <bytes>true</bytes>
+                    </value>
+                  </objProp>
+                  <stringProp name="filename">artifacts\current\samples\ProblemTest.addRemoveResource.samplelist.jtl</stringProp>
+                </ResultCollector>
+                <hashTree/>
+                <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="false">
+                  <boolProp name="ResultCollector.error_logging">false</boolProp>
+                  <objProp>
+                    <name>saveConfig</name>
+                    <value class="SampleSaveConfiguration">
+                      <time>true</time>
+                      <latency>true</latency>
+                      <timestamp>true</timestamp>
+                      <success>true</success>
+                      <label>true</label>
+                      <code>true</code>
+                      <message>true</message>
+                      <threadName>true</threadName>
+                      <dataType>true</dataType>
+                      <encoding>false</encoding>
+                      <assertions>true</assertions>
+                      <subresults>true</subresults>
+                      <responseData>false</responseData>
+                      <samplerData>false</samplerData>
+                      <xml>true</xml>
+                      <fieldNames>false</fieldNames>
+                      <responseHeaders>false</responseHeaders>
+                      <requestHeaders>false</requestHeaders>
+                      <responseDataOnError>false</responseDataOnError>
+                      <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                      <assertionsResultsToSave>0</assertionsResultsToSave>
+                      <bytes>true</bytes>
+                    </value>
+                  </objProp>
+                  <stringProp name="filename"></stringProp>
+                </ResultCollector>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Throughput Controller" enabled="false">
+              <intProp name="ThroughputController.style">1</intProp>
+              <boolProp name="ThroughputController.perThread">true</boolProp>
+              <intProp name="ThroughputController.maxThroughput">1</intProp>
+              <FloatProperty>
+                <name>ThroughputController.percentThroughput</name>
+                <value>80.0</value>
+                <savedValue>0.0</savedValue>
+              </FloatProperty>
+              <stringProp name="TestPlan.comments">
+              Тест на изменение описания проблемы.
+              Cценарий теста:
+              1. Открытие формы проблемы
+              2. Изменение текстового описания проблемы
+             </stringProp>
+            </ThroughputController>
+            <hashTree>
+              <JUnitSampler guiclass="JUnitTestSamplerGui" testclass="JUnitSampler" testname="ProblemTest.changeProblemDescription" enabled="false">
+                <stringProp name="junitSampler.classname">ru.argustelecom.bpms.list.ViewTaskListScenarioIT</stringProp>
+                <stringProp name="junitsampler.constructorstring"></stringProp>
+                <stringProp name="junitsampler.method">viewTaskListScenarioIT</stringProp>
+                <stringProp name="junitsampler.pkg.filter"></stringProp>
+                <stringProp name="junitsampler.success">Test successful</stringProp>
+                <stringProp name="junitsampler.success.code">1000</stringProp>
+                <stringProp name="junitsampler.failure">Test failed</stringProp>
+                <stringProp name="junitsampler.failure.code">0001</stringProp>
+                <stringProp name="junitsampler.error">An unexpected error occured</stringProp>
+                <stringProp name="junitsampler.error.code">9999</stringProp>
+                <stringProp name="junitsampler.exec.setup">false</stringProp>
+                <stringProp name="junitsampler.append.error">true</stringProp>
+                <stringProp name="junitsampler.append.exception">true</stringProp>
+                <boolProp name="junitsampler.junit4">true</boolProp>
+                <boolProp name="junitsampler.createinstancepersample">true</boolProp>
+              </JUnitSampler>
+              <hashTree>
+                <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="false">
+                  <boolProp name="ResultCollector.error_logging">false</boolProp>
+                  <objProp>
+                    <name>saveConfig</name>
+                    <value class="SampleSaveConfiguration">
+                      <time>true</time>
+                      <latency>true</latency>
+                      <timestamp>true</timestamp>
+                      <success>true</success>
+                      <label>true</label>
+                      <code>true</code>
+                      <message>true</message>
+                      <threadName>true</threadName>
+                      <dataType>true</dataType>
+                      <encoding>false</encoding>
+                      <assertions>true</assertions>
+                      <subresults>true</subresults>
+                      <responseData>true</responseData>
+                      <samplerData>true</samplerData>
+                      <xml>true</xml>
+                      <fieldNames>false</fieldNames>
+                      <responseHeaders>false</responseHeaders>
+                      <requestHeaders>false</requestHeaders>
+                      <responseDataOnError>false</responseDataOnError>
+                      <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                      <assertionsResultsToSave>0</assertionsResultsToSave>
+                      <bytes>true</bytes>
+                    </value>
+                  </objProp>
+                  <stringProp name="filename">artifacts\current\samples\ProblemTest.changeProblemDescription.samplelist.jtl</stringProp>
+                </ResultCollector>
+                <hashTree/>
+                <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="false">
+                  <boolProp name="ResultCollector.error_logging">false</boolProp>
+                  <objProp>
+                    <name>saveConfig</name>
+                    <value class="SampleSaveConfiguration">
+                      <time>true</time>
+                      <latency>true</latency>
+                      <timestamp>true</timestamp>
+                      <success>true</success>
+                      <label>true</label>
+                      <code>true</code>
+                      <message>true</message>
+                      <threadName>true</threadName>
+                      <dataType>true</dataType>
+                      <encoding>false</encoding>
+                      <assertions>true</assertions>
+                      <subresults>true</subresults>
+                      <responseData>false</responseData>
+                      <samplerData>false</samplerData>
+                      <xml>true</xml>
+                      <fieldNames>false</fieldNames>
+                      <responseHeaders>false</responseHeaders>
+                      <requestHeaders>false</requestHeaders>
+                      <responseDataOnError>false</responseDataOnError>
+                      <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                      <assertionsResultsToSave>0</assertionsResultsToSave>
+                      <bytes>true</bytes>
+                    </value>
+                  </objProp>
+                  <stringProp name="filename"></stringProp>
+                </ResultCollector>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Throughput Controller" enabled="false">
+              <intProp name="ThroughputController.style">1</intProp>
+              <boolProp name="ThroughputController.perThread">true</boolProp>
+              <intProp name="ThroughputController.maxThroughput">1</intProp>
+              <FloatProperty>
+                <name>ThroughputController.percentThroughput</name>
+                <value>17.0</value>
+                <savedValue>0.0</savedValue>
+              </FloatProperty>
+              <stringProp name="TestPlan.comments">
+              Тест на изменение типа проблемы.
+              Cценарий теста:
+              1. Открытие формы проблемы
+              2. Вызов диалога смены типа проблемы
+              3. Выбор типа проблемы в диалоге
+              4. Подтверждение операции
+               </stringProp>
+            </ThroughputController>
+            <hashTree>
+              <JUnitSampler guiclass="JUnitTestSamplerGui" testclass="JUnitSampler" testname="ProblemTest.changeProblemType" enabled="false">
+                <stringProp name="junitSampler.classname">ru.argustelecom.bpms.list.ViewTaskListScenarioIT</stringProp>
+                <stringProp name="junitsampler.constructorstring"></stringProp>
+                <stringProp name="junitsampler.method">viewTaskListScenarioIT</stringProp>
+                <stringProp name="junitsampler.pkg.filter"></stringProp>
+                <stringProp name="junitsampler.success">Test successful</stringProp>
+                <stringProp name="junitsampler.success.code">1000</stringProp>
+                <stringProp name="junitsampler.failure">Test failed</stringProp>
+                <stringProp name="junitsampler.failure.code">0001</stringProp>
+                <stringProp name="junitsampler.error">An unexpected error occured</stringProp>
+                <stringProp name="junitsampler.error.code">9999</stringProp>
+                <stringProp name="junitsampler.exec.setup">false</stringProp>
+                <stringProp name="junitsampler.append.error">true</stringProp>
+                <stringProp name="junitsampler.append.exception">true</stringProp>
+                <boolProp name="junitsampler.junit4">true</boolProp>
+                <boolProp name="junitsampler.createinstancepersample">true</boolProp>
+              </JUnitSampler>
+              <hashTree>
+                <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="false">
+                  <boolProp name="ResultCollector.error_logging">false</boolProp>
+                  <objProp>
+                    <name>saveConfig</name>
+                    <value class="SampleSaveConfiguration">
+                      <time>true</time>
+                      <latency>true</latency>
+                      <timestamp>true</timestamp>
+                      <success>true</success>
+                      <label>true</label>
+                      <code>true</code>
+                      <message>true</message>
+                      <threadName>true</threadName>
+                      <dataType>true</dataType>
+                      <encoding>false</encoding>
+                      <assertions>true</assertions>
+                      <subresults>true</subresults>
+                      <responseData>true</responseData>
+                      <samplerData>true</samplerData>
+                      <xml>true</xml>
+                      <fieldNames>false</fieldNames>
+                      <responseHeaders>false</responseHeaders>
+                      <requestHeaders>false</requestHeaders>
+                      <responseDataOnError>false</responseDataOnError>
+                      <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                      <assertionsResultsToSave>0</assertionsResultsToSave>
+                      <bytes>true</bytes>
+                    </value>
+                  </objProp>
+                  <stringProp name="filename">artifacts\current\samples\ProblemTest.changeProblemType2.samplelist.jtl</stringProp>
+                </ResultCollector>
+                <hashTree/>
+                <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="false">
+                  <boolProp name="ResultCollector.error_logging">false</boolProp>
+                  <objProp>
+                    <name>saveConfig</name>
+                    <value class="SampleSaveConfiguration">
+                      <time>true</time>
+                      <latency>true</latency>
+                      <timestamp>true</timestamp>
+                      <success>true</success>
+                      <label>true</label>
+                      <code>true</code>
+                      <message>true</message>
+                      <threadName>true</threadName>
+                      <dataType>true</dataType>
+                      <encoding>false</encoding>
+                      <assertions>true</assertions>
+                      <subresults>true</subresults>
+                      <responseData>false</responseData>
+                      <samplerData>false</samplerData>
+                      <xml>true</xml>
+                      <fieldNames>false</fieldNames>
+                      <responseHeaders>false</responseHeaders>
+                      <requestHeaders>false</requestHeaders>
+                      <responseDataOnError>false</responseDataOnError>
+                      <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                      <assertionsResultsToSave>0</assertionsResultsToSave>
+                      <bytes>true</bytes>
+                    </value>
+                  </objProp>
+                  <stringProp name="filename"></stringProp>
+                </ResultCollector>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+          </hashTree>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Переназначение задачи" enabled="true">
+            <intProp name="ThroughputController.style">1</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">1</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>25.0</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+            <stringProp name="TestPlan.comments">
+            1.Переназначение задачи
+	    2.Cценарий теста:
+            3.Открыть Список задач
+            4.Выбрать узел Неназначенные задачи
+            5.Выбрать задачу в таблице
+            6.Нажать кнопку Переназначить
+            7.Выбрать участок и работника в диалоге Переназначение.
+            8.Нажать кнопку Переназначить
+          </stringProp>
+          </ThroughputController>
+          <hashTree>
+            <JUnitSampler guiclass="JUnitTestSamplerGui" testclass="JUnitSampler" testname="reassignRandomTask" enabled="true">
+              <stringProp name="junitSampler.classname">ru.argustelecom.bpms.list.ReassignTaskScenarioIT</stringProp>
+              <stringProp name="junitsampler.constructorstring"></stringProp>
+              <stringProp name="junitsampler.method">reassignTaskScenarioIT</stringProp>
+              <stringProp name="junitsampler.pkg.filter"></stringProp>
+              <stringProp name="junitsampler.success">Test successful</stringProp>
+              <stringProp name="junitsampler.success.code">1000</stringProp>
+              <stringProp name="junitsampler.failure">Test failed</stringProp>
+              <stringProp name="junitsampler.failure.code">0001</stringProp>
+              <stringProp name="junitsampler.error">An unexpected error occured</stringProp>
+              <stringProp name="junitsampler.error.code">9999</stringProp>
+              <stringProp name="junitsampler.exec.setup">false</stringProp>
+              <stringProp name="junitsampler.append.error">true</stringProp>
+              <stringProp name="junitsampler.append.exception">true</stringProp>
+              <boolProp name="junitsampler.junit4">true</boolProp>
+              <boolProp name="junitsampler.createinstancepersample">true</boolProp>
+            </JUnitSampler>
+            <hashTree>
+              <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>true</responseData>
+                    <samplerData>true</samplerData>
+                    <xml>true</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                    <hostname>true</hostname>
+                  </value>
+                </objProp>
+                <stringProp name="filename">artifacts\current\samples\reassignTaskScenarioIT.samplelist.jtl</stringProp>
+              </ResultCollector>
+              <hashTree/>
+              <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>false</responseData>
+                    <samplerData>false</samplerData>
+                    <xml>true</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                  </value>
+                </objProp>
+                <stringProp name="filename"></stringProp>
+              </ResultCollector>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Открытие сводного отчета" enabled="true">
+            <intProp name="ThroughputController.style">1</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">1</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>25.0</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+            <stringProp name="TestPlan.comments">
+            1.Просмотр сводных отчетов
+          </stringProp>
+          </ThroughputController>
+          <hashTree>
+            <JUnitSampler guiclass="JUnitTestSamplerGui" testclass="JUnitSampler" testname="viewOlapReport" enabled="true">
+              <stringProp name="junitSampler.classname">ru.argustelecom.system.inf.olap.ViewOlapReportScenarioIT</stringProp>
+              <stringProp name="junitsampler.constructorstring"></stringProp>
+              <stringProp name="junitsampler.method">viewOlapReportScenarioIT</stringProp>
+              <stringProp name="junitsampler.pkg.filter"></stringProp>
+              <stringProp name="junitsampler.success">Test successful</stringProp>
+              <stringProp name="junitsampler.success.code">1000</stringProp>
+              <stringProp name="junitsampler.failure">Test failed</stringProp>
+              <stringProp name="junitsampler.failure.code">0001</stringProp>
+              <stringProp name="junitsampler.error">An unexpected error occured</stringProp>
+              <stringProp name="junitsampler.error.code">9999</stringProp>
+              <stringProp name="junitsampler.exec.setup">false</stringProp>
+              <stringProp name="junitsampler.append.error">true</stringProp>
+              <stringProp name="junitsampler.append.exception">true</stringProp>
+              <boolProp name="junitsampler.junit4">true</boolProp>
+              <boolProp name="junitsampler.createinstancepersample">true</boolProp>
+            </JUnitSampler>
+            <hashTree>
+              <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>true</responseData>
+                    <samplerData>true</samplerData>
+                    <xml>true</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                    <hostname>true</hostname>
+                  </value>
+                </objProp>
+                <stringProp name="filename">artifacts\current\samples\viewOlapReportScenarioIT.samplelist.jtl</stringProp>
+              </ResultCollector>
+              <hashTree/>
+              <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>false</responseData>
+                    <samplerData>false</samplerData>
+                    <xml>true</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                  </value>
+                </objProp>
+                <stringProp name="filename"></stringProp>
+              </ResultCollector>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Открытие страницы Поиск" enabled="true">
+            <intProp name="ThroughputController.style">1</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">1</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>25.0</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+            <stringProp name="TestPlan.comments">
+            Открытие страницы Поиск
+	    Cценарий теста:
+            1. Логин.
+	    2. Открывает страницу Поиск клиента.
+	    3. Разлогиниться.
+          </stringProp>
+          </ThroughputController>
+          <hashTree>
+            <JUnitSampler guiclass="JUnitTestSamplerGui" testclass="JUnitSampler" testname="reassignRandomTask" enabled="true">
+              <stringProp name="junitSampler.classname">ru.argustelecom.registercontact.search.SearchClientIT</stringProp>
+              <stringProp name="junitsampler.constructorstring"></stringProp>
+              <stringProp name="junitsampler.method">execute</stringProp>
+              <stringProp name="junitsampler.pkg.filter"></stringProp>
+              <stringProp name="junitsampler.success">Test successful</stringProp>
+              <stringProp name="junitsampler.success.code">1000</stringProp>
+              <stringProp name="junitsampler.failure">Test failed</stringProp>
+              <stringProp name="junitsampler.failure.code">0001</stringProp>
+              <stringProp name="junitsampler.error">An unexpected error occured</stringProp>
+              <stringProp name="junitsampler.error.code">9999</stringProp>
+              <stringProp name="junitsampler.exec.setup">false</stringProp>
+              <stringProp name="junitsampler.append.error">true</stringProp>
+              <stringProp name="junitsampler.append.exception">true</stringProp>
+              <boolProp name="junitsampler.junit4">true</boolProp>
+              <boolProp name="junitsampler.createinstancepersample">true</boolProp>
+            </JUnitSampler>
+            <hashTree>
+              <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>true</responseData>
+                    <samplerData>true</samplerData>
+                    <xml>true</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                    <hostname>true</hostname>
+                  </value>
+                </objProp>
+                <stringProp name="filename">artifacts\current\samples\openAndCloseSearchClientIT.samplelist.jtl</stringProp>
+              </ResultCollector>
+              <hashTree/>
+              <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>false</responseData>
+                    <samplerData>false</samplerData>
+                    <xml>true</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                  </value>
+                </objProp>
+                <stringProp name="filename"></stringProp>
+              </ResultCollector>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Регистрация платной справки" enabled="false">
+            <intProp name="ThroughputController.style">0</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">50</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>100.0</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+            <stringProp name="TestPlan.comments">Интенсивность платных справок не известна, берем примерно как у обычных справок, т.е. общее - 1000 справок в час.</stringProp>
+          </ThroughputController>
+          <hashTree>
+            <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Throughput Controller" enabled="false">
+              <intProp name="ThroughputController.style">0</intProp>
+              <boolProp name="ThroughputController.perThread">true</boolProp>
+              <intProp name="ThroughputController.maxThroughput">25</intProp>
+              <FloatProperty>
+                <name>ThroughputController.percentThroughput</name>
+                <value>100.0</value>
+                <savedValue>0.0</savedValue>
+              </FloatProperty>
+              <stringProp name="TestPlan.comments">
+              Предположим, из 1000 платных справок в час 150 регистрируются &quot;отложенными&quot; - закрываются не сразу после регистрации.
+              Тест регистрации справки 009 из поиска c передачей на дополнение добавлением и удалением контакта.
+	      Cценарий теста:
+	      1. найти клиента
+	      2. перейти в форму поиска
+	      3. выбрать вкладку 009
+	      4. выбрать тип и ввести имя
+	      5. выбрать регион
+	      6. произвести поиск
+	      7. выбрать имя 1-го клиента
+	      8. нажать на кнопку регистрации справки 009, ожидаем открытие диалоги выбора клиента, кому выдана справка, в котором:
+	      8.1 найти клиента по имена
+	      8.2 выбрать 1-го клиента
+	      8.3 нажать на кнопку ok
+	      9. в открывшейся форме платной справки нажать на кнопку редактирования информации
+	      10. изменить номер телефона
+	      11. выбрать решение &quot;Заказ на подготовку данных&quot;
+	      12. перейти в форму новой задачи
+	      13. нажать на кнопку добавления контакта, в появившемся диалоге:
+	      13.1 ввестии имя, тип и регион, произвести поиск
+	      13.2 выбрать контакт найденного клиента, нажать кнопку добавить
+	      14. нажать на кнопку редактирования первого контакта
+	      15. нажать на кнопку удаления первого контакта
+	      16. выбрать решение &quot;Справка выдана&quot;
+              </stringProp>
+            </ThroughputController>
+            <hashTree>
+              <JUnitSampler guiclass="JUnitTestSamplerGui" testclass="JUnitSampler" testname="registerDelayed009InfoInquiryTest" enabled="false">
+                <stringProp name="junitSampler.classname">ru.argustelecom.registercontact.search.SearchClientIT</stringProp>
+                <stringProp name="junitsampler.constructorstring"></stringProp>
+                <stringProp name="junitsampler.method">execute</stringProp>
+                <stringProp name="junitsampler.pkg.filter"></stringProp>
+                <stringProp name="junitsampler.success">Test successful</stringProp>
+                <stringProp name="junitsampler.success.code">1000</stringProp>
+                <stringProp name="junitsampler.failure">Test failed</stringProp>
+                <stringProp name="junitsampler.failure.code">0001</stringProp>
+                <stringProp name="junitsampler.error">An unexpected error occured</stringProp>
+                <stringProp name="junitsampler.error.code">9999</stringProp>
+                <stringProp name="junitsampler.exec.setup">false</stringProp>
+                <stringProp name="junitsampler.append.error">true</stringProp>
+                <stringProp name="junitsampler.append.exception">true</stringProp>
+                <boolProp name="junitsampler.junit4">true</boolProp>
+                <boolProp name="junitsampler.createinstancepersample">true</boolProp>
+                <stringProp name="TestPlan.comments">Открывает поиск 009, находит информацию, находит клиента кому выдана справка, регистрирует справку.
+Принимает решение &quot;Заказ на подготовку данных&quot;, изменяет выданную информацию, закрывает справку.</stringProp>
+              </JUnitSampler>
+              <hashTree>
+                <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="false">
+                  <boolProp name="ResultCollector.error_logging">false</boolProp>
+                  <objProp>
+                    <name>saveConfig</name>
+                    <value class="SampleSaveConfiguration">
+                      <time>true</time>
+                      <latency>true</latency>
+                      <timestamp>true</timestamp>
+                      <success>true</success>
+                      <label>true</label>
+                      <code>true</code>
+                      <message>true</message>
+                      <threadName>true</threadName>
+                      <dataType>true</dataType>
+                      <encoding>false</encoding>
+                      <assertions>true</assertions>
+                      <subresults>true</subresults>
+                      <responseData>true</responseData>
+                      <samplerData>true</samplerData>
+                      <xml>true</xml>
+                      <fieldNames>false</fieldNames>
+                      <responseHeaders>false</responseHeaders>
+                      <requestHeaders>false</requestHeaders>
+                      <responseDataOnError>false</responseDataOnError>
+                      <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                      <assertionsResultsToSave>0</assertionsResultsToSave>
+                      <bytes>true</bytes>
+                      <hostname>true</hostname>
+                    </value>
+                  </objProp>
+                  <stringProp name="filename">artifacts\current\samples\registerInquiryFromSearch.samplelist.jtl</stringProp>
+                </ResultCollector>
+                <hashTree/>
+                <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="false">
+                  <boolProp name="ResultCollector.error_logging">false</boolProp>
+                  <objProp>
+                    <name>saveConfig</name>
+                    <value class="SampleSaveConfiguration">
+                      <time>true</time>
+                      <latency>true</latency>
+                      <timestamp>true</timestamp>
+                      <success>true</success>
+                      <label>true</label>
+                      <code>true</code>
+                      <message>true</message>
+                      <threadName>true</threadName>
+                      <dataType>true</dataType>
+                      <encoding>false</encoding>
+                      <assertions>true</assertions>
+                      <subresults>true</subresults>
+                      <responseData>false</responseData>
+                      <samplerData>false</samplerData>
+                      <xml>true</xml>
+                      <fieldNames>false</fieldNames>
+                      <responseHeaders>false</responseHeaders>
+                      <requestHeaders>false</requestHeaders>
+                      <responseDataOnError>false</responseDataOnError>
+                      <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                      <assertionsResultsToSave>0</assertionsResultsToSave>
+                      <bytes>true</bytes>
+                    </value>
+                  </objProp>
+                  <stringProp name="filename"></stringProp>
+                </ResultCollector>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Throughput Controller" enabled="false">
+              <intProp name="ThroughputController.style">0</intProp>
+              <boolProp name="ThroughputController.perThread">true</boolProp>
+              <intProp name="ThroughputController.maxThroughput">60</intProp>
+              <FloatProperty>
+                <name>ThroughputController.percentThroughput</name>
+                <value>100.0</value>
+                <savedValue>0.0</savedValue>
+              </FloatProperty>
+              <stringProp name="TestPlan.comments">
+              Предположим, из 1000 платных справок в час 850 регистрируются и сразу закрываются. Тест регистрирует по 2 справки.
+              Тест регистрации простой (без ожидания) справки 009 из поиска.
+	      Cценарий теста:
+	      1. найти 2-х клиентов фл и юл
+	      2. перейти в форму поиска
+	      3. выбрать вкладку 009, далее для каждого клиента
+	      4. выбрать тип и ввести имя
+	      5. выбрать регион
+	      6. произвести поиск
+	      7. выбрать имя 1-го клиента
+	      8. нажать на кнопку регистрации справки 009, ожидаем открытие диалоги
+	         выбора клиента, кому выдана справка, в котором:
+	      8.1 найти клиента по имена
+	      8.2 выбрать 1-го клиента
+	      8.3 нажать на кнопку ok
+	      9. в открывшейся форме платной справки нажать на кнопку редактирования
+	         информации
+	      10. изменить номер телефона
+	      11. выбрать решение &quot;Справка выдана&quot;
+              </stringProp>
+            </ThroughputController>
+            <hashTree>
+              <JUnitSampler guiclass="JUnitTestSamplerGui" testclass="JUnitSampler" testname="registerSimple009InfoInquiryTest" enabled="false">
+                <stringProp name="junitSampler.classname">ru.argustelecom.registercontact.search.SearchClientIT</stringProp>
+                <stringProp name="junitsampler.constructorstring"></stringProp>
+                <stringProp name="junitsampler.method">execute</stringProp>
+                <stringProp name="junitsampler.pkg.filter"></stringProp>
+                <stringProp name="junitsampler.success">Test successful</stringProp>
+                <stringProp name="junitsampler.success.code">1000</stringProp>
+                <stringProp name="junitsampler.failure">Test failed</stringProp>
+                <stringProp name="junitsampler.failure.code">0001</stringProp>
+                <stringProp name="junitsampler.error">An unexpected error occured</stringProp>
+                <stringProp name="junitsampler.error.code">9999</stringProp>
+                <stringProp name="junitsampler.exec.setup">false</stringProp>
+                <stringProp name="junitsampler.append.error">true</stringProp>
+                <stringProp name="junitsampler.append.exception">true</stringProp>
+                <boolProp name="junitsampler.junit4">true</boolProp>
+                <boolProp name="junitsampler.createinstancepersample">true</boolProp>
+                <stringProp name="TestPlan.comments">Выдает две платные справки двум клиентам - фл и юл. Для каждого:
+Открывает поиск 009, находит информацию, находит клиента кому выдана справка, регистрирует справку.
+В справке редактирует выданную информацию, закрывает справку.</stringProp>
+              </JUnitSampler>
+              <hashTree>
+                <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="false">
+                  <boolProp name="ResultCollector.error_logging">false</boolProp>
+                  <objProp>
+                    <name>saveConfig</name>
+                    <value class="SampleSaveConfiguration">
+                      <time>true</time>
+                      <latency>true</latency>
+                      <timestamp>true</timestamp>
+                      <success>true</success>
+                      <label>true</label>
+                      <code>true</code>
+                      <message>true</message>
+                      <threadName>true</threadName>
+                      <dataType>true</dataType>
+                      <encoding>false</encoding>
+                      <assertions>true</assertions>
+                      <subresults>true</subresults>
+                      <responseData>true</responseData>
+                      <samplerData>true</samplerData>
+                      <xml>true</xml>
+                      <fieldNames>false</fieldNames>
+                      <responseHeaders>false</responseHeaders>
+                      <requestHeaders>false</requestHeaders>
+                      <responseDataOnError>false</responseDataOnError>
+                      <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                      <assertionsResultsToSave>0</assertionsResultsToSave>
+                      <bytes>true</bytes>
+                      <hostname>true</hostname>
+                    </value>
+                  </objProp>
+                  <stringProp name="filename">artifacts\current\samples\registerInquiryFromClientCard.samplelist.jtl</stringProp>
+                </ResultCollector>
+                <hashTree/>
+                <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="false">
+                  <boolProp name="ResultCollector.error_logging">false</boolProp>
+                  <objProp>
+                    <name>saveConfig</name>
+                    <value class="SampleSaveConfiguration">
+                      <time>true</time>
+                      <latency>true</latency>
+                      <timestamp>true</timestamp>
+                      <success>true</success>
+                      <label>true</label>
+                      <code>true</code>
+                      <message>true</message>
+                      <threadName>true</threadName>
+                      <dataType>true</dataType>
+                      <encoding>false</encoding>
+                      <assertions>true</assertions>
+                      <subresults>true</subresults>
+                      <responseData>false</responseData>
+                      <samplerData>false</samplerData>
+                      <xml>true</xml>
+                      <fieldNames>false</fieldNames>
+                      <responseHeaders>false</responseHeaders>
+                      <requestHeaders>false</requestHeaders>
+                      <responseDataOnError>false</responseDataOnError>
+                      <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                      <assertionsResultsToSave>0</assertionsResultsToSave>
+                      <bytes>true</bytes>
+                    </value>
+                  </objProp>
+                  <stringProp name="filename"></stringProp>
+                </ResultCollector>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+          </hashTree>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Закрытие браузера" enabled="false">
+            <intProp name="ThroughputController.style">1</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">1</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>0.0</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+          </ThroughputController>
+          <hashTree>
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="false">
+              <stringProp name="IfController.condition">${needCloseBrowser}</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+            </IfController>
+            <hashTree>
+              <JUnitSampler guiclass="JUnitTestSamplerGui" testclass="JUnitSampler" testname="CloseBrowser" enabled="false">
+                <stringProp name="junitSampler.classname">ru.argustelecom.registercontact.search.SearchClientIT</stringProp>
+                <stringProp name="junitsampler.constructorstring"></stringProp>
+                <stringProp name="junitsampler.method">execute</stringProp>
+                <stringProp name="junitsampler.pkg.filter"></stringProp>
+                <stringProp name="junitsampler.success">Test successful</stringProp>
+                <stringProp name="junitsampler.success.code">1000</stringProp>
+                <stringProp name="junitsampler.failure">Test failed</stringProp>
+                <stringProp name="junitsampler.failure.code">0001</stringProp>
+                <stringProp name="junitsampler.error">An unexpected error occured</stringProp>
+                <stringProp name="junitsampler.error.code">9999</stringProp>
+                <stringProp name="junitsampler.exec.setup">false</stringProp>
+                <stringProp name="junitsampler.append.error">true</stringProp>
+                <stringProp name="junitsampler.append.exception">true</stringProp>
+                <boolProp name="junitsampler.createinstancepersample">true</boolProp>
+                <boolProp name="junitsampler.junit4">true</boolProp>
+              </JUnitSampler>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <ResultCollector guiclass="RespTimeGraphVisualizer" testclass="ResultCollector" testname="Response Time Graph" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>true</xml>
+                <fieldNames>false</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+          <ResultCollector guiclass="StatGraphVisualizer" testclass="ResultCollector" testname="Aggregate Graph" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>true</xml>
+                <fieldNames>false</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+          <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>true</xml>
+                <fieldNames>false</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+          <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>true</xml>
+                <fieldNames>false</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+          <ResultCollector guiclass="MonitorHealthVisualizer" testclass="ResultCollector" testname="Monitor Results" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>true</xml>
+                <fieldNames>false</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+          <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>true</responseData>
+                <samplerData>true</samplerData>
+                <xml>true</xml>
+                <fieldNames>false</fieldNames>
+                <responseHeaders>true</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <url>true</url>
+              </value>
+            </objProp>
+            <stringProp name="filename">artifacts\current\samples\samplelist.jtl</stringProp>
+          </ResultCollector>
+          <hashTree/>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>true</responseData>
+                <samplerData>false</samplerData>
+                <xml>true</xml>
+                <fieldNames>false</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Регистрация ГП" enabled="true">
+            <intProp name="ThroughputController.style">1</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">1</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>80.0</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+            <stringProp name="TestPlan.comments">
+            1.Регистрация ГП по правилу &quot;По региону, типу и технологии услуги&quot;
+            2.Регистрация ГП по правилу &quot;По зданию, типу и технологии услуги&quot;
+          </stringProp>
+          </ThroughputController>
+          <hashTree>
+            <JUnitSampler guiclass="JUnitTestSamplerGui" testclass="JUnitSampler" testname="GlobalProblemScenarioIT" enabled="true">
+              <stringProp name="junitSampler.classname">ru.argustelecom.supportservice.globalproblem.GlobalProblemScenarioIT</stringProp>
+              <stringProp name="junitsampler.constructorstring"></stringProp>
+              <stringProp name="junitsampler.method">createGlobalProblemAnRuleRegionAndServiceType</stringProp>
+              <stringProp name="junitsampler.pkg.filter"></stringProp>
+              <stringProp name="junitsampler.success">Test successful</stringProp>
+              <stringProp name="junitsampler.success.code">1000</stringProp>
+              <stringProp name="junitsampler.failure">Test failed</stringProp>
+              <stringProp name="junitsampler.failure.code">0001</stringProp>
+              <stringProp name="junitsampler.error">An unexpected error occured</stringProp>
+              <stringProp name="junitsampler.error.code">9999</stringProp>
+              <stringProp name="junitsampler.exec.setup">false</stringProp>
+              <stringProp name="junitsampler.append.error">true</stringProp>
+              <stringProp name="junitsampler.append.exception">true</stringProp>
+              <boolProp name="junitsampler.junit4">true</boolProp>
+              <boolProp name="junitsampler.createinstancepersample">true</boolProp>
+            </JUnitSampler>
+            <hashTree>
+              <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>true</responseData>
+                    <samplerData>true</samplerData>
+                    <xml>true</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                    <hostname>true</hostname>
+                  </value>
+                </objProp>
+                <stringProp name="filename">artifacts\current\samples\viewOlapReportScenarioIT.samplelist.jtl</stringProp>
+              </ResultCollector>
+              <hashTree/>
+              <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>false</responseData>
+                    <samplerData>false</samplerData>
+                    <xml>true</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                  </value>
+                </objProp>
+                <stringProp name="filename"></stringProp>
+              </ResultCollector>
+              <hashTree/>
+            </hashTree>
+            <JUnitSampler guiclass="JUnitTestSamplerGui" testclass="JUnitSampler" testname="GlobalProblemScenarioIT" enabled="true">
+              <stringProp name="junitSampler.classname">ru.argustelecom.supportservice.globalproblem.GlobalProblemScenarioIT</stringProp>
+              <stringProp name="junitsampler.constructorstring"></stringProp>
+              <stringProp name="junitsampler.method">createGlobalProblemAnRuleBuildingServiseAccessType</stringProp>
+              <stringProp name="junitsampler.pkg.filter"></stringProp>
+              <stringProp name="junitsampler.success">Test successful</stringProp>
+              <stringProp name="junitsampler.success.code">1000</stringProp>
+              <stringProp name="junitsampler.failure">Test failed</stringProp>
+              <stringProp name="junitsampler.failure.code">0001</stringProp>
+              <stringProp name="junitsampler.error">An unexpected error occured</stringProp>
+              <stringProp name="junitsampler.error.code">9999</stringProp>
+              <stringProp name="junitsampler.exec.setup">false</stringProp>
+              <stringProp name="junitsampler.append.error">true</stringProp>
+              <stringProp name="junitsampler.append.exception">true</stringProp>
+              <boolProp name="junitsampler.junit4">true</boolProp>
+              <boolProp name="junitsampler.createinstancepersample">true</boolProp>
+            </JUnitSampler>
+            <hashTree>
+              <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>true</responseData>
+                    <samplerData>true</samplerData>
+                    <xml>true</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                    <hostname>true</hostname>
+                  </value>
+                </objProp>
+                <stringProp name="filename">artifacts\current\samples\viewOlapReportScenarioIT.samplelist.jtl</stringProp>
+              </ResultCollector>
+              <hashTree/>
+              <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>false</responseData>
+                    <samplerData>false</samplerData>
+                    <xml>true</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                  </value>
+                </objProp>
+                <stringProp name="filename"></stringProp>
+              </ResultCollector>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Регистрация оповещения" enabled="true">
+            <intProp name="ThroughputController.style">1</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">1</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>80.0</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+            <stringProp name="TestPlan.comments">
+          1. Регистрация опопвещения без правил
+          2. Регистрация оповещения с правилом &quot;По региону и типу услуги&quot; на услугу &quot;Телефонный номер&quot;
+          3. cancelNotification
+          </stringProp>
+          </ThroughputController>
+          <hashTree>
+            <JUnitSampler guiclass="JUnitTestSamplerGui" testclass="JUnitSampler" testname="NotificationScenarioIT" enabled="true">
+              <stringProp name="junitSampler.classname">ru.argustelecom.supportservice.notification.NotificationScenarioIT</stringProp>
+              <stringProp name="junitsampler.constructorstring"></stringProp>
+              <stringProp name="junitsampler.method">createNotifaicationWithoutRule</stringProp>
+              <stringProp name="junitsampler.pkg.filter"></stringProp>
+              <stringProp name="junitsampler.success">Test successful</stringProp>
+              <stringProp name="junitsampler.success.code">1000</stringProp>
+              <stringProp name="junitsampler.failure">Test failed</stringProp>
+              <stringProp name="junitsampler.failure.code">0001</stringProp>
+              <stringProp name="junitsampler.error">An unexpected error occured</stringProp>
+              <stringProp name="junitsampler.error.code">9999</stringProp>
+              <stringProp name="junitsampler.exec.setup">false</stringProp>
+              <stringProp name="junitsampler.append.error">true</stringProp>
+              <stringProp name="junitsampler.append.exception">true</stringProp>
+              <boolProp name="junitsampler.junit4">true</boolProp>
+              <boolProp name="junitsampler.createinstancepersample">true</boolProp>
+            </JUnitSampler>
+            <hashTree>
+              <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>true</responseData>
+                    <samplerData>true</samplerData>
+                    <xml>true</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                    <hostname>true</hostname>
+                  </value>
+                </objProp>
+                <stringProp name="filename">artifacts\current\samples\viewOlapReportScenarioIT.samplelist.jtl</stringProp>
+              </ResultCollector>
+              <hashTree/>
+              <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>false</responseData>
+                    <samplerData>false</samplerData>
+                    <xml>true</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                  </value>
+                </objProp>
+                <stringProp name="filename"></stringProp>
+              </ResultCollector>
+              <hashTree/>
+            </hashTree>
+            <JUnitSampler guiclass="JUnitTestSamplerGui" testclass="JUnitSampler" testname="NotitficationCancellationIT" enabled="true">
+              <stringProp name="junitSampler.classname">ru.argustelecom.supportservice.notification.NotitficationCancellationIT</stringProp>
+              <stringProp name="junitsampler.constructorstring"></stringProp>
+              <stringProp name="junitsampler.method">cancelNotification</stringProp>
+              <stringProp name="junitsampler.pkg.filter"></stringProp>
+              <stringProp name="junitsampler.success">Test successful</stringProp>
+              <stringProp name="junitsampler.success.code">1000</stringProp>
+              <stringProp name="junitsampler.failure">Test failed</stringProp>
+              <stringProp name="junitsampler.failure.code">0001</stringProp>
+              <stringProp name="junitsampler.error">An unexpected error occured</stringProp>
+              <stringProp name="junitsampler.error.code">9999</stringProp>
+              <stringProp name="junitsampler.exec.setup">false</stringProp>
+              <stringProp name="junitsampler.append.error">true</stringProp>
+              <stringProp name="junitsampler.append.exception">true</stringProp>
+              <boolProp name="junitsampler.junit4">true</boolProp>
+              <boolProp name="junitsampler.createinstancepersample">true</boolProp>
+            </JUnitSampler>
+            <hashTree>
+              <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>true</responseData>
+                    <samplerData>true</samplerData>
+                    <xml>true</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                    <hostname>true</hostname>
+                  </value>
+                </objProp>
+                <stringProp name="filename">artifacts\current\samples\viewOlapReportScenarioIT.samplelist.jtl</stringProp>
+              </ResultCollector>
+              <hashTree/>
+              <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>false</responseData>
+                    <samplerData>false</samplerData>
+                    <xml>true</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                  </value>
+                </objProp>
+                <stringProp name="filename"></stringProp>
+              </ResultCollector>
+              <hashTree/>
+            </hashTree>
+            <JUnitSampler guiclass="JUnitTestSamplerGui" testclass="JUnitSampler" testname="NotificationScenarioIT" enabled="true">
+              <stringProp name="junitSampler.classname">ru.argustelecom.supportservice.notification.NotificationScenarioIT</stringProp>
+              <stringProp name="junitsampler.constructorstring"></stringProp>
+              <stringProp name="junitsampler.method">createNotification</stringProp>
+              <stringProp name="junitsampler.pkg.filter"></stringProp>
+              <stringProp name="junitsampler.success">Test successful</stringProp>
+              <stringProp name="junitsampler.success.code">1000</stringProp>
+              <stringProp name="junitsampler.failure">Test failed</stringProp>
+              <stringProp name="junitsampler.failure.code">0001</stringProp>
+              <stringProp name="junitsampler.error">An unexpected error occured</stringProp>
+              <stringProp name="junitsampler.error.code">9999</stringProp>
+              <stringProp name="junitsampler.exec.setup">false</stringProp>
+              <stringProp name="junitsampler.append.error">true</stringProp>
+              <stringProp name="junitsampler.append.exception">true</stringProp>
+              <boolProp name="junitsampler.junit4">true</boolProp>
+              <boolProp name="junitsampler.createinstancepersample">true</boolProp>
+            </JUnitSampler>
+            <hashTree>
+              <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>true</responseData>
+                    <samplerData>true</samplerData>
+                    <xml>true</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                    <hostname>true</hostname>
+                  </value>
+                </objProp>
+                <stringProp name="filename">artifacts\current\samples\viewOlapReportScenarioIT.samplelist.jtl</stringProp>
+              </ResultCollector>
+              <hashTree/>
+              <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>false</responseData>
+                    <samplerData>false</samplerData>
+                    <xml>true</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                  </value>
+                </objProp>
+                <stringProp name="filename"></stringProp>
+              </ResultCollector>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Регистрация справки без выбора услуги" enabled="true">
+            <intProp name="ThroughputController.style">1</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">1</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>80.0</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+            <stringProp name="TestPlan.comments">	 * Сценарий: Регистрация справки на выбранную услугу из Карточки клиента
+	 * Открыть карточку клиента из меню Карточка клиента/С линией
+	 * Нажать кнопку Регистрация справки
+	 * Рандомно заполнить поле Тип услуги
+	 * Рандомно заполнить поле Тип справки
+	 * Нажать кнопку Зарегистрировать </stringProp>
+          </ThroughputController>
+          <hashTree>
+            <JUnitSampler guiclass="JUnitTestSamplerGui" testclass="JUnitSampler" testname="InquiryRegistrationCCWithoutServiceScenarioIT" enabled="true">
+              <stringProp name="junitSampler.classname">ru.argustelecom.registercontact.clientcard.InquiryRegistrationCCWithoutServiceScenarioIT</stringProp>
+              <stringProp name="junitsampler.constructorstring"></stringProp>
+              <stringProp name="junitsampler.method">inquiryRegistrationCCWithoutServiceScenarioIT</stringProp>
+              <stringProp name="junitsampler.pkg.filter"></stringProp>
+              <stringProp name="junitsampler.success">Test successful</stringProp>
+              <stringProp name="junitsampler.success.code">1000</stringProp>
+              <stringProp name="junitsampler.failure">Test failed</stringProp>
+              <stringProp name="junitsampler.failure.code">0001</stringProp>
+              <stringProp name="junitsampler.error">An unexpected error occured</stringProp>
+              <stringProp name="junitsampler.error.code">9999</stringProp>
+              <stringProp name="junitsampler.exec.setup">false</stringProp>
+              <stringProp name="junitsampler.append.error">true</stringProp>
+              <stringProp name="junitsampler.append.exception">true</stringProp>
+              <boolProp name="junitsampler.junit4">true</boolProp>
+              <boolProp name="junitsampler.createinstancepersample">true</boolProp>
+            </JUnitSampler>
+            <hashTree>
+              <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>true</responseData>
+                    <samplerData>true</samplerData>
+                    <xml>true</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                    <hostname>true</hostname>
+                  </value>
+                </objProp>
+                <stringProp name="filename">artifacts\current\samples\viewOlapReportScenarioIT.samplelist.jtl</stringProp>
+              </ResultCollector>
+              <hashTree/>
+              <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>false</responseData>
+                    <samplerData>false</samplerData>
+                    <xml>true</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                  </value>
+                </objProp>
+                <stringProp name="filename"></stringProp>
+              </ResultCollector>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Регистрация оповещения" enabled="true">
+            <intProp name="ThroughputController.style">1</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">1</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>80.0</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+            <stringProp name="TestPlan.comments">	 * Открыть карточку клиента из меню Карточка клиента/С линией
+	 * Рандомно выбрать услугу
+	 * Нажать кнопку Регистрация справки
+	 * Рандомно заполнить поле Тип услуги
+	 * Рандомно заполнить поле Тип справки
+	 * Нажать кнопку Зарегистрировать </stringProp>
+          </ThroughputController>
+          <hashTree>
+            <JUnitSampler guiclass="JUnitTestSamplerGui" testclass="JUnitSampler" testname="inquiryRegistrationClientCardScenarioIT" enabled="true">
+              <stringProp name="junitSampler.classname">ru.argustelecom.registercontact.clientcard.InquiryRegistrationClientCardScenarioIT</stringProp>
+              <stringProp name="junitsampler.constructorstring"></stringProp>
+              <stringProp name="junitsampler.method">inquiryRegistrationClientCardScenarioIT</stringProp>
+              <stringProp name="junitsampler.pkg.filter"></stringProp>
+              <stringProp name="junitsampler.success">Test successful</stringProp>
+              <stringProp name="junitsampler.success.code">1000</stringProp>
+              <stringProp name="junitsampler.failure">Test failed</stringProp>
+              <stringProp name="junitsampler.failure.code">0001</stringProp>
+              <stringProp name="junitsampler.error">An unexpected error occured</stringProp>
+              <stringProp name="junitsampler.error.code">9999</stringProp>
+              <stringProp name="junitsampler.exec.setup">false</stringProp>
+              <stringProp name="junitsampler.append.error">true</stringProp>
+              <stringProp name="junitsampler.append.exception">true</stringProp>
+              <boolProp name="junitsampler.junit4">true</boolProp>
+              <boolProp name="junitsampler.createinstancepersample">true</boolProp>
+            </JUnitSampler>
+            <hashTree>
+              <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>true</responseData>
+                    <samplerData>true</samplerData>
+                    <xml>true</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                    <hostname>true</hostname>
+                  </value>
+                </objProp>
+                <stringProp name="filename">artifacts\current\samples\viewOlapReportScenarioIT.samplelist.jtl</stringProp>
+              </ResultCollector>
+              <hashTree/>
+              <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>false</responseData>
+                    <samplerData>false</samplerData>
+                    <xml>true</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                  </value>
+                </objProp>
+                <stringProp name="filename"></stringProp>
+              </ResultCollector>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Регистрация справки из Поиска клиента" enabled="true">
+            <intProp name="ThroughputController.style">1</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">1</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>80.0</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+            <stringProp name="TestPlan.comments">	 * Открыть форму Поиск клиента
+	 * Нажать кнопку Регистрация справки
+	 * Рандомно заполнить поле Тип услуги
+	 * Рандомно заполнить поле Тип справки
+	 * Нажать кнопку Зарегистрировать</stringProp>
+          </ThroughputController>
+          <hashTree>
+            <JUnitSampler guiclass="JUnitTestSamplerGui" testclass="JUnitSampler" testname="InquiryRegistrationClientScenarioIT" enabled="true">
+              <stringProp name="junitSampler.classname">ru.argustelecom.registercontact.search.InquiryRegistrationClientScenarioIT</stringProp>
+              <stringProp name="junitsampler.constructorstring"></stringProp>
+              <stringProp name="junitsampler.method">inquiryRegistrationClientScenario</stringProp>
+              <stringProp name="junitsampler.pkg.filter"></stringProp>
+              <stringProp name="junitsampler.success">Test successful</stringProp>
+              <stringProp name="junitsampler.success.code">1000</stringProp>
+              <stringProp name="junitsampler.failure">Test failed</stringProp>
+              <stringProp name="junitsampler.failure.code">0001</stringProp>
+              <stringProp name="junitsampler.error">An unexpected error occured</stringProp>
+              <stringProp name="junitsampler.error.code">9999</stringProp>
+              <stringProp name="junitsampler.exec.setup">false</stringProp>
+              <stringProp name="junitsampler.append.error">true</stringProp>
+              <stringProp name="junitsampler.append.exception">true</stringProp>
+              <boolProp name="junitsampler.junit4">true</boolProp>
+              <boolProp name="junitsampler.createinstancepersample">true</boolProp>
+            </JUnitSampler>
+            <hashTree>
+              <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>true</responseData>
+                    <samplerData>true</samplerData>
+                    <xml>true</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                    <hostname>true</hostname>
+                  </value>
+                </objProp>
+                <stringProp name="filename">artifacts\current\samples\viewOlapReportScenarioIT.samplelist.jtl</stringProp>
+              </ResultCollector>
+              <hashTree/>
+              <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>false</responseData>
+                    <samplerData>false</samplerData>
+                    <xml>true</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                  </value>
+                </objProp>
+                <stringProp name="filename"></stringProp>
+              </ResultCollector>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Регистрация справки из Поиска услуги" enabled="true">
+            <intProp name="ThroughputController.style">1</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">1</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>80.0</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+            <stringProp name="TestPlan.comments">	 * Открыть форму Поиск услуги
+	 * Нажать кнопку Регистрация справки
+	 * Рандомно заполнить поле Тип услуги
+	 * Рандомно заполнить поле Тип справки
+	 * Нажать кнопку Зарегистрировать</stringProp>
+          </ThroughputController>
+          <hashTree>
+            <JUnitSampler guiclass="JUnitTestSamplerGui" testclass="JUnitSampler" testname="InquiryRegistrationServicesScenarioIT" enabled="true">
+              <stringProp name="junitSampler.classname">ru.argustelecom.registercontact.search.InquiryRegistrationServicesScenarioIT</stringProp>
+              <stringProp name="junitsampler.constructorstring"></stringProp>
+              <stringProp name="junitsampler.method">inquiryRegistrationServicesScenario</stringProp>
+              <stringProp name="junitsampler.pkg.filter"></stringProp>
+              <stringProp name="junitsampler.success">Test successful</stringProp>
+              <stringProp name="junitsampler.success.code">1000</stringProp>
+              <stringProp name="junitsampler.failure">Test failed</stringProp>
+              <stringProp name="junitsampler.failure.code">0001</stringProp>
+              <stringProp name="junitsampler.error">An unexpected error occured</stringProp>
+              <stringProp name="junitsampler.error.code">9999</stringProp>
+              <stringProp name="junitsampler.exec.setup">false</stringProp>
+              <stringProp name="junitsampler.append.error">true</stringProp>
+              <stringProp name="junitsampler.append.exception">true</stringProp>
+              <boolProp name="junitsampler.junit4">true</boolProp>
+              <boolProp name="junitsampler.createinstancepersample">true</boolProp>
+            </JUnitSampler>
+            <hashTree>
+              <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>true</responseData>
+                    <samplerData>true</samplerData>
+                    <xml>true</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                    <hostname>true</hostname>
+                  </value>
+                </objProp>
+                <stringProp name="filename">artifacts\current\samples\viewOlapReportScenarioIT.samplelist.jtl</stringProp>
+              </ResultCollector>
+              <hashTree/>
+              <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>false</responseData>
+                    <samplerData>false</samplerData>
+                    <xml>true</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                  </value>
+                </objProp>
+                <stringProp name="filename"></stringProp>
+              </ResultCollector>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

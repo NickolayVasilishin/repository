@@ -3,6 +3,9 @@ package com.nv.hadoop;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -27,8 +30,9 @@ public class PacketExtractor {
 		SAXBuilder builder = new SAXBuilder();
 		Reader in = new StringReader(xmlPacket);
 		Document doc = builder.build(in);
-		Element root = doc.getRootElement();
-		if(!root.getName().equals(START_TAG))
+		root = doc.getRootElement();
+		logDebug("Creating packet at constructor: " + root.getName());
+		if(!root.getName().equalsIgnoreCase("packet"))
 			throw new IllegalArgumentException("Passed xml element" + root.getName() + " is not a <packet>");
 	}
 	
@@ -42,6 +46,17 @@ public class PacketExtractor {
 	}
 	
 	public boolean isTcpPacket(){
-		return !XPathFactory.instance().compile("//proto[@name= 'tcp']", Filters.element()).evaluate(root).isEmpty();
+		XPathExpression<Element> exp = XPathFactory.instance().compile("//proto[@name= 'tcp']", Filters.element());
+		logDebug("At tcp packet verify: " + root.getName());
+		List<Element> l = exp.evaluate(root);
+		return !l.isEmpty();
+	}
+	
+	public String toString(){
+		return root.toString();
+	}
+	
+	private void logDebug(String message){
+		Logger.getLogger("=====" + this.getClass().getName()).log(Level.INFO, "=====" + message);
 	}
 }

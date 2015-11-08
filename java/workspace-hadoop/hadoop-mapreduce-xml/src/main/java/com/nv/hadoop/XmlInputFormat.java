@@ -1,6 +1,8 @@
 package com.nv.hadoop;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.apache.hadoop.fs.FSDataInputStream;
 import org.apache.hadoop.fs.FileSystem;
@@ -29,9 +31,6 @@ public class XmlInputFormat extends TextInputFormat {
 		return new XmlRecordReader();
 
 	}
-	public static class XXMLinputFormat extends TextInputFormat{
-		
-	}
 	
 	public static class XmlRecordReader extends
 			RecordReader<LongWritable, Text> {
@@ -55,7 +54,8 @@ public class XmlInputFormat extends TextInputFormat {
 			start = fileSplit.getStart();
 			end = start + fileSplit.getLength();
 			Path file = fileSplit.getPath();
-
+			logDebug("Start " + start + ", End " + end + "; File " + file);
+			
 			FileSystem fs = file.getFileSystem(tac.getConfiguration());
 			fsin = fs.open(fileSplit.getPath());
 			fsin.seek(start);
@@ -128,7 +128,16 @@ public class XmlInputFormat extends TextInputFormat {
 					return false;
 			}
 		}
+		private static void logDebug(String message){
+			Logger.getLogger("=====" + XmlInputFormat.class.getClass().getName()).log(Level.INFO, "=====" + message);
+		}
+		
+		private static void logError(String message, Throwable e){
+			Logger.getLogger(XmlInputFormat.class.getName()).log(Level.WARNING, message, e);
+		}
 
 	}
+	
+
 
 }
