@@ -6,7 +6,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.catwithbat.mywarden.R;
-import com.catwithbat.mywarden.wardenutils.database.WardenDataBase;
+import com.catwithbat.mywarden.wardenutils.database.local.WardenDatabaseLocal;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
@@ -18,13 +18,13 @@ public class TimeWarden extends Thread {
 
     private View view;
     private Activity activity;
-    private WardenDataBase database;
+    private WardenDatabaseLocal database;
     private static long rate = 5000;
 
     private UiThread uiWorker;
 
     public TimeWarden(Context context, View view, Activity activity) {
-        database = new WardenDataBase(context, WardenDataBase.DATABASE_NAME, null, WardenDataBase.DATABASE_VERSION);
+        database = new WardenDatabaseLocal(context, WardenDatabaseLocal.DATABASE_NAME, null, WardenDatabaseLocal.DATABASE_VERSION);
         this.view = view;
         uiWorker = new UiThread();
         this.activity = activity;

@@ -11,7 +11,7 @@ import android.widget.Toast;
 import com.catwithbat.mywarden.MainActivity;
 import com.catwithbat.mywarden.R;
 import com.catwithbat.mywarden.wardenutils.TimeWarden;
-import com.catwithbat.mywarden.wardenutils.database.WardenDataBase;
+import com.catwithbat.mywarden.wardenutils.database.local.WardenDatabaseLocal;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.Entry;
@@ -28,7 +28,7 @@ import java.util.ArrayList;
 public class FragmentWorkDay extends Fragment implements View.OnClickListener {
     public static String TAG = "Work Day";
 
-    private WardenDataBase database;
+    private WardenDatabaseLocal database;
     private TimeWarden timeWarden;
     private View view;
 
@@ -44,7 +44,7 @@ public class FragmentWorkDay extends Fragment implements View.OnClickListener {
         view = inflater.inflate(R.layout.fragment_workday, container, false);
         FragmentUtils.setToolbarTitle(getActivity(), TAG);
         timeWarden = init(view);
-        database = new WardenDataBase(getContext(), WardenDataBase.DATABASE_NAME, null, WardenDataBase.DATABASE_VERSION);
+        database = new WardenDatabaseLocal(getContext(), WardenDatabaseLocal.DATABASE_NAME, null, WardenDatabaseLocal.DATABASE_VERSION);
 
         mPieChart = setUpPieChart(view, 1);
         mStartWorkButton = (Button) view.findViewById(R.id.workDayStartButton);
