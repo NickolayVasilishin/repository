@@ -1,4 +1,4 @@
-package com.catwithbat.mywarden.wardenutils.database;
+package com.catwithbat.mywarden.wardenutils.database.local;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -9,6 +9,7 @@ import android.provider.BaseColumns;
 import android.util.Log;
 
 import com.catwithbat.mywarden.wardenutils.WorkDayRecord;
+import com.catwithbat.mywarden.wardenutils.database.WardenDatabaseService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,7 @@ import java.util.List;
 /**
  * Created by n.vasilishin on 10.10.2015.
  */
-public class WardenDataBase extends SQLiteOpenHelper implements BaseColumns {
+public class WardenDatabaseLocal extends SQLiteOpenHelper implements BaseColumns, WardenDatabaseService {
 
     private SQLiteDatabase database;
 
@@ -39,7 +40,7 @@ public class WardenDataBase extends SQLiteOpenHelper implements BaseColumns {
             + ")";
 
 
-    public WardenDataBase(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+    public WardenDatabaseLocal(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
         database = getWritableDatabase();
     }
@@ -88,7 +89,7 @@ public class WardenDataBase extends SQLiteOpenHelper implements BaseColumns {
 
         try {
             if(getLastRecord().isToday())
-                database.update(WardenDataBase.DATABASE_TIME_TABLE, values, WardenDataBase.DB_T_DATE_COLUMN + " = ?", new String[] { getLastRecord().getDate()});
+                database.update(WardenDatabaseLocal.DATABASE_TIME_TABLE, values, WardenDatabaseLocal.DB_T_DATE_COLUMN + " = ?", new String[] { getLastRecord().getDate()});
             else
                 database.insert(DATABASE_TIME_TABLE, null, values);
         } catch (Exception e) {
@@ -116,17 +117,17 @@ public class WardenDataBase extends SQLiteOpenHelper implements BaseColumns {
     }
 
     public WorkDayRecord getLastRecord() throws Exception{
-        Cursor cursor = database.query(WardenDataBase.DATABASE_TIME_TABLE, new String[]{WardenDataBase.DB_T_DATE_COLUMN,
-                        WardenDataBase.DB_T_TIME_IN_COLUMN, WardenDataBase.DB_T_TIME_OUT_COLUMN, WardenDataBase.DB_T_TIME_COLUMN},
+        Cursor cursor = database.query(WardenDatabaseLocal.DATABASE_TIME_TABLE, new String[]{WardenDatabaseLocal.DB_T_DATE_COLUMN,
+                        WardenDatabaseLocal.DB_T_TIME_IN_COLUMN, WardenDatabaseLocal.DB_T_TIME_OUT_COLUMN, WardenDatabaseLocal.DB_T_TIME_COLUMN},
                 null, null,
                 null, null, null);
         cursor.moveToLast();
 
         WorkDayRecord record = new WorkDayRecord(
-                cursor.getString(cursor.getColumnIndex(WardenDataBase.DB_T_DATE_COLUMN)),
-                cursor.getString(cursor.getColumnIndex(WardenDataBase.DB_T_TIME_IN_COLUMN)),
-                cursor.getString(cursor.getColumnIndex(WardenDataBase.DB_T_TIME_OUT_COLUMN)),
-                cursor.getInt(cursor.getColumnIndex(WardenDataBase.DB_T_TIME_COLUMN))
+                cursor.getString(cursor.getColumnIndex(WardenDatabaseLocal.DB_T_DATE_COLUMN)),
+                cursor.getString(cursor.getColumnIndex(WardenDatabaseLocal.DB_T_TIME_IN_COLUMN)),
+                cursor.getString(cursor.getColumnIndex(WardenDatabaseLocal.DB_T_TIME_OUT_COLUMN)),
+                cursor.getInt(cursor.getColumnIndex(WardenDatabaseLocal.DB_T_TIME_COLUMN))
         );
         cursor.close();
         return record;
@@ -135,17 +136,17 @@ public class WardenDataBase extends SQLiteOpenHelper implements BaseColumns {
     public List<WorkDayRecord> getAllRecords(){
         List<WorkDayRecord> records = new ArrayList<>();
 
-        Cursor cursor = database.query(WardenDataBase.DATABASE_TIME_TABLE, new String[]{WardenDataBase.DB_T_DATE_COLUMN,
-                        WardenDataBase.DB_T_TIME_IN_COLUMN, WardenDataBase.DB_T_TIME_OUT_COLUMN, WardenDataBase.DB_T_TIME_COLUMN},
+        Cursor cursor = database.query(WardenDatabaseLocal.DATABASE_TIME_TABLE, new String[]{WardenDatabaseLocal.DB_T_DATE_COLUMN,
+                        WardenDatabaseLocal.DB_T_TIME_IN_COLUMN, WardenDatabaseLocal.DB_T_TIME_OUT_COLUMN, WardenDatabaseLocal.DB_T_TIME_COLUMN},
                 null, null,
                 null, null, null);
         if(cursor.moveToFirst()) {
             do {
                 records.add(new WorkDayRecord(
-                        cursor.getString(cursor.getColumnIndex(WardenDataBase.DB_T_DATE_COLUMN)),
-                        cursor.getString(cursor.getColumnIndex(WardenDataBase.DB_T_TIME_IN_COLUMN)),
-                        cursor.getString(cursor.getColumnIndex(WardenDataBase.DB_T_TIME_OUT_COLUMN)),
-                        cursor.getInt(cursor.getColumnIndex(WardenDataBase.DB_T_TIME_COLUMN))
+                        cursor.getString(cursor.getColumnIndex(WardenDatabaseLocal.DB_T_DATE_COLUMN)),
+                        cursor.getString(cursor.getColumnIndex(WardenDatabaseLocal.DB_T_TIME_IN_COLUMN)),
+                        cursor.getString(cursor.getColumnIndex(WardenDatabaseLocal.DB_T_TIME_OUT_COLUMN)),
+                        cursor.getInt(cursor.getColumnIndex(WardenDatabaseLocal.DB_T_TIME_COLUMN))
                 ));
             } while (cursor.moveToNext());
         }
@@ -172,17 +173,17 @@ public class WardenDataBase extends SQLiteOpenHelper implements BaseColumns {
 
     public List<WorkDayRecord> getThisWeekRecords(){
         List<WorkDayRecord> records = new ArrayList<>();
-        Cursor cursor = database.query(WardenDataBase.DATABASE_TIME_TABLE, new String[]{WardenDataBase.DB_T_DATE_COLUMN,
-                        WardenDataBase.DB_T_TIME_IN_COLUMN, WardenDataBase.DB_T_TIME_OUT_COLUMN, WardenDataBase.DB_T_TIME_COLUMN},
+        Cursor cursor = database.query(WardenDatabaseLocal.DATABASE_TIME_TABLE, new String[]{WardenDatabaseLocal.DB_T_DATE_COLUMN,
+                        WardenDatabaseLocal.DB_T_TIME_IN_COLUMN, WardenDatabaseLocal.DB_T_TIME_OUT_COLUMN, WardenDatabaseLocal.DB_T_TIME_COLUMN},
                 null, null,
                 null, null, null);
         if(cursor.moveToLast()){
             do {
                 WorkDayRecord record = new WorkDayRecord(
-                        cursor.getString(cursor.getColumnIndex(WardenDataBase.DB_T_DATE_COLUMN)),
-                        cursor.getString(cursor.getColumnIndex(WardenDataBase.DB_T_TIME_IN_COLUMN)),
-                        cursor.getString(cursor.getColumnIndex(WardenDataBase.DB_T_TIME_OUT_COLUMN)),
-                        cursor.getInt(cursor.getColumnIndex(WardenDataBase.DB_T_TIME_COLUMN))
+                        cursor.getString(cursor.getColumnIndex(WardenDatabaseLocal.DB_T_DATE_COLUMN)),
+                        cursor.getString(cursor.getColumnIndex(WardenDatabaseLocal.DB_T_TIME_IN_COLUMN)),
+                        cursor.getString(cursor.getColumnIndex(WardenDatabaseLocal.DB_T_TIME_OUT_COLUMN)),
+                        cursor.getInt(cursor.getColumnIndex(WardenDatabaseLocal.DB_T_TIME_COLUMN))
                 );
 
                 if(!record.isCurrentWeek())

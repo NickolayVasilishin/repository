@@ -5,7 +5,7 @@ import android.test.RenamingDelegatingContext;
 import android.util.Log;
 
 import com.catwithbat.mywarden.wardenutils.WorkDayRecord;
-import com.catwithbat.mywarden.wardenutils.database.WardenDataBase;
+import com.catwithbat.mywarden.wardenutils.database.local.WardenDatabaseLocal;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,14 +13,14 @@ import java.util.Date;
 /**
  * Created by n.vasilishin on 12.10.2015.
  */
-public class WardenDataBaseTest extends AndroidTestCase{
-    private WardenDataBase database;
+public class WardenDatabaseLocalTest extends AndroidTestCase{
+    private WardenDatabaseLocal database;
 
     @Override
     public void setUp() throws Exception {
         super.setUp();
         RenamingDelegatingContext context = new RenamingDelegatingContext(getContext(), "test_");
-        database = new WardenDataBase(context, WardenDataBase.DATABASE_NAME, null, WardenDataBase.DATABASE_VERSION);
+        database = new WardenDatabaseLocal(context, WardenDatabaseLocal.DATABASE_NAME, null, WardenDatabaseLocal.DATABASE_VERSION);
     }
 
     @Override
