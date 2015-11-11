@@ -1,4 +1,4 @@
-﻿java/workspace/RemoteSystemsTempFiles/*
+java/workspace/RemoteSystemsTempFiles/*
 java/workspace/.metadata/*
 java/workspace/steam-game-gauntlet/steam-game-gauntlet-ear/.settings/*
 java/workspace/steam-game-gauntlet/steam-game-gauntlet-ejb/.settings/*
@@ -11,3 +11,6 @@ mahout
 python/argus/summary.csv
 python/argus/SupportServiceTestPlanLoad.jmx
 python/argus/Tests
+python/argus/summaries
+python/argus/tables
+python/argus/summaries/*
