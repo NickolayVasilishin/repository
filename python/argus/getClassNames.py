@@ -9,7 +9,7 @@ import os
 
 labels_file = "summaries/summary{}.csv".format(4)
 testplan_file = "testplan.jmx"
-labels_dir = "summaries"
+labels_dir = r"B:\programmersmount\jmeter\n.vasilishin\reports\2015-11-10\jmeter\summaries"
 enc = "UTF-8"
 
 def getAllLabels(directory):
