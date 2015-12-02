@@ -119,6 +119,7 @@ public class StreamingTextOutputFormat<K, V> extends TextOutputFormat<K, V> {
 		if (!isCompressed) {
 			Path file = FileOutputFormat.getOutputPath(job);
 			FileSystem fs = file.getFileSystem(conf);
+			//TODO change output file
 			FSDataOutputStream fileOut = fs.create(file, job);
 			return new StreamingLineRecordWriter<K, V>(fileOut,
 					keyValueSeparator, valueDelimiter);
