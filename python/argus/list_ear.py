@@ -29,8 +29,6 @@ def find_equal(files):
     f = files[:]
     for filename in f:
         print(filename)
-        if "analy" in filename  :
-            print(filename)
         f.remove(filename)
         if difflib.get_close_matches(filename, f, cutoff=0.99):
             sys.stderr.write("Equal dependencies: %s\n" % "".join(difflib.get_close_matches(filename, f, cutoff=0.99)))

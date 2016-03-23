@@ -25,6 +25,7 @@ def check_fat_jar(jarfile, parent = None):
             return True
     return False
         
+#Get list of all jars from .jar, .ear, .war
 #Format: [(jarname, path, size, CRC), ...]
 def list_jewar(jewar_file, parent = None):
     jars = []
@@ -54,17 +55,66 @@ def list_jewar(jewar_file, parent = None):
         zf.close()
     return jars
     
+#Get all jars from server modules
 #Format: [(jarname, path, size, CRC), ...]
 def list_modules(modules_dir):
-    jars = []
-    with zipfile.ZipFile(os.path.join(modules_dir, "modules"), 'w') as ear_zip:
+    modules_tmp_dir = os.path.join(modules_dir, "tmp")
+    try:    
+        os.mkdir(modules_tmp_dir)
+    except FileExistsError:
+        pass
+    with zipfile.ZipFile(os.path.join(modules_tmp_dir, "modules"), 'w') as ear_zip:
         for subdir, dirs, files in os.walk(modules_dir):
             for file in files:
                 if file.split(".")[-1] == "jar":
                     ear_zip.write(os.path.join(subdir, file), arcname=subdir[len(modules_dir):]+file)
-    #TODO delete modules
-    return list_jewar(os.path.join(modules_dir, "modules"))
+    modules = list_jewar(os.path.join(modules_tmp_dir, "modules"))
+    os.remove(os.path.join(modules_tmp_dir, "modules"))
+    os.rmdir(modules_tmp_dir)
+    return modules
         
+
+#used in print_jewar to visually seperate equal jars
+def has_any_equal(item1, item2):
+    for pos in range(min(len(item1), len(item2))):
+        if item1[pos] == item2[pos]:
+            return True
+    return False
+       
+#look for jars with equal CRC
+def has_duplicate_CRC(ear, rule_function = None):
+    CRCs = [each[3] for each in ear]
+    similar_jars = []
+    if len(CRCs) != len(set(CRCs)):
+        duplicate_CRCs = list(set([x for x in CRCs if CRCs.count(x) > 1]))
+        for each in ear:
+            for crc in duplicate_CRCs:
+                if each[3] == crc:
+                    similar_jars.append(each)
+    return similar_jars
+
+def has_similar_names(ear, rule_function = None):
+    names = list(set([item[0] for item in ear]))
+    #names = [item[0] for item in ear]
+    #pos = 0
+    s_names = []
+    for each in names:
+        #names.remove(each)
+        s_names.append(difflib.get_close_matches(each, names, cutoff=0.90))
+        if len(s_names[-1]) != 1:
+            names.remove(each)
+    s_names = [i for i in s_names if len(i)>1]
+    return s_names
+       
+def check_similar(ear, print_as_table = False):
+    dups = has_duplicate_CRC(ear)
+    if dups:
+        print_jewar(sorted(dups, key = lambda dups: dups[3]), err=False, premessage = "Found %d equal by CRC jars." % len(dups), as_table = print_as_table, to_file=r"d:\new\crc_dup.txt")
+    else:
+        print("No duplicate CRCs were found")
+
+#TODO add rules
+
 #prints list of jars in user-friendly format        
 def print_jewar(jewar, item_n = None, err = False, premessage = None, as_table = False, to_file = None):    
     line_format = "{1:<80}{0:<80}{2:<40}{3:<40}"
@@ -98,6 +148,7 @@ def print_jewar(jewar, item_n = None, err = False, premessage = None, as_table =
                 for i in eq_items:
                     if not item_n and item_n != 0:
                         prnt(line_format.format(*i))
+                        prnt("\n")
                     elif type(item_n) == int:
                             prnt(i[item_n])
                     elif type(item_n) == list:
@@ -105,58 +156,18 @@ def print_jewar(jewar, item_n = None, err = False, premessage = None, as_table =
                             prnt(i[n], end="\t")
                         prnt()
                 eq_items = [item]
-                if not as_table:
+                if not as_table or to_file:
                     prnt("\n")
                 else:
                     prnt(line_format.format(*(["----"]*4)))
     if to_file:
         to_file.close()
-
-#used in print_jewar to visually seperate equal jars
-def has_any_equal(item1, item2):
-    for pos in range(4):
-        if item1[pos] == item2[pos]:
-            return True
-    return False
-       
-#look for jars with equal CRC
-def has_duplicate_CRC(ear):
-    CRCs = [each[3] for each in ear]
-    similar_jars = []
-    if len(CRCs) != len(set(CRCs)):
-        duplicate_CRCs = list(set([x for x in CRCs if CRCs.count(x) > 1]))
-        for each in ear:
-            for crc in duplicate_CRCs:
-                if each[3] == crc:
-                    similar_jars.append(each)
-    return similar_jars
-
-def has_similar_names(ear):
-    names = list(set([item[0] for item in ear]))
-    #names = [item[0] for item in ear]
-    #pos = 0
-    s_names = []
-    for each in names:
-        #names.remove(each)
-        s_names.append(difflib.get_close_matches(each, names, cutoff=0.90))
-        if len(s_names[-1]) != 1:
-            names.remove(each)
-    s_names = [i for i in s_names if len(i)>1]
-    return s_names
-       
-def check_similar(ear, print_as_table = False):
-    dups = has_duplicate_CRC(ear)
-    if dups:
-        print_jewar(sorted(dups, key = lambda dups: dups[3]), err=True, premessage = "Found %d equal by CRC jars." % len(dups), as_table = print_as_table)
-    else:
-        print("No duplicate CRCs were found")
-   
          
 
        
 if __name__=="__main__":
     ear_path = r"D:\nv\work\rep\appserver-3.11.0\workspace\server-app\argus-enterprise\target\argus-enterprise-3.11.0.ear"
-    modules_path = r"D:\nv\work\rep\appserver-3.11.0\workspace\server-app\argus-enterprise\target\modul"
+    modules_path = r"D:\nv\work\rep\appserver-3.11.0\workspace\server-app\argus-enterprise\target\modules"
     interactive = False
     if len(sys.argv) == 4:
         if "-i" in sys.argv:
@@ -172,7 +183,11 @@ if __name__=="__main__":
     modules = list_modules(modules_path)
     print("Merging jar lists.")
     ear.extend(modules)
-    print_jewar(sorted(ear, key = lambda ear: ear[1]), to_file="D:\ear.txt")
+    
+    check_similar(ear)   
+    
+    #print_jewar(sorted(ear, key = lambda ear: ear[1]), to_file=r"D:\new\ear.txt")
+
     check_similar(ear)
     sn = has_similar_names(ear)
     sn_checked = []
