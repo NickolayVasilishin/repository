@@ -6,3 +6,6 @@ java/workspace/steam-game-gauntlet/steam-game-gauntlet-web/.settings/*
 java/workspace/steam-game-gauntlet/.settings/*
 __pycache__
 *.png
+.idea/
+.idea
+target/

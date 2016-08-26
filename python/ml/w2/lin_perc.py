@@ -6,7 +6,6 @@ Created on Tue Aug 16 19:17:59 2016
 """
 
 from sklearn.linear_model import Perceptron
-import scipy as sp
 from sklearn.preprocessing import StandardScaler
 import pandas as pd
 from matplotlib import pyplot as plt
