@@ -6,7 +6,7 @@ import org.apache.spark.ml.evaluation.MulticlassClassificationEvaluator
 import org.apache.spark.ml.feature._
 import org.apache.spark.mllib.evaluation.BinaryClassificationMetrics
 import org.apache.spark.sql.types.{DoubleType, StructField, StructType}
-import org.apache.spark.sql.{DataFrame, Row, SQLContext}
+import org.apache.spark.sql.{DataFrame, Dataset, Row, SQLContext}
 import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.sql.functions._
 
@@ -49,7 +49,6 @@ object CustomerResponseJob {
       df.show()
 
       df.columns foreach { (column) => println((column, df.select(column).where(s"$column < 0").count())) }
-
 
       val assembler = new VectorAssembler()
         .setInputCols(features.schema.fieldNames)
