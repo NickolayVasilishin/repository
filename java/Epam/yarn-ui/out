@@ -1,0 +1,129 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building yarn-ui 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- vaadin-maven-plugin:7.6.6:update-theme (default) @ yarn-ui ---
+[INFO] Updating theme VAADIN\themes\theme
+[INFO] Widgetsets found from classpath:
+[INFO] 	com.epam.hadoop.nv.AppWidgetset in file://D/repos/yarn-ui/target/classes
+[INFO] 	com.vaadin.DefaultWidgetSet in jar:file:C:/Users/Nikolay_Vasilishin/.m2/repository/com/vaadin/vaadin-client/7.6.6/vaadin-client-7.6.6.jar!/
+[INFO] Addon styles found from classpath:
+[INFO] 
+[INFO] Search took 6ms
+[INFO] Theme "VAADIN\themes\theme" updated
+[INFO] 
+[INFO] --- vaadin-maven-plugin:7.6.6:compile-theme (default) @ yarn-ui ---
+[INFO] Updating theme VAADIN\themes\theme
+[INFO] Theme "VAADIN\themes\theme" compiled
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ yarn-ui ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.3:compile (default-compile) @ yarn-ui ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- vaadin-maven-plugin:7.6.6:update-widgetset (default) @ yarn-ui ---
+[INFO] auto discovered modules [com.epam.hadoop.nv.AppWidgetset]
+[INFO] Updating widgetset com.epam.hadoop.nv.AppWidgetset
+[INFO] Adding resource directory to command classpath: D:\repos\yarn-ui\src\main\resources
+[WARNING] Failed to retrieve com.vaadin:vaadin-client-compiler based on project POM
+[INFO] Using com.vaadin:vaadin-client-compiler version 7.6.6
+[INFO] Widgetsets found from classpath:
+[INFO] 	com.epam.hadoop.nv.AppWidgetset in file://D/repos/yarn-ui/src/main/resources
+[INFO] 	com.vaadin.DefaultWidgetSet in jar:file:C:/Users/Nikolay_Vasilishin/.m2/repository/com/vaadin/vaadin-client/7.6.6/vaadin-client-7.6.6.jar!/
+[INFO] Addon styles found from classpath:
+[INFO] 
+[INFO] Search took 6ms
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ yarn-ui ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\repos\yarn-ui\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.3:testCompile (default-testCompile) @ yarn-ui ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ yarn-ui ---
+[INFO] 
+[INFO] >>> vaadin-maven-plugin:7.6.6:compile (default) > process-resources @ yarn-ui >>>
+[INFO] 
+[INFO] --- vaadin-maven-plugin:7.6.6:update-theme (default) @ yarn-ui ---
+[INFO] Updating theme VAADIN\themes\theme
+[INFO] Widgetsets found from classpath:
+[INFO] 	com.epam.hadoop.nv.AppWidgetset in file://D/repos/yarn-ui/target/classes
+[INFO] 	com.vaadin.DefaultWidgetSet in jar:file:C:/Users/Nikolay_Vasilishin/.m2/repository/com/vaadin/vaadin-client/7.6.6/vaadin-client-7.6.6.jar!/
+[INFO] Addon styles found from classpath:
+[INFO] 
+[INFO] Search took 8ms
+[INFO] Theme "VAADIN\themes\theme" updated
+[INFO] 
+[INFO] --- vaadin-maven-plugin:7.6.6:compile-theme (default) @ yarn-ui ---
+[INFO] Updating theme VAADIN\themes\theme
+[INFO] Theme "VAADIN\themes\theme" compiled
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ yarn-ui ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] <<< vaadin-maven-plugin:7.6.6:compile (default) < process-resources @ yarn-ui <<<
+[INFO] 
+[INFO] --- vaadin-maven-plugin:7.6.6:compile (default) @ yarn-ui ---
+[INFO] auto discovered modules [com.epam.hadoop.nv.AppWidgetset]
+[WARNING] Failed to retrieve com.vaadin:vaadin-client-compiler based on project POM
+[INFO] Using com.vaadin:vaadin-client-compiler version 7.6.6
+[ERROR] Jun 21, 2016 1:16:13 PM java.util.prefs.WindowsPreferences <init>
+[ERROR] WARNING: Could not open/create prefs root node Software\JavaSoft\Prefs at root 0x80000002. Windows RegCreateKeyEx(...) returned error code 5.
+[INFO] Compiling module com.epam.hadoop.nv.AppWidgetset
+[INFO] [ERROR] Unexpected internal compiler error
+[INFO] java.lang.IncompatibleClassChangeError: class com.google.gwt.dev.javac.BytecodeSignatureMaker$CompileDependencyVisitor has interface org.objectweb.asm.ClassVisitor as super class
+[INFO] 	at java.lang.ClassLoader.defineClass1(Native Method)
+[INFO] 	at java.lang.ClassLoader.defineClass(ClassLoader.java:763)
+[INFO] 	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
+[INFO] 	at java.net.URLClassLoader.defineClass(URLClassLoader.java:467)
+[INFO] 	at java.net.URLClassLoader.access$100(URLClassLoader.java:73)
+[INFO] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:368)
+[INFO] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:362)
+[INFO] 	at java.security.AccessController.doPrivileged(Native Method)
+[INFO] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:361)
+[INFO] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+[INFO] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331)
+[INFO] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+[INFO] 	at com.google.gwt.dev.javac.BytecodeSignatureMaker.visitCompileDependenciesInBytecode(BytecodeSignatureMaker.java:227)
+[INFO] 	at com.google.gwt.dev.javac.BytecodeSignatureMaker.getCompileDependencySignature(BytecodeSignatureMaker.java:209)
+[INFO] 	at com.google.gwt.dev.javac.CompiledClass.getSignatureHash(CompiledClass.java:166)
+[INFO] 	at com.google.gwt.dev.javac.Dependencies$Ref.<init>(Dependencies.java:42)
+[INFO] 	at com.google.gwt.dev.javac.Dependencies$Ref.<init>(Dependencies.java:37)
+[INFO] 	at com.google.gwt.dev.javac.Dependencies.resolve(Dependencies.java:114)
+[INFO] 	at com.google.gwt.dev.javac.CompilationStateBuilder$CompileMoreLater.compile(CompilationStateBuilder.java:366)
+[INFO] 	at com.google.gwt.dev.javac.CompilationStateBuilder.doBuildFrom(CompilationStateBuilder.java:580)
+[INFO] 	at com.google.gwt.dev.javac.CompilationStateBuilder.buildFrom(CompilationStateBuilder.java:513)
+[INFO] 	at com.google.gwt.dev.javac.CompilationStateBuilder.buildFrom(CompilationStateBuilder.java:499)
+[INFO] 	at com.google.gwt.dev.cfg.ModuleDef.getCompilationState(ModuleDef.java:668)
+[INFO] 	at com.google.gwt.dev.Precompile.precompile(Precompile.java:255)
+[INFO] 	at com.google.gwt.dev.Precompile.precompile(Precompile.java:229)
+[INFO] 	at com.google.gwt.dev.Precompile.precompile(Precompile.java:145)
+[INFO] 	at com.google.gwt.dev.Compiler.run(Compiler.java:206)
+[INFO] 	at com.google.gwt.dev.Compiler.run(Compiler.java:158)
+[INFO] 	at com.google.gwt.dev.Compiler$1.run(Compiler.java:120)
+[INFO] 	at com.google.gwt.dev.CompileTaskRunner.doRun(CompileTaskRunner.java:55)
+[INFO] 	at com.google.gwt.dev.CompileTaskRunner.runWithAppropriateLogger(CompileTaskRunner.java:50)
+[INFO] 	at com.google.gwt.dev.Compiler.main(Compiler.java:127)
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 17.241 s
+[INFO] Finished at: 2016-06-21T13:16:24+03:00
+[INFO] Final Memory: 16M/309M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal com.vaadin:vaadin-maven-plugin:7.6.6:compile (default) on project yarn-ui: Command [[
+[ERROR] C:\Program Files\Java\jdk1.8.0_91\jre\bin\java -Xmx512M -Xss1024k -classpath "D:\repos\yarn-ui\target\classes;D:\repos\yarn-ui\src\main\java;D:\repos\yarn-ui\target\generated-sources\annotations;D:\repos\yarn-ui\src\main\resources;C:\Users\Nikolay_Vasilishin\.m2\repository\javax\servlet\javax.servlet-api\3.0.1\javax.servlet-api-3.0.1.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\vaadin\vaadin-server\7.6.6\vaadin-server-7.6.6.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\vaadin\vaadin-sass-compiler\0.9.13\vaadin-sass-compiler-0.9.13.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\vaadin\external\flute\flute\1.3.0.gg2\flute-1.3.0.gg2.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\yahoo\platform\yui\yuicompressor\2.4.8\yuicompressor-2.4.8.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\rhino\js\1.7R2\js-1.7R2.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\vaadin\vaadin-shared\7.6.6\vaadin-shared-7.6.6.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\vaadin\external\streamhtmlparser\streamhtmlparser-jsilver\0.0.10.vaadin1\streamhtmlparser-jsilver-0.0.10.vaadin1.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\vaadin\external\google\guava\16.0.1.vaadin1\guava-16.0.1.vaadin1.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\jsoup\jsoup\1.8.3\jsoup-1.8.3.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\vaadin\vaadin-push\7.6.6\vaadin-push-7.6.6.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\vaadin\external\atmosphere\atmosphere-runtime\2.2.7.vaadin1\atmosphere-runtime-2.2.7.vaadin1.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\vaadin\external\slf4j\vaadin-slf4j-jdk14\1.6.1\vaadin-slf4j-jdk14-1.6.1.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\vaadin\vaadin-client\7.6.6\vaadin-client-7.6.6.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\w3c\css\sac\1.3\sac-1.3.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\javax\validation\validation-api\1.0.0.GA\validation-api-1.0.0.GA.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\javax\validation\validation-api\1.0.0.GA\validation-api-1.0.0.GA-sources.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\vaadin\vaadin-themes\7.6.6\vaadin-themes-7.6.6.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\8.0.28\tomcat-embed-core-8.0.28.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\apache\tomcat\embed\tomcat-embed-logging-juli\8.0.28\tomcat-embed-logging-juli-8.0.28.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\apache\tomcat\embed\tomcat-embed-jasper\8.0.28\tomcat-embed-jasper-8.0.28.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\8.0.28\tomcat-embed-el-8.0.28.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\eclipse\jdt\core\compiler\ecj\4.4.2\ecj-4.4.2.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\apache\tomcat\tomcat-jasper\8.0.28\tomcat-jasper-8.0.28.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\apache\tomcat\tomcat-servlet-api\8.0.28\tomcat-servlet-api-8.0.28.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\apache\tomcat\tomcat-juli\8.0.28\tomcat-juli-8.0.28.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\apache\tomcat\tomcat-el-api\8.0.28\tomcat-el-api-8.0.28.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\apache\tomcat\tomcat-api\8.0.28\tomcat-api-8.0.28.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\apache\tomcat\tomcat-util-scan\8.0.28\tomcat-util-scan-8.0.28.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\apache\tomcat\tomcat-util\8.0.28\tomcat-util-8.0.28.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\apache\tomcat\tomcat-jasper-el\8.0.28\tomcat-jasper-el-8.0.28.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\apache\tomcat\tomcat-jsp-api\8.0.28\tomcat-jsp-api-8.0.28.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\apache\hadoop\hadoop-yarn-client\2.2.0\hadoop-yarn-client-2.2.0.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\apache\hadoop\hadoop-yarn-api\2.2.0\hadoop-yarn-api-2.2.0.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\apache\hadoop\hadoop-yarn-common\2.2.0\hadoop-yarn-common-2.2.0.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\slf4j\slf4j-api\1.7.5\slf4j-api-1.7.5.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\slf4j\slf4j-log4j12\1.7.5\slf4j-log4j12-1.7.5.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\apache\hadoop\hadoop-annotations\2.2.0\hadoop-annotations-2.2.0.jar;C:\Program Files\Java\jdk1.8.0_91\jre\..\lib\tools.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\google\inject\extensions\guice-servlet\3.0\guice-servlet-3.0.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\io\netty\netty\3.6.2.Final\netty-3.6.2.Final.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\google\protobuf\protobuf-java\2.5.0\protobuf-java-2.5.0.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\commons-io\commons-io\2.1\commons-io-2.1.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\google\inject\guice\3.0\guice-3.0.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\javax\inject\javax.inject\1\javax.inject-1.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\aopalliance\aopalliance\1.0\aopalliance-1.0.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\sun\jersey\jersey-test-framework\jersey-test-framework-grizzly2\1.9\jersey-test-framework-grizzly2-1.9.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\sun\jersey\jersey-test-framework\jersey-test-framework-core\1.9\jersey-test-framework-core-1.9.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\junit\junit\4.8.2\junit-4.8.2.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\sun\jersey\jersey-client\1.9\jersey-client-1.9.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\sun\jersey\jersey-grizzly2\1.9\jersey-grizzly2-1.9.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\glassfish\grizzly\grizzly-http\2.1.2\grizzly-http-2.1.2.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\glassfish\grizzly\grizzly-framework\2.1.2\grizzly-framework-2.1.2.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\glassfish\gmbal\gmbal-api-only\3.0.0-b023\gmbal-api-only-3.0.0-b023.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\glassfish\external\management-api\3.0.0-b012\management-api-3.0.0-b012.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\glassfish\grizzly\grizzly-http-server\2.1.2\grizzly-http-server-2.1.2.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\glassfish\grizzly\grizzly-rcm\2.1.2\grizzly-rcm-2.1.2.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\glassfish\grizzly\grizzly-http-servlet\2.1.2\grizzly-http-servlet-2.1.2.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\glassfish\javax.servlet\3.1\javax.servlet-3.1.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\sun\jersey\jersey-server\1.9\jersey-server-1.9.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\asm\asm\3.1\asm-3.1.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\sun\jersey\jersey-json\1.9\jersey-json-1.9.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\codehaus\jettison\jettison\1.1\jettison-1.1.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\stax\stax-api\1.0.1\stax-api-1.0.1.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\sun\xml\bind\jaxb-impl\2.2.3-1\jaxb-impl-2.2.3-1.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\javax\xml\bind\jaxb-api\2.2.2\jaxb-api-2.2.2.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\javax\activation\activation\1.1\activation-1.1.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\codehaus\jackson\jackson-jaxrs\1.8.3\jackson-jaxrs-1.8.3.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\codehaus\jackson\jackson-xc\1.8.3\jackson-xc-1.8.3.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\sun\jersey\contribs\jersey-guice\1.9\jersey-guice-1.9.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\apache\hadoop\hadoop-common\2.2.0\hadoop-common-2.2.0.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\google\guava\guava\11.0.2\guava-11.0.2.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\google\code\findbugs\jsr305\1.3.9\jsr305-1.3.9.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\commons-cli\commons-cli\1.2\commons-cli-1.2.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\apache\commons\commons-math\2.1\commons-math-2.1.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\xmlenc\xmlenc\0.52\xmlenc-0.52.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\commons-httpclient\commons-httpclient\3.1\commons-httpclient-3.1.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\commons-codec\commons-codec\1.4\commons-codec-1.4.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\commons-net\commons-net\3.1\commons-net-3.1.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\javax\servlet\servlet-api\2.5\servlet-api-2.5.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\mortbay\jetty\jetty\6.1.26\jetty-6.1.26.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\mortbay\jetty\jetty-util\6.1.26\jetty-util-6.1.26.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\sun\jersey\jersey-core\1.9\jersey-core-1.9.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\tomcat\jasper-compiler\5.5.23\jasper-compiler-5.5.23.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\tomcat\jasper-runtime\5.5.23\jasper-runtime-5.5.23.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\javax\servlet\jsp\jsp-api\2.1\jsp-api-2.1.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\commons-el\commons-el\1.0\commons-el-1.0.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\commons-logging\commons-logging\1.1.1\commons-logging-1.1.1.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\log4j\log4j\1.2.17\log4j-1.2.17.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\net\java\dev\jets3t\jets3t\0.6.1\jets3t-0.6.1.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\commons-lang\commons-lang\2.5\commons-lang-2.5.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\commons-configuration\commons-configuration\1.6\commons-configuration-1.6.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\commons-collections\commons-collections\3.2.1\commons-collections-3.2.1.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\commons-digester\commons-digester\1.8\commons-digester-1.8.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\commons-beanutils\commons-beanutils\1.7.0\commons-beanutils-1.7.0.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\commons-beanutils\commons-beanutils-core\1.8.0\commons-beanutils-core-1.8.0.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\codehaus\jackson\jackson-core-asl\1.8.8\jackson-core-asl-1.8.8.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\codehaus\jackson\jackson-mapper-asl\1.8.8\jackson-mapper-asl-1.8.8.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\apache\avro\avro\1.7.4\avro-1.7.4.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\thoughtworks\paranamer\paranamer\2.3\paranamer-2.3.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\xerial\snappy\snappy-java\1.0.4.1\snappy-java-1.0.4.1.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\apache\hadoop\hadoop-auth\2.2.0\hadoop-auth-2.2.0.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\jcraft\jsch\0.1.42\jsch-0.1.42.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\apache\zookeeper\zookeeper\3.4.5\zookeeper-3.4.5.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\apache\commons\commons-compress\1.4.1\commons-compress-1.4.1.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\tukaani\xz\1.0\xz-1.0.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\vaadin\vaadin-client\7.6.6\vaadin-client-7.6.6.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\vaadin\vaadin-client-compiler\7.6.6\vaadin-client-compiler-7.6.6.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\net\sourceforge\nekohtml\nekohtml\1.9.19\nekohtml-1.9.19.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\xerces\xercesImpl\2.11.0\xercesImpl-2.11.0.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\xml-apis\xml-apis\1.4.01\xml-apis-1.4.01.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\ow2\asm\asm\5.0.3\asm-5.0.3.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\ant\ant\1.6.5\ant-1.6.5.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\xalan\serializer\2.7.1\serializer-2.7.1.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\apache\httpcomponents\httpcore\4.3\httpcore-4.3.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\eclipse\jetty\jetty-util\8.1.12.v20130726\jetty-util-8.1.12.v20130726.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\apache\httpcomponents\httpclient\4.3.1\httpclient-4.3.1.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\commons-logging\commons-logging\1.1.3\commons-logging-1.1.3.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\commons-codec\commons-codec\1.8\commons-codec-1.8.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\jdesktop\swing-worker\1.1\swing-worker-1.1.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\vaadin\vaadin-shared\7.6.6\vaadin-shared-7.6.6.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\vaadin\external\flute\flute\1.3.0.gg2\flute-1.3.0.gg2.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\vaadin\external\streamhtmlparser\streamhtmlparser-jsilver\0.0.10.vaadin1\streamhtmlparser-jsilver-0.0.10.vaadin1.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\vaadin\external\google\guava\16.0.1.vaadin1\guava-16.0.1.vaadin1.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\net\sourceforge\cssparser\cssparser\0.9.11\cssparser-0.9.11.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\w3c\css\sac\1.3\sac-1.3.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\apache\httpcomponents\httpmime\4.3.1\httpmime-4.3.1.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\ow2\asm\asm-util\5.0.3\asm-util-5.0.3.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\ow2\asm\asm-tree\5.0.3\asm-tree-5.0.3.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\ow2\asm\asm-commons\5.0.3\asm-commons-5.0.3.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\vaadin\vaadin-sass-compiler\0.9.13\vaadin-sass-compiler-0.9.13.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\yahoo\platform\yui\yuicompressor\2.4.8\yuicompressor-2.4.8.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\rhino\js\1.7R2\js-1.7R2.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\ibm\icu\icu4j\50.1.1\icu4j-50.1.1.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\vaadin\vaadin-client\7.6.6\vaadin-client-7.6.6.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\vaadin\vaadin-server\7.6.6\vaadin-server-7.6.6.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\jsoup\jsoup\1.8.3\jsoup-1.8.3.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\javax\validation\validation-api\1.0.0.GA\validation-api-1.0.0.GA.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\javax\validation\validation-api\1.0.0.GA\validation-api-1.0.0.GA-sources.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\com\vaadin\vaadin-client-compiler-deps\1.2.0\vaadin-client-compiler-deps-1.2.0.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\eclipse\jetty\jetty-servlets\8.1.12.v20130726\jetty-servlets-8.1.12.v20130726.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\eclipse\jetty\jetty-continuation\8.1.12.v20130726\jetty-continuation-8.1.12.v20130726.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\eclipse\jetty\jetty-client\8.1.12.v20130726\jetty-client-8.1.12.v20130726.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\eclipse\jetty\jetty-http\8.1.12.v20130726\jetty-http-8.1.12.v20130726.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\eclipse\jetty\jetty-io\8.1.12.v20130726\jetty-io-8.1.12.v20130726.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\apache\james\apache-mime4j\0.6\apache-mime4j-0.6.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\ant\ant-launcher\1.6.5\ant-launcher-1.6.5.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\eclipse\jetty\jetty-annotations\8.1.12.v20130726\jetty-annotations-8.1.12.v20130726.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\eclipse\jetty\jetty-plus\8.1.12.v20130726\jetty-plus-8.1.12.v20130726.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\eclipse\jetty\orbit\javax.transaction\1.1.1.v201105210645\javax.transaction-1.1.1.v201105210645.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\eclipse\jetty\jetty-webapp\8.1.12.v20130726\jetty-webapp-8.1.12.v20130726.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\eclipse\jetty\jetty-xml\8.1.12.v20130726\jetty-xml-8.1.12.v20130726.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\eclipse\jetty\jetty-servlet\8.1.12.v20130726\jetty-servlet-8.1.12.v20130726.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\eclipse\jetty\jetty-security\8.1.12.v20130726\jetty-security-8.1.12.v20130726.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\eclipse\jetty\jetty-server\8.1.12.v20130726\jetty-server-8.1.12.v20130726.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\eclipse\jetty\orbit\javax.servlet\3.0.0.v201112011016\javax.servlet-3.0.0.v201112011016.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\eclipse\jetty\jetty-jndi\8.1.12.v20130726\jetty-jndi-8.1.12.v20130726.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\eclipse\jetty\orbit\javax.mail.glassfish\1.4.1.v201005082020\javax.mail.glassfish-1.4.1.v201005082020.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\eclipse\jetty\orbit\javax.activation\1.1.0.v201105071233\javax.activation-1.1.0.v201105071233.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\eclipse\jetty\orbit\javax.annotation\1.1.0.v201108011116\javax.annotation-1.1.0.v201108011116.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\eclipse\jetty\orbit\org.objectweb.asm\3.1.0.v200803061910\org.objectweb.asm-3.1.0.v200803061910.jar;C:\Users\Nikolay_Vasilishin\.m2\repository\org\apache\commons\commons-lang3\3.1\commons-lang3-3.1.jar" com.google.gwt.dev.Compiler -logLevel INFO -style OBF -war D:\repos\yarn-ui\target\classes\VAADIN\widgetsets -localWorkers 8 -strict -XfragmentCount -1 -gen D:\repos\yarn-ui\target\.generated com.epam.hadoop.nv.AppWidgetset
+[ERROR] ]] failed with status 1
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
