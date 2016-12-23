@@ -8,7 +8,7 @@ import gevent
 from gevent import monkey
 import os.path
 # patches stdlib (including socket and ssl modules) to cooperate with other greenlets
-#monkey.patch_all()
+monkey.patch_all()
 
 import lxml.html as html
 import re
@@ -17,7 +17,7 @@ bookpattern = re.compile(r'(?:http:\/\/www\.oreilly\.com\/data\/free\/)(.*)(?:.c
  
 base = r'http://www.oreilly.com/data/free/archive.html'
 download = r'http://www.oreilly.com/data/free/files/%s.pdf'
-name=r'D:\education\Books\Big Data\%s.pdf'
+name=r'E:\education\Books\Big Data_tmp\%s.pdf'
 error = []
 
 def get_books_urls(base):

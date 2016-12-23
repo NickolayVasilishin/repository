@@ -3,7 +3,7 @@ package com.epam.nv
 import java.nio.file.Paths
 
 import org.apache.spark.sql.functions._
-import org.apache.spark.sql.{DataFrame, SQLContext}
+import org.apache.spark.sql.{DataFrame, Row, SQLContext}
 import org.apache.spark.{SparkConf, SparkContext}
 
 
@@ -25,15 +25,15 @@ object FliesAnalyzerJob {
 
   def main(args: Array[String]): Unit = {
     val (sc, sqlContext) = initContext()
-
-    process(sqlContext, args(0))
+    val path = if (args.length == 1) args(0)  else """src\test\resources\Busy Airports Test"""
+    process(sqlContext, path)
   }
 
   private def initContext(): (SparkContext, SQLContext) = {
     val conf = new SparkConf()
       .setAppName("Airlines Analyzer Application")
       .setMaster("local[6]")
-//      .set("spark.driver.allowMultipleContexts", "true")
+    //      .set("spark.driver.allowMultipleContexts", "true")
     val sparkContext = new SparkContext(conf)
 
     (sparkContext, new SQLContext(sparkContext))
@@ -41,15 +41,16 @@ object FliesAnalyzerJob {
 
   def process(sqlContext: SQLContext, path: String) = {
     val (airlines, airports, carriers) = loadDataset(sqlContext, path)
+
     /**
       * (2)
       */
-    sampleShow(airlines, airports, carriers)
+    //    sampleShow(airlines, airports, carriers)
 
     /**
       * (3)
       */
-    countTotalFlights(airlines).show()
+    //    countTotalFlights(airlines).show()
 
     /**
       * (4)
@@ -59,11 +60,11 @@ object FliesAnalyzerJob {
     /**
       * (5)
       */
-    getBusyAirports(airlines, airports).show()
+    //    getBusyAirports(airlines, airports).show()
     /**
       * (6)
       */
-    getSuperCarrier(airlines, carriers).show()
+    //    getSuperCarrier(airlines, carriers).show()
   }
 
   def countTotalFlights(airlines: DataFrame): DataFrame = {
@@ -74,14 +75,18 @@ object FliesAnalyzerJob {
   }
 
   def countNewYorkFlights(airlines: DataFrame, airports: DataFrame): DataFrame = {
-    val airlinesJune = airlines.where("Month = 6").cache()
-    val airportsNY = airports.where("city = \"New York\"").cache()
-    airlinesJune.join(airportsNY,
-      airlinesJune("Origin") <=> airportsNY("iata")
-        || airlinesJune("Dest") <=> airportsNY("iata"), "left")
-      .groupBy("city")
-      .count()
-      .where("city = \"New York\"")
+//    val airlinesJune = airlines.where("Month = 6").cache()
+//    val airportsNY = airports.where("city = \"New York\"").cache()
+//    airlinesJune.join(airportsNY,
+//      airlinesJune("Origin") <=> airportsNY("iata")
+//        || airlinesJune("Dest") <=> airportsNY("iata"), "left")
+//      .groupBy("city")
+//      .count()
+//    airports.select("city").distinct().limit(5).collect().map(_.getString(0));
+    airports.select("*").where(
+      col("city").isin(
+        airports.select("city").distinct().limit(5).collect().map(_.getString(0)):_*))
+    //      .where("city = \"New York\"")
   }
 
   def getBusyAirports(airlines: DataFrame, airports: DataFrame): DataFrame = {
@@ -94,6 +99,7 @@ object FliesAnalyzerJob {
       .count()
       .orderBy(desc("count"))
       .limit(5)
+
   }
 
   def getSuperCarrier(airlines: DataFrame, carriers: DataFrame): DataFrame = {

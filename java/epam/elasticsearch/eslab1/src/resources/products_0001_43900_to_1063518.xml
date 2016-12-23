@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <product>
+    <sku>43900</sku>
+    <productId>1051384074145</productId>
+    <name>Duracell - AAA Batteries (4-Pack)</name>
+    <source>bestbuy</source>
+    <type>HardGood</type>
+    <startDate>2000-03-01</startDate>
+    <new>false</new>
+    <active>true</active>
+    <lowPriceGuarantee>true</lowPriceGuarantee>
+    <activeUpdateDate>2015-10-26T17:58:27</activeUpdateDate>
+    <regularPrice>5.49</regularPrice>
+    <salePrice>5.49</salePrice>
+    <onSale>false</onSale>
+    <planPrice/>
+    <priceWithPlan/>
+    <priceRestriction/>
+    <priceUpdateDate>2015-10-02T16:22:45</priceUpdateDate>
+    <digital>false</digital>
+    <preowned>false</preowned>
+    <carrierPlans/>
+    <technologyCode/>
+    <carrierModelNumber/>
+    <earlyTerminationFees/>
+    <outletCenter/>
+    <secondaryMarket/>
+    <frequentlyPurchasedWith>
+      <sku>48530</sku>
+      <sku>9578343</sku>
+      <sku>3677382</sku>
+      <sku>9878734</sku>
+      <sku>8781874</sku>
+      <sku>8521085</sku>
+      <sku>1237488</sku>
+      <sku>3143323</sku>
+      <sku>127687</sku>
+      <sku>2158179</sku>
+    </frequentlyPurchasedWith>
+    <accessories/>
+    <relatedProducts>
+      <sku>8131006</sku>
+      <sku>3873133</sku>
+      <sku>9009233</sku>
+      <sku>9009533</sku>
+      <sku>2977619</sku>
+      <sku>185230</sku>
+      <sku>185267</sku>
+      <sku>127687</sku>
+      <sku>312290</sku>
+      <sku>7279029</sku>
+      <sku>9745643</sku>
+      <sku>3720609</sku>
+      <sku>9009206</sku>
+      <sku>9009312</sku>
+      <sku>9009349</sku>
+      <sku>9009367</sku>
+      <sku>9009418</sku>
+      <sku>9009427</sku>
+      <sku>9009515</sku>
+    </relatedProducts>
+    <techSupportPlans/>
+    <salesRankShortTerm>1813</salesRankShortTerm>
+    <salesRankMediumTerm>1686</salesRankMediumTerm>
+    <salesRankLongTerm>2187</salesRankLongTerm>
+    <bestSellingRank>1821</bestSellingRank>
+    <url>http://www.bestbuy.com/site/duracell-aaa-batteries-4-pack/43900.p?id=1051384074145&amp;skuId=43900&amp;cmp=RMX</url>
+    <spin360Url/>
+    <mobileUrl>http://m.bestbuy.com/r/1051384074145/43900/</mobileUrl>
+    <affiliateUrl/>
+    <addToCartUrl>http://www.bestbuy.com/site/olspage.jsp?id=pcmcat152200050035&amp;type=category&amp;cmp=RMX&amp;qvsids=43900</addToCartUrl>
+    <affiliateAddToCartUrl/>
+    <linkShareAffiliateUrl/>
+    <linkShareAffiliateAddToCartUrl/>
+    <search/>
+    <upc>041333424019</upc>
+    <productTemplate>Batteries</productTemplate>
+    <categoryPath>
+      <category>
+        <id>cat00000</id>
+        <name>Best Buy</name>
+      </category>
+      <category>
+        <id>pcmcat312300050015</id>
+        <name>Connected Home &amp; Housewares</name>
+      </category>
+      <category>
+        <id>pcmcat248700050021</id>
+        <name>Housewares</name>
+      </category>
+      <category>
+        <id>pcmcat303600050001</id>
+        <name>Household Batteries</name>
+      </category>
+      <category>
+        <id>abcat0208002</id>
+        <name>Alkaline Batteries</name>
+      </category>
+    </categoryPath>
+    <lists/>
+    <customerReviewCount>302</customerReviewCount>
+    <customerReviewAverage>4.7</customerReviewAverage>
+    <customerTopRated>true</customerTopRated>
+    <format/>
+    <freeShipping>true</freeShipping>
+    <freeShippingEligible>true</freeShippingEligible>
+    <inStoreAvailability>true</inStoreAvailability>
+    <inStoreAvailabilityText>Store Pickup:</inStoreAvailabilityText>
+    <inStoreAvailabilityTextHtml>&lt;b&gt;Store Pickup:&lt;/b&gt;</inStoreAvailabilityTextHtml>
+    <inStoreAvailabilityUpdateDate>2015-10-26T17:58:27</inStoreAvailabilityUpdateDate>
+    <itemUpdateDate>2015-10-31T09:51:34</itemUpdateDate>
+    <onlineAvailability>true</onlineAvailability>
+    <onlineAvailabilityText>Shipping: Usually leaves our warehouse in 1 business day</onlineAvailabilityText>
+    <onlineAvailabilityTextHtml>&lt;b&gt;Shipping:&lt;/b&gt; Usually leaves our warehouse in 1 business day</onlineAvailabilityTextHtml>
+    <onlineAvailabilityUpdateDate>2015-10-26T17:58:27</onlineAvailabilityUpdateDate>
+    <releaseDate/>
+    <shippingCost>0.00</shippingCost>
+    <shipping>
+      <ground>0.00</ground>
+      <secondDay>12.99</secondDay>
+      <nextDay>23.99</nextDay>
+      <vendorDelivery/>
+    </shipping>
+    <specialOrder>false</specialOrder>
+    <shortDescription>Compatible with select electronic devices; AAA size; DURALOCK Power Preserve technology; 4-pack</shortDescription>
+    <shortDescriptionHtml>Compatible with select electronic devices; AAA size; DURALOCK Power Preserve technology; 4-pack</shortDescriptionHtml>
+    <class>BATTERIES</class>
+    <classId>62</classId>
+    <subclass>ALKALINE</subclass>
+    <subclassId>90</subclassId>
+    <department>PHOTO/COMMODITIES</department>
+    <departmentId>5</departmentId>
+    <bestBuyItemId>555514</bestBuyItemId>
+    <buybackPlans/>
+    <protectionPlans/>
+    <productFamilies/>
+    <description/>
+    <manufacturer>Duracell</manufacturer>
+    <modelNumber>MN2400B4Z</modelNumber>
+    <image>http://img.bbystatic.com/BestBuy_US/images/products/4390/43900_sc.jpg</image>
+    <largeFrontImage>http://img.bbystatic.com/BestBuy_US/images/products/4390/43900_sa.jpg</largeFrontImage>
+    <mediumImage>http://img.bbystatic.com/BestBuy_US/images/products/4390/43900fp.gif</mediumImage>
+    <thumbnailImage>http://img.bbystatic.com/BestBuy_US/images/products/4390/43900_s.gif</thumbnailImage>
+    <largeImage>http://img.bbystatic.com/BestBuy_US/images/products/4390/43900_sb.jpg</largeImage>
+    <alternateViewsImage/>
+    <angleImage>http://img.bbystatic.com/BestBuy_US/images/products/4390/43900_ra.jpg</angleImage>
+    <backViewImage/>
+    <energyGuideImage/>
+    <leftViewImage/>
+    <accessoriesImage/>
+    <remoteControlImage/>
+    <rightViewImage/>
+    <topViewImage/>
+    <condition>New</condition>
+    <inStorePickup>true</inStorePickup>
+    <friendsAndFamilyPickup>true</friendsAndFamilyPickup>
+    <homeDelivery>false</homeDelivery>
+    <quantityLimit>10</quantityLimit>
+    <fulfilledBy>BestBuy.com</fulfilledBy>
+    <bundledIn/>
+    <color/>
+    <depth/>
+    <dollarSavings>0.00</dollarSavings>
+    <percentSavings>0.0</percentSavings>
+    <tradeInValue/>
+    <height/>
+    <orderable>Available</orderable>
+    <weight/>
+    <shippingWeight>0.19</shippingWeight>
+    <width/>
+    <warrantyLabor/>
+    <warrantyParts/>
+    <longDescription>Power a variety of electronic devices with these Duracell MN2400B4Z AAA batteries that come in a 4-pack to ensure you have extras on hand. Power a variety of electronic devices with these Duracell MN2400B4Z AAA batteries that come in a 4-pack to ensure you have extras on hand.</longDescription>
+    <longDescriptionHtml>Power a variety of electronic devices with these Duracell MN2400B4Z AAA batteries that come in a 4-pack to ensure you have extras on hand. Power a variety of electronic devices with these Duracell MN2400B4Z AAA batteries that come in a 4-pack to ensure you have extras on hand.</longDescriptionHtml>
+    <details>
+      <detail>
+        <name>Features</name>
+        <value>4-pack AAA alkaline 1.5V batteries</value>
+      </detail>
+      <detail>
+        <name>ENERGY STAR Certified</name>
+        <value>No</value>
+      </detail>
+      <detail>
+        <name>Battery Size Type</name>
+        <value>AAA</value>
+      </detail>
+      <detail>
+        <name>pricematch</name>
+        <value>yes</value>
+      </detail>
+    </details>
+    <includedItemList>
+      <includedItem>Duracell AAA Batteries (4-Pack)</includedItem>
+    </includedItemList>
+    <features>
+      <feature>Compatible with select electronic devices
+For wide-ranging use.</feature>
+      <feature>Alkaline chemistry
+Provides reliable power.</feature>
+      <feature>DURALOCK Power Preserve technology
+Lets you store the batteries for up to 10 years before use.</feature>
+      <feature>16-pack
+Ensures you have extras on hand.</feature>
+    </features>
+    <offers>
+      <offer>
+        <id>133539</id>
+        <heading/>
+        <text>Free Shipping on Everything</text>
+        <url>/site/offer/133539/pcmcat748300689039.c?id=pcmcat748300689039</url>
+        <imageUrl/>
+        <type>special_offer</type>
+        <startDate>2015-10-25 00:00:00 -0500</startDate>
+        <endDate>2016-01-03 23:59:59 -0600</endDate>
+      </offer>
+    </offers>
+    <marketplace>false</marketplace>
+    <listingId/>
+    <sellerId/>
+    <shippingRestrictions/>
+    <energyStarQualified>false</energyStarQualified>
+</product>
