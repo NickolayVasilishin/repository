@@ -136,6 +136,19 @@ public class ProductRecordRoot {
 		String name;
 	}
 
+	@XmlRootElement(name = "products")
+	public static class Products {
+		@XmlElement(name = "product")
+		public List<ProductRecordRoot> productList;
+
+		@Override
+		public String toString() {
+			return "Products{" +
+					"productList=" + productList.get(0) +
+					'}';
+		}
+	}
+
 	@Override
 	public String toString() {
 		return "ProductRecordRoot{" +
