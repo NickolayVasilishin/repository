@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<products>
   <product>
     <sku>43900</sku>
     <productId>1051384074145</productId>
@@ -220,4 +221,5 @@ Ensures you have extras on hand.</feature>
     <sellerId/>
     <shippingRestrictions/>
     <energyStarQualified>false</energyStarQualified>
-</product>
+  </product>
+  </products>

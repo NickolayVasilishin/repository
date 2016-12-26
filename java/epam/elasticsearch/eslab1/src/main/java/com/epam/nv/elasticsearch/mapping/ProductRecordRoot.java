@@ -190,4 +190,204 @@ public class ProductRecordRoot {
 				", bundledIn=" + bundledIn +
 				'}';
 	}
+
+	public static final String jsonMapping = "\n" +
+			"\"product\" : {\n" +
+			"  \"properties\" : {\n" +
+			"    \"activeUpdateDate\" : {\n" +
+			"      \"type\" : \"date\"\n" +
+			"    },\n" +
+			"    \"categories\" : {\n" +
+			"      \"type\" : \"text\",\n" +
+			"      \"fields\" : {\n" +
+			"        \"keyword\" : {\n" +
+			"          \"type\" : \"keyword\",\n" +
+			"          \"ignore_above\" : 256\n" +
+			"        }\n" +
+			"      }\n" +
+			"    },\n" +
+			"    \"customerReviewAverage\" : {\n" +
+			"      \"type\" : \"float\"\n" +
+			"    },\n" +
+			"    \"customerReviewCount\" : {\n" +
+			"      \"type\" : \"long\"\n" +
+			"    },\n" +
+			"    \"customerTopRated\" : {\n" +
+			"      \"type\" : \"boolean\"\n" +
+			"    },\n" +
+			"    \"department\" : {\n" +
+			"      \"type\" : \"text\",\n" +
+			"      \"fields\" : {\n" +
+			"        \"keyword\" : {\n" +
+			"          \"type\" : \"keyword\",\n" +
+			"          \"ignore_above\" : 256\n" +
+			"        }\n" +
+			"      }\n" +
+			"    },\n" +
+			"    \"digital\" : {\n" +
+			"      \"type\" : \"boolean\"\n" +
+			"    },\n" +
+			"    \"features\" : {\n" +
+			"      \"type\" : \"text\",\n" +
+			"      \"fields\" : {\n" +
+			"        \"keyword\" : {\n" +
+			"          \"type\" : \"keyword\",\n" +
+			"          \"ignore_above\" : 256\n" +
+			"        }\n" +
+			"      }\n" +
+			"    },\n" +
+			"    \"freeShipping\" : {\n" +
+			"      \"type\" : \"boolean\"\n" +
+			"    },\n" +
+			"    \"freeShippingEligible\" : {\n" +
+			"      \"type\" : \"boolean\"\n" +
+			"    },\n" +
+			"    \"inStoreAvailability\" : {\n" +
+			"      \"type\" : \"boolean\"\n" +
+			"    },\n" +
+			"    \"inStoreAvailabilityText\" : {\n" +
+			"      \"type\" : \"text\",\n" +
+			"      \"fields\" : {\n" +
+			"        \"keyword\" : {\n" +
+			"          \"type\" : \"keyword\",\n" +
+			"          \"ignore_above\" : 256\n" +
+			"        }\n" +
+			"      }\n" +
+			"    },\n" +
+			"    \"inStoreAvailabilityUpdateDate\" : {\n" +
+			"      \"type\" : \"date\"\n" +
+			"    },\n" +
+			"    \"includedItemList\" : {\n" +
+			"      \"type\" : \"text\",\n" +
+			"      \"fields\" : {\n" +
+			"        \"keyword\" : {\n" +
+			"          \"type\" : \"keyword\",\n" +
+			"          \"ignore_above\" : 256\n" +
+			"        }\n" +
+			"      }\n" +
+			"    },\n" +
+			"    \"itemUpdateDate\" : {\n" +
+			"      \"type\" : \"date\"\n" +
+			"    },\n" +
+			"    \"longDescription\" : {\n" +
+			"      \"type\" : \"text\",\n" +
+			"      \"fields\" : {\n" +
+			"        \"keyword\" : {\n" +
+			"          \"type\" : \"keyword\",\n" +
+			"          \"ignore_above\" : 256\n" +
+			"        }\n" +
+			"      }\n" +
+			"    },\n" +
+			"    \"manufacturer\" : {\n" +
+			"      \"type\" : \"text\",\n" +
+			"      \"fields\" : {\n" +
+			"        \"keyword\" : {\n" +
+			"          \"type\" : \"keyword\",\n" +
+			"          \"ignore_above\" : 256\n" +
+			"        }\n" +
+			"      }\n" +
+			"    },\n" +
+			"    \"name\" : {\n" +
+			"      \"type\" : \"text\",\n" +
+			"      \"fields\" : {\n" +
+			"        \"keyword\" : {\n" +
+			"          \"type\" : \"keyword\",\n" +
+			"          \"ignore_above\" : 256\n" +
+			"        }\n" +
+			"      }\n" +
+			"    },\n" +
+			"    \"onSale\" : {\n" +
+			"      \"type\" : \"boolean\"\n" +
+			"    },\n" +
+			"    \"priceUpdateDate\" : {\n" +
+			"      \"type\" : \"date\"\n" +
+			"    },\n" +
+			"    \"productClass\" : {\n" +
+			"      \"type\" : \"text\",\n" +
+			"      \"index\": \"not_analyzed\",\n" +
+			"      \"fields\" : {\n" +
+			"        \"keyword\" : {\n" +
+			"          \"type\" : \"keyword\",\n" +
+			"          \"ignore_above\" : 256\n" +
+			"        }\n" +
+			"      }\n" +
+			"    },\n" +
+			"    \"productId\" : {\n" +
+			"      \"type\" : \"text\",\n" +
+			"      \"fields\" : {\n" +
+			"        \"keyword\" : {\n" +
+			"          \"type\" : \"keyword\",\n" +
+			"          \"ignore_above\" : 256\n" +
+			"        }\n" +
+			"      }\n" +
+			"    },\n" +
+			"    \"productSubclass\" : {\n" +
+			"      \"type\" : \"text\",\n" +
+			"      \"index\": \"not_analyzed\",\n" +
+			"      \"fields\" : {\n" +
+			"        \"keyword\" : {\n" +
+			"          \"type\" : \"keyword\",\n" +
+			"          \"ignore_above\" : 256\n" +
+			"        }\n" +
+			"      }\n" +
+			"    },\n" +
+			"    \"productTemplate\" : {\n" +
+			"      \"type\" : \"text\",\n" +
+			"      \"fields\" : {\n" +
+			"        \"keyword\" : {\n" +
+			"          \"type\" : \"keyword\",\n" +
+			"          \"ignore_above\" : 256\n" +
+			"        }\n" +
+			"      }\n" +
+			"    },\n" +
+			"    \"quantityLimit\" : {\n" +
+			"      \"type\" : \"long\"\n" +
+			"    },\n" +
+			"    \"regularPrice\" : {\n" +
+			"      \"type\" : \"float\"\n" +
+			"    },\n" +
+			"    \"salePrice\" : {\n" +
+			"      \"type\" : \"float\"\n" +
+			"    },\n" +
+			"    \"shippingCost\" : {\n" +
+			"      \"type\" : \"float\"\n" +
+			"    },\n" +
+			"    \"shippingWeight\" : {\n" +
+			"      \"type\" : \"float\"\n" +
+			"    },\n" +
+			"    \"shortDescription\" : {\n" +
+			"      \"type\" : \"text\",\n" +
+			"      \"fields\" : {\n" +
+			"        \"keyword\" : {\n" +
+			"          \"type\" : \"keyword\",\n" +
+			"          \"ignore_above\" : 256\n" +
+			"        }\n" +
+			"      }\n" +
+			"    },\n" +
+			"    \"sku\" : {\n" +
+			"      \"type\" : \"text\",\n" +
+			"      \"fields\" : {\n" +
+			"        \"keyword\" : {\n" +
+			"          \"type\" : \"keyword\",\n" +
+			"          \"ignore_above\" : 256\n" +
+			"        }\n" +
+			"      }\n" +
+			"    },\n" +
+			"    \"specialOrder\" : {\n" +
+			"      \"type\" : \"boolean\"\n" +
+			"    },\n" +
+			"    \"startDate\" : {\n" +
+			"      \"type\" : \"date\"\n" +
+			"    },\n" +
+			"    \"type\" : {\n" +
+			"      \"type\" : \"text\",\n" +
+			"      \"fields\" : {\n" +
+			"        \"keyword\" : {\n" +
+			"          \"type\" : \"keyword\",\n" +
+			"          \"ignore_above\" : 256\n" +
+			"        }\n" +
+			"      }\n" +
+			"    }\n" +
+			"  }\n" +
+			"}";
 }
