@@ -216,7 +216,7 @@ public class ProductRecordRoot {
 			"      \"type\" : \"boolean\"\n" +
 			"    },\n" +
 			"    \"department\" : {\n" +
-			"      \"type\" : \"text\",\n" +
+			"      \"type\" : \"keyword\",\n" +
 			"      \"fields\" : {\n" +
 			"        \"keyword\" : {\n" +
 			"          \"type\" : \"keyword\",\n" +
@@ -303,7 +303,7 @@ public class ProductRecordRoot {
 			"      \"type\" : \"date\"\n" +
 			"    },\n" +
 			"    \"productClass\" : {\n" +
-			"      \"type\" : \"text\",\n" +
+			"      \"type\" : \"keyword\",\n" +
 			"      \"index\": \"not_analyzed\",\n" +
 			"      \"fields\" : {\n" +
 			"        \"keyword\" : {\n" +
@@ -322,7 +322,7 @@ public class ProductRecordRoot {
 			"      }\n" +
 			"    },\n" +
 			"    \"productSubclass\" : {\n" +
-			"      \"type\" : \"text\",\n" +
+			"      \"type\" : \"keyword\",\n" +
 			"      \"index\": \"not_analyzed\",\n" +
 			"      \"fields\" : {\n" +
 			"        \"keyword\" : {\n" +
@@ -332,7 +332,7 @@ public class ProductRecordRoot {
 			"      }\n" +
 			"    },\n" +
 			"    \"productTemplate\" : {\n" +
-			"      \"type\" : \"text\",\n" +
+			"      \"type\" : \"keyword\",\n" +
 			"      \"fields\" : {\n" +
 			"        \"keyword\" : {\n" +
 			"          \"type\" : \"keyword\",\n" +
