@@ -1,0 +1,68 @@
+Classfile /home/nikolay/IdeaProjects/steganobyte/target/classes/SimpleClass5.class
+  Last modified May 18, 2017; size 435 bytes
+  MD5 checksum d747c7c6b92ac8ef6d0cf3c8a92f68e7
+  Compiled from "SimpleClass.java"
+public class SimpleClass
+  minor version: 0
+  major version: 49
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #3.#21         // java/lang/Object."<init>":()V
+   #2 = Class              #22            // SimpleClass
+   #3 = Class              #23            // java/lang/Object
+   #4 = Utf8               ifield
+   #5 = Utf8               I
+   #6 = Utf8               sfield
+   #7 = Utf8               Ljava/lang/String;
+   #8 = Utf8               <init>
+   #9 = Utf8               ()V
+  #10 = Utf8               Code
+  #11 = Utf8               LineNumberTable
+  #12 = Utf8               LocalVariableTable
+  #13 = Utf8               this
+  #14 = Utf8               LSimpleClass;
+  #15 = Utf8               main
+  #16 = Utf8               ([Ljava/lang/String;)V
+  #17 = Utf8               args
+  #18 = Utf8               [Ljava/lang/String;
+  #19 = Utf8               SourceFile
+  #20 = Utf8               SimpleClass.java
+  #21 = NameAndType        #8:#9          // "<init>":()V
+  #22 = Utf8               SimpleClass
+  #23 = Utf8               java/lang/Object
+{
+  int ifield;
+    descriptor: I
+    flags:
+
+  java.lang.String sfield;
+    descriptor: Ljava/lang/String;
+    flags:
+
+  public SimpleClass();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 3: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   LSimpleClass;
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=0, locals=1, args_size=1
+         0: return
+      LineNumberTable:
+        line 9: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       1     0  args   [Ljava/lang/String;
+}
+SourceFile: "SimpleClass.java"
